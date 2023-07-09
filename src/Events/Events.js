@@ -16,14 +16,18 @@ export const Events = () => {
                 <ul id="eventsList">
                     {
                         events.map(e => {
+                            const date = new Date (e.date_time)
+                            const printedDate = date.toDateString()
+                            const time = date.toLocaleTimeString('en-us', {hour: 'numeric', minute: 'numeric'})
                             return (
                                 <li className="eventsListItem" key={e.id}>
                                     <div className="eventInfo">
                                         <div>{e.title}</div>
                                         <div>{e.location}</div>
-                                        <div>{e.date}</div>
+                                        <div>{printedDate}</div>
+                                        <div>{time}</div>
                                     </div>
-                                    <img className="eventImage" src={e.imageUrl} />
+                                    <img className="eventImage" src={e.image} />
                                 </li>
                             )
                         })
