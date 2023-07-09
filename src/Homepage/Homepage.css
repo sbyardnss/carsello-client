@@ -1,0 +1,30 @@
+#homepageArtDisplay {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+#homepageArtSection {
+    display: flex;
+    justify-content: center;
+}
+.artListItem {
+    height: 16em;
+    width: 14em;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2em;
+
+}
+.artDisplayImage {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+}
+.artImage {
+    object-fit: fill;
+    display: flex;
+    min-height: 14em;
+}

@@ -1,0 +1,15 @@
+#pieceInspectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pieceInspectionImageContainer {
+    display: flex;
+    justify-content: center;
+    height: 20em;
+}
+.pieceInspectionPiece {
+    height: 100%;
+}
