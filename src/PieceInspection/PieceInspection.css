@@ -3,8 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80vh;
 }
-
+#pieceDisplay {
+    display: flex;
+    flex-direction: column;
+}
 #pieceInspectionImageContainer {
     display: flex;
     justify-content: center;

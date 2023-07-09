@@ -11,18 +11,24 @@ export const PieceInspection = () => {
     useEffect(
         () => {
             retrievePiece(artId)
-            .then(data => setSelectedArt(data))
-        },[]
+                .then(data => setSelectedArt(data))
+        }, []
     )
-
+    const currencyFormat = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    })
     return <>
         <main id="pieceInspectionContainer">
-            <div id="pieceInspectionImageContainer">
-                <img className="pieceInspectionPiece" src={selectedArt.image} />
-            </div>
-            this is where your selected piece will appear
-            <button id="exitPieceInspectionBtn"
-                onClick={() => navigate("/")}>exit</button>
+            <article id="pieceDisplay">
+                <div id="pieceInspectionImageContainer">
+                    <img className="pieceInspectionPiece" src={selectedArt.image} />
+                </div>
+                <div>{currencyFormat.format(selectedArt.price)}</div>
+                this is where your selected piece will appear
+                {/* <button id="exitPieceInspectionBtn"
+                    onClick={() => navigate("/")}>exit</button> */}
+            </article>
         </main>
     </>
 }

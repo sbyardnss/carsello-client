@@ -12,6 +12,7 @@ export const Events = () => {
     )
     return <>
         <main id="eventsContainer">
+            <h2>Upcoming Events</h2>
             <section id="eventsListContainer">
                 <ul id="eventsList">
                     {
@@ -26,6 +27,7 @@ export const Events = () => {
                                         <div>{e.location}</div>
                                         <div>{printedDate}</div>
                                         <div>{time}</div>
+                                        <div>{e.details}</div>
                                     </div>
                                     <img className="eventImage" src={e.image} />
                                 </li>
