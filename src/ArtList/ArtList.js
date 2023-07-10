@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { getArt } from "../ServerManager"
 import { useEffect, useState } from "react"
-
+import "../ArtList/Artlist.css"
 export const ArtList = ({ art }) => {
     const navigate = useNavigate()
     const [artwork, setArtwork] = useState([])
@@ -16,8 +16,8 @@ export const ArtList = ({ art }) => {
     )
     return <>
         <main>
-            <section id="homepageArtSection">
-                <ul id="homepageArtDisplay">
+            <section id="artListContainer">
+                <ul id="artList">
                     {
                         artwork?.map(art => {
                             return (
@@ -25,7 +25,7 @@ export const ArtList = ({ art }) => {
                                     key={art.id}
                                     className="artListItem"
                                     onClick={() => {
-                                        navigate(`art/${art.id}`)
+                                        navigate(`/art/${art.id}`)
                                     }}>
                                     <div className="artDisplayImage">
                                         <img className="artImage" src={art.image} />

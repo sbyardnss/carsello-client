@@ -18,6 +18,7 @@ export const PieceInspection = () => {
         style: 'currency',
         currency: 'USD'
     })
+    console.log(selectedArt)
     return <>
         <main id="pieceInspectionContainer">
             <article id="pieceDisplay">

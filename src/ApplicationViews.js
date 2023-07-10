@@ -22,12 +22,8 @@ export const ApplicationViews = () => {
                     <Homepage />
                     // </ArtProvider>
                 } />
-                <Route path="art/:artId" element={
-                    // <ArtProvider>
-                    <PieceInspection />
-                    // </ArtProvider>
-                } />
                 <Route path="art" element={<ArtList /> } />
+                <Route path="art/:artId" element={<PieceInspection />} />
                 <Route path="events" element={<Events />} />
                 <Route path="admin" element={
                     <Authorized>
