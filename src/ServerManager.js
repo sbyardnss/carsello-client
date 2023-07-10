@@ -26,7 +26,7 @@ export const retrievePiece = (artId) => {
 }
 
 export const getEvents = () => {
-    return fetch('${apiKey}/events')
+    return fetch(`${apiKey}/events`)
         .then(res => res.json())
 }
 export const retrieveEvent = (eventId) => {
