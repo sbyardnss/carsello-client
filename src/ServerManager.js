@@ -1,5 +1,7 @@
 const getToken = () => {
-    const localUser = localStorage.getItem()
+    const localUser = localStorage.getItem('carsello_user')
+    const carselloUser = JSON.parse(localUser)
+    return carselloUser.token
 }
 const apiKey = process.env.REACT_APP_API
 export const loginUser = (user) => {
@@ -29,5 +31,20 @@ export const getEvents = () => {
 }
 export const retrieveEvent = (eventId) => {
     return fetch(`${apiKey}/events/${eventId}`)
+        .then(res => res.json())
+}
+
+
+//admin only
+export const sendArt = (artObj) => {
+    const token = getToken()
+    return fetch(`${apiKey}/artwork`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(artObj)
+    })
         .then(res => res.json())
 }

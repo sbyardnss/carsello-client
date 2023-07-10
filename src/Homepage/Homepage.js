@@ -30,6 +30,7 @@ export const Homepage = () => {
                                         <img className="artImage" src={art.image} />
                                     </div>
                                     <div>{art.title}</div>
+                                    <div>{art.year}</div>
                                 </li>
                             )
                         })
