@@ -19,6 +19,7 @@ export const Nav = () => {
                     <li><Link className="navLink" to="/art">Art</Link></li>
                     <li><Link className="navLink" to="/events">Events</Link></li>
                     <li><Link className="navLink" to="/otherServices">Other Services</Link></li>
+                    <li><Link className="navLink" to="/admin">admin</Link></li>
                 </ul>
             </div>
         </header>

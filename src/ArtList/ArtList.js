@@ -12,6 +12,9 @@ export const ArtList = ({ art }) => {
                 getArt()
                     .then(data => setArtwork(data))
             }
+            else {
+                setArtwork(art)
+            }
         }, []
     )
     return <>

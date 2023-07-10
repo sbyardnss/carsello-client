@@ -81,7 +81,10 @@ export const Admin = () => {
         else {
             return (
                 <section id="addArtSection">
-                    <button onClick={() => setAddArt(true)}>add art</button>
+                    <button onClick={() => {
+                        setAddArt(true)
+                        setAddEvent(false)
+                        }}>add art</button>
                 </section>
             )
         }
@@ -127,7 +130,10 @@ export const Admin = () => {
         else {
             return (
                 <section id="addEventSection">
-                    <button onClick={() => setAddEvent(true)}>add event</button>
+                    <button onClick={() => {
+                        setAddArt(false)
+                        setAddEvent(true)
+                        }}>add event</button>
                 </section>
             )
         }

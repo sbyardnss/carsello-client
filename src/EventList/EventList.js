@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-
+import "../EventList/EventList.css"
 
 export const EventList = ({ myEvents }) => {
     const navigate = useNavigate()
