@@ -6,6 +6,7 @@ import { Events } from "./Events/Events"
 import { Admin } from "./Admin/Admin"
 import { Authorized } from "./Authorized"
 import { Login } from "./Auth/login"
+import { ArtList } from "./ArtList/ArtList"
 
 export const ApplicationViews = () => {
     return (
@@ -26,6 +27,7 @@ export const ApplicationViews = () => {
                     <PieceInspection />
                     // </ArtProvider>
                 } />
+                <Route path="art" element={<ArtList /> } />
                 <Route path="events" element={<Events />} />
                 <Route path="admin" element={
                     <Authorized>
