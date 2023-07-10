@@ -17,3 +17,10 @@
     display: flex;
     flex-direction: column;
 }
+
+
+/* event form */
+#newEventForm {
+    display: flex;
+    flex-direction: column;
+}
