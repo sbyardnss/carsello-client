@@ -1,0 +1,13 @@
+.artImage {
+    width: 100%;
+    object-fit: contain;
+}
+
+.artFrame {
+    display: block;
+    max-width: 20em;
+    max-height: 10em;
+    width: auto;
+    height: auto;
+    /* width: 70%; */
+}

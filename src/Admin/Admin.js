@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
-
+import UploadWidget from "../UploadWidget";
+import "../Admin/Admin.css"
 export const Admin = () => {
     const navigate = useNavigate();
     // let cloudinary = require('cloudinary').v2;
@@ -16,10 +17,13 @@ export const Admin = () => {
                 navigate("/", { replace: true })
             }}>logout</button>
             <section id="addArtSection">
-
+                <UploadWidget />
             </section>
             <section id="addEventSection">
-
+                <div className="artFrame">
+                    <img className="artImage" src="https://res.cloudinary.com/da0za1x54/image/upload/v1689003605/sxvf77mqyzdsbk08lvou.jpg"/>
+                </div>
+                {/* <div className="artFrame" style="background-image: url('https://res.cloudinary.com/da0za1x54/image/upload/v1689003605/sxvf77mqyzdsbk08lvou.jpg')"></div> */}
             </section>
         </main>
 
