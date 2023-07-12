@@ -16,6 +16,7 @@ export const Nav = () => {
             <div id="navigation">
                 <Link id="carselloLogo" to="/">logo</Link>
                 <ul id="carselloNavigation">
+                    <li><Link className="navLink" to="/about">About Me</Link></li>
                     <li><Link className="navLink" to="/art">Art</Link></li>
                     <li><Link className="navLink" to="/events">Events</Link></li>
                     <li><Link className="navLink" to="/otherServices">Other Services</Link></li>
