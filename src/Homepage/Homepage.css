@@ -40,14 +40,16 @@ h3, h4 {
 }
 
 /* offered services section */
+
 #servicesOfferedList {
     display: flex;
     flex-direction: column;
-    width: 36em;
+    width: 30em;
+    align-items: center;
     /* background-color: #77d4ed; */
     /* background: rgb(119, 212, 237); */
     /* background: linear-gradient(129deg, rgba(119, 212, 237, 1) 0%, rgba(195, 173, 219, 1) 53%); */
-    background: rgb(99, 7, 94);
+    /* background: rgb(99, 7, 94); */
     background: linear-gradient(129deg, rgba(99, 7, 94, 1) 0%, rgba(87, 54, 124, 1) 53%);
     padding: .5em;
     color: whitesmoke;
@@ -57,10 +59,61 @@ h3, h4 {
     background-color: rgb(245, 245, 245, 20%);
     padding: .5em;
     margin: .25em;
+    width: 90%;
     /* border: 1px solid #a7bfe1; */
     /* border-radius: 6px; */
 }
 
+
+#commissionDiv {
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    text-align: center;
+    cursor: pointer;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    /* background-image: ; */
+}
+#commissionDiv:hover {
+    width: 100%;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#curationDiv {
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    text-align: center;
+    cursor: pointer;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    /* background-image: ; */
+}
+#curationDiv:hover {
+    width: 100%;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#writingDiv {
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    text-align: center;
+    cursor: pointer;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    /* background-image: ; */
+}
+#writingDiv:hover {
+    width: 100%;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+}
+#muralingDiv {
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    text-align: center;
+    cursor: pointer;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    /* background-image: ; */
+}
+#muralingDiv:hover {
+    width: 100%;
+    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
 
 /* homepage events list */
 #homepageEventsList {

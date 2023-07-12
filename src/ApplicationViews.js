@@ -7,6 +7,7 @@ import { Admin } from "./Admin/Admin"
 import { Authorized } from "./Authorized"
 import { Login } from "./Auth/login"
 import { ArtList } from "./ArtList/ArtList"
+import { OtherServices } from "./OtherServices/OtherServices"
 
 export const ApplicationViews = () => {
     return (
@@ -25,6 +26,7 @@ export const ApplicationViews = () => {
                 <Route path="art" element={<ArtList /> } />
                 <Route path="art/:artId" element={<PieceInspection />} />
                 <Route path="events" element={<Events />} />
+                <Route path="otherServices" element={<OtherServices />} />
                 <Route path="admin" element={
                     <Authorized>
                         <Admin />

@@ -15,19 +15,19 @@ export const Homepage = () => {
         <main id="homepageContainer">
             <section id="servicesOfferedList">
                 <h2>need copy here for intro to offerings</h2>
-                <div className="offeredServiceLi">
+                <div id="commissionDiv" className="offeredServiceLi">
                     <h3>Art Commission</h3>
                     <p>description</p>
                 </div>
-                <div className="offeredServiceLi">
+                <div id="curationDiv" className="offeredServiceLi">
                     <h3>Art Curation</h3>
                     <p>description</p>
                 </div>
-                <div className="offeredServiceLi">
-                    <h3>Grant, Scholarship, and Copywriting services</h3>
+                <div id="writingDiv" className="offeredServiceLi">
+                    <h3>Writing services</h3>
                     <p>description</p>
                 </div>
-                <div className="offeredServiceLi">
+                <div id="muralingDiv" className="offeredServiceLi">
                     <h3>Muraling, sign painting</h3>
                     <p>description</p>
                 </div>
