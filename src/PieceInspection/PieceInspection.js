@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import { retrievePiece } from "../ServerManager"
 import { useNavigate, useParams } from "react-router-dom"
 import "../PieceInspection/PieceInspection.css"
+import { Paypal } from "../Paypal/Paypal"
 export const PieceInspection = () => {
     // const {artwork} = useContext(ArtContext)
     const navigate = useNavigate()
@@ -30,6 +31,10 @@ export const PieceInspection = () => {
                 {/* <button id="exitPieceInspectionBtn"
                     onClick={() => navigate("/")}>exit</button> */}
             </article>
+            <div>
+                <Paypal />
+                
+            </div>
         </main>
     </>
 }
