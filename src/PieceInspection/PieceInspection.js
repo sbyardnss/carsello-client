@@ -3,12 +3,13 @@ import { useContext, useEffect, useState } from "react"
 import { retrievePiece } from "../ServerManager"
 import { useNavigate, useParams } from "react-router-dom"
 import "../PieceInspection/PieceInspection.css"
-import { Paypal } from "../Paypal/Paypal"
+import { PayPal } from "../Paypal/Paypal"
 export const PieceInspection = () => {
     // const {artwork} = useContext(ArtContext)
     const navigate = useNavigate()
     const { artId } = useParams()
     const [selectedArt, setSelectedArt] = useState({})
+    const [purchase, setPurchase] = useState(false)
     useEffect(
         () => {
             retrievePiece(artId)
@@ -19,22 +20,27 @@ export const PieceInspection = () => {
         style: 'currency',
         currency: 'USD'
     })
-    console.log(selectedArt)
     return <>
         <main id="pieceInspectionContainer">
-            <article id="pieceDisplay">
-                <div id="pieceInspectionImageContainer">
-                    <img className="pieceInspectionPiece" src={selectedArt.image} />
-                </div>
-                <div>{currencyFormat.format(selectedArt.price)}</div>
-                this is where your selected piece will appear
-                {/* <button id="exitPieceInspectionBtn"
+            {purchase ?
+                <PayPal item={selectedArt}/>
+                :
+                <article id="pieceDisplay">
+                    <div id="pieceInspectionImageContainer">
+                        <img className="pieceInspectionPiece" src={selectedArt.image} />
+                    </div>
+                    <div>{currencyFormat.format(selectedArt.price)}</div>
+                    this is where your selected piece will appear
+                    {/* <button id="exitPieceInspectionBtn"
                     onClick={() => navigate("/")}>exit</button> */}
-            </article>
-            <div>
-                <Paypal />
-                
-            </div>
+                    <div>
+                        {/* old paypal */}
+                        {/* <Paypal cost={selectedArt.price}/>
+                 */}
+                    </div>
+                    <button onClick={() => setPurchase(true)}>Purchase</button>
+                </article>
+            }
         </main>
     </>
 }
