@@ -63,7 +63,6 @@ export const PayPal = ({ item }) => {
             }).render(paypal.current)
         }, []
     )
-    console.log(item)
     return (
         <div>
             <div ref={paypal}></div>

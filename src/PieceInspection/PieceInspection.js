@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from "react"
-// import { ArtContext } from "../ArtProvider"
+import { useEffect, useState } from "react"
 import { retrievePiece } from "../ServerManager"
 import { useNavigate, useParams } from "react-router-dom"
 import "../PieceInspection/PieceInspection.css"
 import { PayPal } from "../Paypal/Paypal"
 export const PieceInspection = () => {
-    // const {artwork} = useContext(ArtContext)
     const navigate = useNavigate()
     const { artId } = useParams()
     const [selectedArt, setSelectedArt] = useState({})
@@ -23,7 +21,7 @@ export const PieceInspection = () => {
     return <>
         <main id="pieceInspectionContainer">
             {purchase ?
-                <PayPal item={selectedArt}/>
+                <PayPal item={selectedArt} />
                 :
                 <article id="pieceDisplay">
                     <div id="pieceInspectionImageContainer">
@@ -33,11 +31,9 @@ export const PieceInspection = () => {
                     this is where your selected piece will appear
                     {/* <button id="exitPieceInspectionBtn"
                     onClick={() => navigate("/")}>exit</button> */}
-                    <div>
-                        {/* old paypal */}
-                        {/* <Paypal cost={selectedArt.price}/>
-                 */}
-                    </div>
+                    {/* <div>
+                        <PayPal item={selectedArt} />
+                    </div> */}
                     <button onClick={() => setPurchase(true)}>Purchase</button>
                 </article>
             }
