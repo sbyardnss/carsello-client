@@ -20,22 +20,24 @@ export const PieceInspection = () => {
     })
     return <>
         <main id="pieceInspectionContainer">
+            <article id="pieceDisplay">
+                <div id="pieceInspectionImageContainer">
+                    <img className="pieceInspectionPiece" src={selectedArt.image} />
+                </div>
+            </article>
             {purchase ?
-                <PayPal item={selectedArt} />
-                :
-                <article id="pieceDisplay">
-                    <div id="pieceInspectionImageContainer">
-                        <img className="pieceInspectionPiece" src={selectedArt.image} />
-                    </div>
+                <div className="purchaseBox">
                     <div>{currencyFormat.format(selectedArt.price)}</div>
-                    this is where your selected piece will appear
-                    {/* <button id="exitPieceInspectionBtn"
-                    onClick={() => navigate("/")}>exit</button> */}
-                    {/* <div>
-                        <PayPal item={selectedArt} />
-                    </div> */}
-                    <button onClick={() => setPurchase(true)}>Purchase</button>
-                </article>
+                    <div>{selectedArt.title}</div>
+                    <PayPal item={selectedArt} />
+                    <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
+                </div>
+                :
+                <div className="purchaseBox">
+                    <div>{selectedArt.title}</div>
+                    <div>{currencyFormat.format(selectedArt.price)}</div>
+                    <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
+                </div>
             }
         </main>
     </>

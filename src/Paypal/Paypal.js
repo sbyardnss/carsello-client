@@ -31,9 +31,49 @@
 //     )
 // }
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const PayPal = ({ item }) => {
+    const [newOrder, updateNewOrder] = useState({
+        paypalId: "",
+        createTime: "",
+        payer: {
+            payerId: "",
+            email: "",
+            name: {
+                givenName: "",
+                surname: ""
+            }
+        },
+        purchaseUnit: {
+            amount: {
+                currency: "",
+                value: ""
+            },
+            description: "",
+            paymentCapture: {
+                id: "",
+                status: "",
+                captureTime: "",
+                sellerProtection: "",
+                status: ""
+            },
+            referenceId: "",
+            shipping: {
+                address: {
+                    line1: "",
+                    state: "",
+                    city: "",
+                    countryCode: "",
+                    zip: ""
+                },
+                name: {
+                    full_name: ""
+                }
+            }
+        },
+        orderStatus: ""
+    })
     const paypal = useRef()
 
     useEffect(
