@@ -33,6 +33,24 @@ export const retrieveEvent = (eventId) => {
     return fetch(`${apiKey}/events/${eventId}`)
         .then(res => res.json())
 }
+export const setSold = (artId) => {
+    return fetch(`${apiKey}/artwork/${artId}/set_sold`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+}
+export const sendNewOrder = (orderObj) => {
+    return fetch(`${apiKey}/orders`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(orderObj)
+    })
+        .then(res => res.json())
+}
 
 
 //admin only
@@ -47,13 +65,4 @@ export const sendArt = (artObj) => {
         body: JSON.stringify(artObj)
     })
         .then(res => res.json())
-}
-
-export const setSold = (artId) => {
-    return fetch(`${apiKey}/artwork/${artId}/set_sold`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
 }
