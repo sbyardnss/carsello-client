@@ -48,3 +48,12 @@ export const sendArt = (artObj) => {
     })
         .then(res => res.json())
 }
+
+export const setSold = (artId) => {
+    return fetch(`${apiKey}/artwork/${artId}/set_sold`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+}

@@ -25,20 +25,24 @@ export const PieceInspection = () => {
                     <img className="pieceInspectionPiece" src={selectedArt.image} />
                 </div>
             </article>
-            {purchase ?
+            {!selectedArt.sold ?
                 <div className="purchaseBox">
-                    <div>{currencyFormat.format(selectedArt.price)}</div>
-                    <div>{selectedArt.title}</div>
-                    <PayPal item={selectedArt} />
-                    <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
+                    {purchase ?
+                        <div className="purchaseBox">
+                            <div>{currencyFormat.format(selectedArt.price)}</div>
+                            <div>{selectedArt.title}</div>
+                            <PayPal item={selectedArt} setArt={setSelectedArt} />
+                            <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
+                        </div>
+                        :
+                        <div className="purchaseBox">
+                            <div>{selectedArt.title}</div>
+                            <div>{currencyFormat.format(selectedArt.price)}</div>
+                            <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
+                        </div>
+                    }
                 </div>
-                :
-                <div className="purchaseBox">
-                    <div>{selectedArt.title}</div>
-                    <div>{currencyFormat.format(selectedArt.price)}</div>
-                    <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
-                </div>
-            }
+                : ""}
         </main>
     </>
 }
