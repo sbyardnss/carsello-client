@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { setSold } from "../ServerManager";
+import { retrievePiece, setSold } from "../ServerManager";
 
 export const PayPal = ({ item, setArt }) => {
     const [paypalReturnOrder, setPaypalReturnOrder] = useState({})
@@ -22,7 +22,6 @@ export const PayPal = ({ item, setArt }) => {
         order_status: ""
     })
     const paypal = useRef()
-    console.log(item)
     //grabbin response from successful paypal purchase
     useEffect(
         () => {
@@ -46,7 +45,13 @@ export const PayPal = ({ item, setArt }) => {
                 // copy.status = paypalReturnOrder.status
                 // updateNewOrder(copy)
                 setSold(item.id)
-                    .then(data => setArt(data))
+                .then((data) => {
+                    if (data.status === 204){
+                        retrievePiece(item.id)
+                            .then(data => setArt(data))
+                    }
+                })
+
             }
         }, [paypalReturnOrder]
     )
