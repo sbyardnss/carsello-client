@@ -62,39 +62,34 @@ export const PayPal = ({ item, setArt }) => {
             }
         }, [paypalReturnOrder]
     )
-   
-
-    // useEffect(
-    //     () => {
-    //         console.log(newOrder)
-    //     },[newOrder]
-    // )
     useEffect(
         () => {
-            window.paypal.Buttons({
-                createOrder: (data, actions, error) => {
-                    return actions.order.create({
-                        intent: "CAPTURE",
-                        purchase_units: [
-                            {
-                                description: item.title,
-                                amount: {
-                                    currency_code: "USD",
-                                    value: item.price
+            if (item.id && item.sold === false) {
+                window.paypal.Buttons({
+                    createOrder: (data, actions, error) => {
+                        return actions.order.create({
+                            intent: "CAPTURE",
+                            purchase_units: [
+                                {
+                                    description: item.title,
+                                    amount: {
+                                        currency_code: "USD",
+                                        value: item.price
+                                    }
                                 }
-                            }
-                        ]
-                    })
-                },
-                onApprove: async (data, actions) => {
-                    const order = await actions.order.capture()
-                    setPaypalReturnOrder(order)
-                    console.log(order)
-                },
-                onError: (err) => {
-                    console.log(err)
-                }
-            }).render(paypal.current)
+                            ]
+                        })
+                    },
+                    onApprove: async (data, actions) => {
+                        const order = await actions.order.capture()
+                        setPaypalReturnOrder(order)
+                        console.log(order)
+                    },
+                    onError: (err) => {
+                        console.log(err)
+                    }
+                }).render(paypal.current)
+            }
         }, []
     )
     return (
