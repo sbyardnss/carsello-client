@@ -9,6 +9,7 @@
 #pieceDisplay {
     display: flex;
     flex-direction: column;
+
 }
 #pieceInspectionImageContainer {
     display: flex;
@@ -17,13 +18,21 @@
 }
 .pieceInspectionPiece {
     height: 100%;
+
 }
-.purchaseBox {
+#pieceData {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
     height: 60%;
+}
+.purchaseBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 30%;
     width: 200px;
     /* margin-left: 1em; */
 }

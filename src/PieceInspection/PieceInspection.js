@@ -22,12 +22,11 @@ export const PieceInspection = () => {
         <main id="pieceInspectionContainer">
             <article id="pieceDisplay">
                 <div id="pieceInspectionImageContainer">
-                    <img className="pieceInspectionPiece" src={selectedArt.image} />
+                    <img className="pieceInspectionPiece" src={selectedArt.primary_image} />
                 </div>
             </article>
-            {!selectedArt.sold ?
-                <div className="purchaseBox">
-                    {purchase ?
+            <div id="pieceData">
+                {/* {purchase ?
                         <div className="purchaseBox">
                             <div>{currencyFormat.format(selectedArt.price)}</div>
                             <div>{selectedArt.title}</div>
@@ -40,9 +39,22 @@ export const PieceInspection = () => {
                             <div>{currencyFormat.format(selectedArt.price)}</div>
                             <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
                         </div>
-                    }
-                </div>
-                : ""}
+                    } */}
+                <div>{selectedArt.title}</div>
+                <div>{currencyFormat.format(selectedArt.price)}</div>
+                
+                {purchase && selectedArt.sold === false ?
+                    <div className="purchaseBox">
+                        <PayPal item={selectedArt} setArt={setSelectedArt} />
+                        <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
+                    </div>
+                    : selectedArt.sold === false ?
+                    <div className="purchaseBox">
+                        <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
+                    </div>
+                    : ""
+                }
+            </div>
         </main>
     </>
 }

@@ -31,7 +31,7 @@ export const ArtList = ({ art }) => {
                                         navigate(`/art/${art.id}`)
                                     }}>
                                     <div className="artDisplayImage">
-                                        <img className="artImage" src={art.image} />
+                                        <img className="artImage" src={art.primary_image} />
                                     </div>
                                     <div>{art.title}</div>
                                     <div>{art.year}</div>
