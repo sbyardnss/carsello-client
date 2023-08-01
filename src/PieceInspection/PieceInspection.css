@@ -20,6 +20,12 @@
     height: 100%;
 
 }
+#supportImageDiv {
+    height: fit-content;
+}
+.supportImage {
+    height: 100%;
+}
 #pieceData {
     display: flex;
     flex-direction: column;

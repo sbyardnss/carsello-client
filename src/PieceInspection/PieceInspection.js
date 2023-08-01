@@ -3,6 +3,7 @@ import { retrievePiece } from "../ServerManager"
 import { useNavigate, useParams } from "react-router-dom"
 import "../PieceInspection/PieceInspection.css"
 import { PayPal } from "../Paypal/Paypal"
+
 export const PieceInspection = () => {
     const navigate = useNavigate()
     const { artId } = useParams()
@@ -14,10 +15,13 @@ export const PieceInspection = () => {
                 .then(data => setSelectedArt(data))
         }, []
     )
+
+
     const currencyFormat = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
     })
+    
     return <>
         <main id="pieceInspectionContainer">
             <article id="pieceDisplay">
@@ -42,17 +46,27 @@ export const PieceInspection = () => {
                     } */}
                 <div>{selectedArt.title}</div>
                 <div>{currencyFormat.format(selectedArt.price)}</div>
-                
+                {/* {selectedArt.support_images ?
+                    <div id="supportImageDiv">
+                        {
+                            selectedArt.support_images.map(image => {
+                                return (
+                                    <img className="supportImage" src={image}/>
+                                )
+                            })
+                        }
+                    </div>
+                    : ""} */}
                 {purchase && selectedArt.sold === false ?
                     <div className="purchaseBox">
                         <PayPal item={selectedArt} setArt={setSelectedArt} />
                         <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
                     </div>
                     : selectedArt.sold === false ?
-                    <div className="purchaseBox">
-                        <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
-                    </div>
-                    : ""
+                        <div className="purchaseBox">
+                            <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
+                        </div>
+                        : ""
                 }
             </div>
         </main>

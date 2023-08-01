@@ -8,8 +8,7 @@ export const UploadWidget = ({ urlSet, imageName }) => {
         () => {
             cloudinaryRef.current = window.cloudinary;
             widgetRef.current = cloudinaryRef.current.createUploadWidget({
-                //these will be changed to lizzies account info when ready to deploy
-                cloudName: 'da0za1x54', 
+                cloudName: 'da0za1x54', //these will be changed to lizzies account info when ready to deploy
                 uploadPreset: 'pcwtfdjj'
             }, function (error, result) {
                 // if (error || result.event === 'success') {
