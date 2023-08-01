@@ -7,6 +7,7 @@ import { getArt, getEvents, sendArt } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
 import { EventList } from "../EventList/EventList";
 import { EventForm } from "./EventForm";
+import { PieceInspection } from "../PieceInspection/PieceInspection";
 export const Admin = () => {
     const navigate = useNavigate();
     const [addArt, setAddArt] = useState(false)
@@ -17,6 +18,8 @@ export const Admin = () => {
     const [events, setEvents] = useState([])
     const [viewEvents, setViewEvents] = useState(false)
     const [sendEvent, setSendEvent] = useState(false)
+    const [editArt, setEditArt] = useState(0)
+
     const newTitle = useRef()
     const newPrice = useRef()
     const newYear = useRef()
@@ -29,17 +32,21 @@ export const Admin = () => {
         year: newYear.current?.value,
         image: '',
         price: newPrice.current?.value
+        //support_images
+        //quantity
+        //sold
+        //dimensions
     })
     const [newEvent, updateNewEvent] = useState({
         title: "",
-        location: "", 
+        location: "",
         dateTime: "",
         image: "",
         link: "",
         details: "",
         price: 0
     })
-    
+    console.log(newPiece)
     useEffect(
         () => {
             const copy = { ...newPiece }
@@ -56,6 +63,25 @@ export const Admin = () => {
         }, []
     )
 
+    useEffect(
+        () => {
+            if (newEventDateTime && sendEvent === true) {
+                const copy = { ...newEvent }
+                copy.dateTime = new Date(newEventDateTime).toISOString()
+                console.log(copy)
+            }
+        }, [sendEvent]
+    )
+    useEffect(
+        () => {
+            if (editArt !== 0) {
+                const selectedPiece = artwork.find(a => a.id === editArt)
+                updateNewPiece(selectedPiece)
+                document.getElementById('editArtModal').style.display = 'flex'
+            }
+        }, [editArt]
+    )
+
     const addArtForm = () => {
         if (addArt) {
             return (
@@ -66,6 +92,7 @@ export const Admin = () => {
                         year={newYear}
                         piece={newPiece}
                         update={updateNewPiece}
+
                     />
                     <div>
                         <label>image</label>
@@ -84,32 +111,19 @@ export const Admin = () => {
                     <button onClick={() => {
                         setAddArt(true)
                         setAddEvent(false)
-                        }}>add art</button>
+                    }}>add art</button>
                 </section>
             )
         }
     }
-    useEffect(
-        () => {
-            if (newEventDateTime && sendEvent === true) {
-                const copy = {...newEvent}
-                copy.dateTime = new Date(newEventDateTime).toISOString()
-                console.log(copy)
-            }
-        },[sendEvent]
-    )
-    // useEffect(
-    //     () => {
-    //         console.log(newEvent)
-    //     },[newEvent]
-    // )
+
     const addEventForm = () => {
         if (addEvent) {
             return (
                 <section id="addEventSection">
                     <EventForm
                         title={newEventTitle}
-                        location={newEventLocation} 
+                        location={newEventLocation}
                         dateTime={newEventDateTime}
                         setDateTime={setNewEventDateTime}
                         price={newEventPrice}
@@ -133,7 +147,7 @@ export const Admin = () => {
                     <button onClick={() => {
                         setAddArt(false)
                         setAddEvent(true)
-                        }}>add event</button>
+                    }}>add event</button>
                 </section>
             )
         }
@@ -145,6 +159,7 @@ export const Admin = () => {
                     {/* <button onClick={() => setViewArt(false)}>Cancel</button> */}
                     <ArtList
                         art={artwork}
+                        setEdit={setEditArt}
                     />
                 </section>
             )
@@ -162,8 +177,19 @@ export const Admin = () => {
             )
         }
     }
+
     return <>
         <main id="adminContainer">
+            <section id="editArtModal">
+                <ArtForm
+                    title={newTitle}
+                    price={newPrice}
+                    year={newYear}
+                    piece={newPiece}
+                    update={updateNewPiece}
+                    artToEdit={newPiece}
+                />
+            </section>
             <h2>this is the admin page</h2>
             <button onClick={() => {
                 localStorage.removeItem("carsello_user")

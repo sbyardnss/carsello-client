@@ -1,11 +1,13 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { getArt } from "../ServerManager"
 import { useEffect, useState } from "react"
 import "../ArtList/Artlist.css"
-export const ArtList = ({ art }) => {
+import { ArtForm } from "../Admin/ArtForm"
+export const ArtList = ({ art, setEdit }) => {
     const navigate = useNavigate()
+    const url = useLocation()
     const [artwork, setArtwork] = useState([])
-
+    // const [editArt, setEditArt] = useState(false)
     useEffect(
         () => {
             if (!art) {
@@ -17,6 +19,7 @@ export const ArtList = ({ art }) => {
             }
         }, []
     )
+    
     return <>
         <main>
             <section id="artListContainer">
@@ -28,13 +31,20 @@ export const ArtList = ({ art }) => {
                                     key={art.id}
                                     className="artListItem"
                                     onClick={() => {
-                                        navigate(`/art/${art.id}`)
+                                        if (url.pathname !== '/admin') {
+                                            navigate(`/art/${art.id}`)
+                                        }
                                     }}>
                                     <div className="artDisplayImage">
                                         <img className="artImage" src={art.primary_image} />
                                     </div>
                                     <div>{art.title}</div>
                                     <div>{art.year}</div>
+                                    {url.pathname === '/admin' ?
+                                        <div>
+                                            <button onClick={() => setEdit(art.id)}>edit</button>
+                                        </div>
+                                        : ""}
                                 </li>
                             )
                         })

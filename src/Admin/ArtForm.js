@@ -1,7 +1,7 @@
 import { useRef } from "react"
 
 
-export const ArtForm = ({ title, price, year, piece, update }) => {
+export const ArtForm = ({ title, price, year, piece, update, artToEdit }) => {
     // const newTitle = useRef()
     // const newPrice = useRef()
     // console.log(newPrice.current?.value)
@@ -25,6 +25,7 @@ export const ArtForm = ({ title, price, year, piece, update }) => {
                 className="form-input"
                 type="text"
                 ref={title}
+                value={artToEdit.title}
                 placeholder="piece title"
             // required autoFocus
             />

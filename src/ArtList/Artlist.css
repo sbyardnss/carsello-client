@@ -34,3 +34,14 @@
     /* min-height: 14em; */
     max-width: 100%;
 }
+
+/* edit modal */
+#editArtModal {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    width: 90%;
+    height: 50%;
+    background-color: gray;
+    border: 1px solid orange;
+}
