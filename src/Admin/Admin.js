@@ -19,23 +19,21 @@ export const Admin = () => {
     const [viewEvents, setViewEvents] = useState(false)
     const [sendEvent, setSendEvent] = useState(false)
     const [editArt, setEditArt] = useState(0)
+    const [supportImages, setSupportImages] = useState([])
 
-    const newTitle = useRef()
-    const newPrice = useRef()
-    const newYear = useRef()
     const newEventTitle = useRef()
     const newEventLocation = useRef()
     const [newEventDateTime, setNewEventDateTime] = useState("")
     const newEventPrice = useRef()
     const [newPiece, updateNewPiece] = useState({
-        title: newTitle.current?.value,
-        year: newYear.current?.value,
+        title: "",
+        year: "",
         image: '',
-        price: newPrice.current?.value
-        //support_images
-        //quantity
-        //sold
-        //dimensions
+        price: 0,
+        support_images: [],
+        quantity: 0,
+        sold: false,
+        dimensions: ""
     })
     const [newEvent, updateNewEvent] = useState({
         title: "",
@@ -46,13 +44,19 @@ export const Admin = () => {
         details: "",
         price: 0
     })
-    console.log(newPiece)
     useEffect(
         () => {
             const copy = { ...newPiece }
             copy.image = artImageUrl
             updateNewPiece(copy)
         }, [artImageUrl]
+    )
+    useEffect(
+        () => {
+            const copy = { ...newPiece }
+            copy.support_images = supportImages
+            updateNewPiece(copy)
+        }, [supportImages]
     )
     useEffect(
         () => {
@@ -68,7 +72,6 @@ export const Admin = () => {
             if (newEventDateTime && sendEvent === true) {
                 const copy = { ...newEvent }
                 copy.dateTime = new Date(newEventDateTime).toISOString()
-                console.log(copy)
             }
         }, [sendEvent]
     )
@@ -79,6 +82,9 @@ export const Admin = () => {
                 updateNewPiece(selectedPiece)
                 document.getElementById('editArtModal').style.display = 'flex'
             }
+            else {
+                document.getElementById('editArtModal').style.display = 'none'
+            }
         }, [editArt]
     )
 
@@ -87,18 +93,24 @@ export const Admin = () => {
             return (
                 <section id="addArtSection">
                     <ArtForm
-                        title={newTitle}
-                        price={newPrice}
-                        year={newYear}
                         piece={newPiece}
                         update={updateNewPiece}
-
                     />
                     <div>
-                        <label>image</label>
+                        <label>Primary image (set the name for the piece first)</label>
                         <UploadWidget
+                            primeOrSupport={'prime'}
                             urlSet={setArtImageUrl}
-                            imageName={newTitle.current?.value} />
+                            imageName={newPiece.title} />
+                    </div>
+                    <div>
+                        <label>Other images</label>
+                        {/* working on the support images upload */}
+                        <UploadWidget
+                            primeOrSupport={'support'}
+                            otherImages={supportImages}
+                            setOtherImages={setSupportImages}
+                            imageName={newPiece.title} />
                     </div>
                     <button onClick={() => setAddArt(false)}>cancel</button>
                     <button onClick={() => sendArt(newPiece)}>submit</button>
@@ -182,13 +194,10 @@ export const Admin = () => {
         <main id="adminContainer">
             <section id="editArtModal">
                 <ArtForm
-                    title={newTitle}
-                    price={newPrice}
-                    year={newYear}
                     piece={newPiece}
                     update={updateNewPiece}
-                    artToEdit={newPiece}
                 />
+                <button onClick={() => setEditArt(0)}>cancel edit</button>
             </section>
             <h2>this is the admin page</h2>
             <button onClick={() => {
