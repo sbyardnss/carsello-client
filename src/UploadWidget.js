@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react"
 
 
-export const UploadWidget = ({ primeOrSupport, urlSet, imageName, otherImages, setOtherImages }) => {
+export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet }) => {
     const cloudinaryRef = useRef()
     const widgetRef = useRef()
+
     useEffect(
         () => {
             cloudinaryRef.current = window.cloudinary;
@@ -15,14 +16,11 @@ export const UploadWidget = ({ primeOrSupport, urlSet, imageName, otherImages, s
                 //     onUpload(error, result)
                 // }
                 if (result.event === 'success') {
-                    if (primeOrSupport === 'prime'){
+                    if (primeOrSupport === 'prime') {
                         urlSet(result?.info?.secure_url)
                     }
                     else {
-                        const copy = [...otherImages]
-                        copy.push(result?.info?.secure_url)
-                        console.log(copy)
-                        setOtherImages(copy)
+                        supportUrlSet(result?.info?.secure_url)
                     }
                 }
                 else {

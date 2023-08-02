@@ -13,6 +13,7 @@ export const Admin = () => {
     const [addArt, setAddArt] = useState(false)
     const [addEvent, setAddEvent] = useState(false)
     const [artImageUrl, setArtImageUrl] = useState("")
+    const [supportImageUrl, setSupportImageUrl] = useState("")
     const [artwork, setArtwork] = useState([])
     const [viewArt, setViewArt] = useState(false)
     const [events, setEvents] = useState([])
@@ -64,11 +65,18 @@ export const Admin = () => {
     useEffect(
         () => {
             const copy = { ...newPiece }
+            copy.support_images.push(supportImageUrl)
+            updateNewPiece(copy)
+        },[supportImageUrl]
+    )
+    useEffect(
+        () => {
+            const copy = { ...newPiece }
             copy.support_images = supportImages
             updateNewPiece(copy)
         }, [supportImages]
     )
-    
+
 
     useEffect(
         () => {
@@ -90,6 +98,7 @@ export const Admin = () => {
             }
         }, [editArt]
     )
+
     useEffect(
         () => {
             if (addArt) {
@@ -233,9 +242,8 @@ export const Admin = () => {
                     {/* working on the support images upload */}
                     <UploadWidget
                         primeOrSupport={'support'}
-                        otherImages={supportImages}
-                        setOtherImages={setSupportImages}
-                        imageName={newPiece.title} />
+                        supportUrlSet={setSupportImageUrl}
+                    />
                 </div>
                 <button onClick={() => {
                     setEditArt(0)
