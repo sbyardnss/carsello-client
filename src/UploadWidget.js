@@ -21,6 +21,7 @@ export const UploadWidget = ({ primeOrSupport, urlSet, imageName, otherImages, s
                     else {
                         const copy = [...otherImages]
                         copy.push(result?.info?.secure_url)
+                        console.log(copy)
                         setOtherImages(copy)
                     }
                 }

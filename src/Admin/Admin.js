@@ -27,13 +27,14 @@ export const Admin = () => {
     const newEventPrice = useRef()
     const [newPiece, updateNewPiece] = useState({
         title: "",
-        year: "",
-        image: '',
+        year: 0,
+        primary_image: '',
         price: 0,
         support_images: [],
         quantity: 0,
         sold: false,
-        dimensions: ""
+        dimensions: "",
+        quantity: 0
     })
     const [newEvent, updateNewEvent] = useState({
         title: "",
@@ -44,6 +45,15 @@ export const Admin = () => {
         details: "",
         price: 0
     })
+    useEffect(
+        () => {
+            Promise.all([getArt(), getEvents()]).then(([artData, eventData]) => {
+                setArtwork(artData)
+                setEvents(eventData)
+            })
+        }, []
+    )
+
     useEffect(
         () => {
             const copy = { ...newPiece }
@@ -58,14 +68,7 @@ export const Admin = () => {
             updateNewPiece(copy)
         }, [supportImages]
     )
-    useEffect(
-        () => {
-            Promise.all([getArt(), getEvents()]).then(([artData, eventData]) => {
-                setArtwork(artData)
-                setEvents(eventData)
-            })
-        }, []
-    )
+    
 
     useEffect(
         () => {
@@ -87,7 +90,28 @@ export const Admin = () => {
             }
         }, [editArt]
     )
-
+    useEffect(
+        () => {
+            if (addArt) {
+                document.getElementById('editArtModal').style.display = 'flex'
+            }
+            else {
+                document.getElementById('editArtModal').style.display = 'none'
+            }
+        }, [addArt]
+    )
+    const resetNewPiece = () => {
+        updateNewPiece({
+            title: "",
+            year: "",
+            image: '',
+            price: 0,
+            support_images: [],
+            quantity: 0,
+            sold: false,
+            dimensions: ""
+        })
+    }
     const addArtForm = () => {
         if (addArt) {
             return (
@@ -197,7 +221,27 @@ export const Admin = () => {
                     piece={newPiece}
                     update={updateNewPiece}
                 />
-                <button onClick={() => setEditArt(0)}>cancel edit</button>
+                <div>
+                    <label>Primary image (set the name for the piece first)</label>
+                    <UploadWidget
+                        primeOrSupport={'prime'}
+                        urlSet={setArtImageUrl}
+                        imageName={newPiece.title} />
+                </div>
+                <div>
+                    <label>Other images</label>
+                    {/* working on the support images upload */}
+                    <UploadWidget
+                        primeOrSupport={'support'}
+                        otherImages={supportImages}
+                        setOtherImages={setSupportImages}
+                        imageName={newPiece.title} />
+                </div>
+                <button onClick={() => {
+                    setEditArt(0)
+                    setAddArt(false)
+                    resetNewPiece()
+                }}>cancel</button>
             </section>
             <h2>this is the admin page</h2>
             <button onClick={() => {
@@ -212,7 +256,8 @@ export const Admin = () => {
                 setViewEvents(false)
                 setViewArt(!viewArt)
             }}>{viewArt === false ? 'View Art List' : 'Cancel'}</button>
-            {addArtForm()}
+            {/* {addArtForm()} */}
+            <button onClick={() => setAddArt(true)}>add art</button>
             {artList()}
             {addEventForm()}
             {eventList()}
