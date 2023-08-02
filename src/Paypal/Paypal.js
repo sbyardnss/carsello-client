@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { retrievePiece, sendNewOrder, setSold } from "../ServerManager";
+import { quantityDecrease, sendNewOrder } from "../ServerManager";
 
-export const PayPal = ({ item, setArt }) => {
+export const PayPal = ({ item, resetArt, purchaseSet }) => {
     const [paypalReturnOrder, setPaypalReturnOrder] = useState({})
     const [newOrder, updateNewOrder] = useState({
         ordered_item: 0,
@@ -23,6 +23,10 @@ export const PayPal = ({ item, setArt }) => {
         order_status: ""
     })
     const paypal = useRef()
+    async function getNewQuantity() {
+        await quantityDecrease(item.id)
+        resetArt(item.id)
+    }
     //grabbin response from successful paypal purchase
     useEffect(
         () => {
@@ -47,12 +51,16 @@ export const PayPal = ({ item, setArt }) => {
                 copy.order_status = paypalReturnOrder.status
                 updateNewOrder(copy)
                 sendNewOrder(copy)
-                setSold(item.id)
+                // setSold(item.id)
                 //this version doesn't actually reflect the data from the server but still works
                 //as soon as page is refreshed it will reflect database
                 const artCopy = { ...item }
-                artCopy.sold = true
-                setArt(artCopy)
+                // artCopy.sold = true
+                // quantityDecrease(item.id)
+                // resetArt(item.id)
+                getNewQuantity()
+                purchaseSet(false)
+                // setArt(artCopy)
                 // .then((data) => {
                 //     if (data.status === 204){
                 //         retrievePiece(item.id)
@@ -64,7 +72,7 @@ export const PayPal = ({ item, setArt }) => {
     )
     useEffect(
         () => {
-            if (item.id && item.sold === false) {
+            if (item.id && item.quantity > 0) {
                 window.paypal.Buttons({
                     createOrder: (data, actions, error) => {
                         return actions.order.create({

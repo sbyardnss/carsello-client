@@ -24,6 +24,24 @@ export const retrievePiece = (artId) => {
     return fetch(`${apiKey}/artwork/${artId}`)
         .then(res => res.json())
 }
+export const updatePiece = (artId, artObj) => {
+    return fetch(`${apiKey}/artwork/${artId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(artObj)
+    })
+        .then(res => res.json())
+}
+export const quantityDecrease = (artId) => {
+    return fetch(`${apiKey}/artwork/${artId}/quantity_decrement`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+}
 
 export const getEvents = () => {
     return fetch(`${apiKey}/events`)

@@ -15,13 +15,20 @@ export const PieceInspection = () => {
                 .then(data => setSelectedArt(data))
         }, []
     )
-
+    const resetPiece = (artId) => {
+        retrievePiece(artId)
+            .then(data => setSelectedArt(data))
+    }
 
     const currencyFormat = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
     })
-    
+    useEffect(
+        () => {
+            console.log(selectedArt)
+        },[selectedArt]
+    )
     return <>
         <main id="pieceInspectionContainer">
             <article id="pieceDisplay">
@@ -57,12 +64,16 @@ export const PieceInspection = () => {
                         }
                     </div>
                     : ""} */}
-                {purchase && selectedArt.sold === false ?
+                {purchase && selectedArt.quantity > 0 ?
                     <div className="purchaseBox">
-                        <PayPal item={selectedArt} setArt={setSelectedArt} />
+                        <PayPal
+                            item={selectedArt}
+                            resetArt={resetPiece}
+                            purchaseSet={setPurchase}
+                        />
                         <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
                     </div>
-                    : selectedArt.sold === false ?
+                    : selectedArt.quantity > 0 ?
                         <div className="purchaseBox">
                             <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
                         </div>

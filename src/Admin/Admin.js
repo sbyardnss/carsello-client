@@ -33,7 +33,6 @@ export const Admin = () => {
         price: 0,
         support_images: [],
         quantity: 0,
-        sold: false,
         dimensions: "",
         quantity: 0
     })
