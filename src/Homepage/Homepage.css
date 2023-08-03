@@ -1,55 +1,87 @@
-/* #homepageArtDisplay {
-    list-style: none;
+#homepageContainer {
     display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-} */
-/* #homepageArtSection {
-    display: flex;
-    justify-content: center;
-} */
-/* .artListItem {
-    height: 16em;
-    width: 14em;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    margin: 2em;
+    align-items: center;
+    margin: 0;
 
-} */
-/* .artDisplayImage {
-    height: 90%;
+    border: 1px solid orange;
+}
+
+#logoSection {
     display: flex;
     justify-content: center;
+    width: 80%;
+    border: 1px solid lime;
+    margin-bottom: 1em;
+
 }
-.artImage {
-    object-fit: fill;
+
+#offeredServices {
     display: flex;
-    min-height: 14em;
-} */
+    flex-direction: column;
+    width: 80%;
+    /* border: 1px solid red; */
+}
+
+/* these two for sections to left */
+.rotateRightLabel {
+    writing-mode: vertical-rl;
+    margin: 0 .4em 0 .4em;
+    font-size: 4em;
+    line-height: 0%;
+}
+
+.serviceSectionLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* height: fit-content; */
+    width: 100%;
+    margin-bottom: 1em;
+
+}
+/* these two for sections to right */
+.rotateLeftLabel {
+    writing-mode: vertical-rl;
+    margin: 0 .4em 0 .4em;
+    font-size: 4em;
+    line-height: 0%;
+    transform: rotate(180deg);
+
+}
+
+.serviceSectionRight {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    /* height: fit-content; */
+    width: 100%;    
+    margin-bottom: 1em;
+
+
+}
+
+.servicesImage {
+    /* width: 20em; */
+    width: 60%;
+}
+
+/* OLD STUFF */
+/* offered services section */
+/* 
 #homepageContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
+
+    border: 1px solid orange;
 }
-
-h3, h4 {
-    margin: 0;
-}
-
-/* offered services section */
-
 #servicesOfferedList {
     display: flex;
     flex-direction: column;
     width: 30em;
     align-items: center;
-    /* background-color: #77d4ed; */
-    /* background: rgb(119, 212, 237); */
-    /* background: linear-gradient(129deg, rgba(119, 212, 237, 1) 0%, rgba(195, 173, 219, 1) 53%); */
-    /* background: rgb(99, 7, 94); */
     background: linear-gradient(129deg, rgba(99, 7, 94, 1) 0%, rgba(87, 54, 124, 1) 53%);
     padding: .5em;
     color: whitesmoke;
@@ -60,8 +92,6 @@ h3, h4 {
     padding: .5em;
     margin: .25em;
     width: 90%;
-    /* border: 1px solid #a7bfe1; */
-    /* border-radius: 6px; */
 }
 
 
@@ -70,8 +100,6 @@ h3, h4 {
     text-align: center;
     cursor: pointer;
     transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-    /* background-image: ; */
 }
 #commissionDiv:hover {
     width: 100%;
@@ -82,8 +110,6 @@ h3, h4 {
     text-align: center;
     cursor: pointer;
     transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-    /* background-image: ; */
 }
 #curationDiv:hover {
     width: 100%;
@@ -94,8 +120,6 @@ h3, h4 {
     text-align: center;
     cursor: pointer;
     transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-    /* background-image: ; */
 }
 #writingDiv:hover {
     width: 100%;
@@ -107,15 +131,11 @@ h3, h4 {
     text-align: center;
     cursor: pointer;
     transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-    /* background-image: ; */
 }
 #muralingDiv:hover {
     width: 100%;
     transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-
-/* homepage events list */
 #homepageEventsList {
     width: fit-content;
     margin-left: 1em;
@@ -131,4 +151,4 @@ h3, h4 {
 
 .eventLILogistics {
     font-size: x-small;
-}
+} */

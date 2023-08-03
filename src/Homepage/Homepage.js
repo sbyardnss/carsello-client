@@ -2,6 +2,9 @@ import { getArt, getEvents } from "../ServerManager"
 import { useContext, useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 import "../Homepage/Homepage.css"
+import curationImage from "../Images/IMG_7556.jpg"
+import artImage from "../Images/artSectionImage.jpeg"
+import muralingImage from "../Images/muralingSectionImage.jpeg"
 export const Homepage = () => {
     const navigate = useNavigate()
     const [events, setEvents] = useState([])
@@ -13,7 +16,28 @@ export const Homepage = () => {
     )
     return <>
         <main id="homepageContainer">
-            <section id="servicesOfferedList">
+            <section id="logoSection">
+                <h1>logo</h1>
+            </section>
+            <article id="offeredServices">
+                <section className="serviceSectionRight">
+                    <h2 className="rotateLeftLabel">art</h2>
+                    <img className="servicesImage" src={artImage} />
+                </section>
+                <section className="serviceSectionLeft">
+                    <img className="servicesImage" src={curationImage} />
+                    <h2 className="rotateRightLabel">curation</h2>
+                </section>
+                <section className="serviceSectionRight">
+                    <h2 className="rotateLeftLabel">display</h2>
+                    <img className="servicesImage" src={muralingImage} />
+                </section>
+                <section className="serviceSectionLeft">
+
+                </section>
+            </article>
+            {/* old homepage */}
+            {/* <section id="servicesOfferedList">
                 <h2>need copy here for intro to offerings</h2>
                 <div id="commissionDiv" className="offeredServiceLi">
                     <h3>Art Commission</h3>
@@ -48,7 +72,7 @@ export const Homepage = () => {
                         )
                     })
                 }
-            </section>
+            </section> */}
         </main>
     </>
 }
