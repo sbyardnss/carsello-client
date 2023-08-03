@@ -44,7 +44,7 @@ export const ArtForm = ({ piece, update }) => {
                 value={piece.year}
                 required autoFocus
             />
-            <label className="form-labels" htmlFor="newDimensions">Year</label>
+            <label className="form-labels" htmlFor="newDimensions">Dimensions</label>
             <input
                 id="dimensions"
                 onChange={handleChange}
@@ -53,7 +53,7 @@ export const ArtForm = ({ piece, update }) => {
                 value={piece.dimensions}
                 required autoFocus
             />
-            <label className="form-labels" htmlFor="newQuantity">Year</label>
+            <label className="form-labels" htmlFor="newQuantity">Quantity</label>
             <input
                 id="quantity"
                 onChange={handleChange}

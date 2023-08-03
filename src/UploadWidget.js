@@ -19,12 +19,12 @@ export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet 
                     if (primeOrSupport === 'prime') {
                         urlSet(result?.info?.secure_url)
                     }
-                    else {
+                    if (primeOrSupport === 'support') {
                         supportUrlSet(result?.info?.secure_url)
                     }
                 }
                 else {
-                    console.log(result)
+                    // console.log(result)
                 }
             })
         }, []

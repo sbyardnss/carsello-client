@@ -1,16 +1,15 @@
 #pieceInspectionContainer {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     /* width: 90%; */
     height: 80vh;
 }
-#pieceDisplay {
+#paymentAndDisplay {
     display: flex;
-    flex-direction: column;
-
 }
+
 #pieceInspectionImageContainer {
     display: flex;
     justify-content: center;
@@ -18,25 +17,30 @@
 }
 .pieceInspectionPiece {
     height: 100%;
+}
 
-}
-#supportImageDiv {
-    height: fit-content;
-}
 .supportImage {
-    height: 100%;
+    height: 10em;
+    transition: transform .2s;
 }
+.supportImage:hover {
+    transform: scale(1.5);
+}
+/* .supportImage {
+    height: 100%;
+} */
 #pieceData {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    height: 60%;
+    margin-left: 1em;
+    /* height: 100%; */
 }
 .purchaseBox {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     height: 30%;
     width: 200px;

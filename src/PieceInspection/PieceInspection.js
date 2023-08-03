@@ -27,59 +27,41 @@ export const PieceInspection = () => {
     useEffect(
         () => {
             console.log(selectedArt)
-        },[selectedArt]
+        }, [selectedArt]
     )
     return <>
         <main id="pieceInspectionContainer">
-            <article id="pieceDisplay">
+            <article id="paymentAndDisplay">
                 <div id="pieceInspectionImageContainer">
                     <img className="pieceInspectionPiece" src={selectedArt.primary_image} />
                 </div>
-            </article>
-            <div id="pieceData">
-                {/* {purchase ?
+                <div id="pieceData">
+                    <div>{selectedArt.title}</div>
+                    <div>{currencyFormat.format(selectedArt.price)}</div>
+                    {purchase && selectedArt.quantity > 0 ?
                         <div className="purchaseBox">
-                            <div>{currencyFormat.format(selectedArt.price)}</div>
-                            <div>{selectedArt.title}</div>
-                            <PayPal item={selectedArt} setArt={setSelectedArt} />
+                            <PayPal
+                                item={selectedArt}
+                                resetArt={resetPiece}
+                                purchaseSet={setPurchase}
+                            />
                             <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
                         </div>
-                        :
-                        <div className="purchaseBox">
-                            <div>{selectedArt.title}</div>
-                            <div>{currencyFormat.format(selectedArt.price)}</div>
-                            <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
-                        </div>
-                    } */}
-                <div>{selectedArt.title}</div>
-                <div>{currencyFormat.format(selectedArt.price)}</div>
-                {/* {selectedArt.support_images ?
-                    <div id="supportImageDiv">
-                        {
-                            selectedArt.support_images.map(image => {
-                                return (
-                                    <img className="supportImage" src={image}/>
-                                )
-                            })
-                        }
-                    </div>
-                    : ""} */}
-                {purchase && selectedArt.quantity > 0 ?
-                    <div className="purchaseBox">
-                        <PayPal
-                            item={selectedArt}
-                            resetArt={resetPiece}
-                            purchaseSet={setPurchase}
-                        />
-                        <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
-                    </div>
-                    : selectedArt.quantity > 0 ?
-                        <div className="purchaseBox">
-                            <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
-                        </div>
-                        : ""
-                }
-            </div>
+                        : selectedArt.quantity > 0 ?
+                            <div className="purchaseBox">
+                                <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
+                            </div>
+                            : ""
+                    }
+                </div>
+            </article>
+            <section id="supportImageDisplay">
+                    {
+                        selectedArt.support_images?.map(si => {
+                            return <img key={si} className="supportImage" src={si}/>
+                        })
+                    }
+            </section>
         </main>
     </>
 }

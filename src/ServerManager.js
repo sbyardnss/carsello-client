@@ -24,8 +24,8 @@ export const retrievePiece = (artId) => {
     return fetch(`${apiKey}/artwork/${artId}`)
         .then(res => res.json())
 }
-export const updatePiece = (artId, artObj) => {
-    return fetch(`${apiKey}/artwork/${artId}`, {
+export const updatePiece = (artObj) => {
+    return fetch(`${apiKey}/artwork/${artObj.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

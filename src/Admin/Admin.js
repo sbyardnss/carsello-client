@@ -3,7 +3,7 @@ import UploadWidget from "../UploadWidget";
 import "../Admin/Admin.css"
 import { useEffect, useRef, useState } from "react";
 import { ArtForm } from "./ArtForm";
-import { getArt, getEvents, sendArt } from "../ServerManager";
+import { getArt, getEvents, sendArt, updatePiece } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
 import { EventList } from "../EventList/EventList";
 import { EventForm } from "./EventForm";
@@ -32,7 +32,6 @@ export const Admin = () => {
         primary_image: '',
         price: 0,
         support_images: [],
-        quantity: 0,
         dimensions: "",
         quantity: 0
     })
@@ -57,7 +56,7 @@ export const Admin = () => {
     useEffect(
         () => {
             const copy = { ...newPiece }
-            copy.image = artImageUrl
+            copy.primary_image = artImageUrl
             updateNewPiece(copy)
         }, [artImageUrl]
     )
@@ -66,7 +65,7 @@ export const Admin = () => {
             const copy = { ...newPiece }
             copy.support_images.push(supportImageUrl)
             updateNewPiece(copy)
-        },[supportImageUrl]
+        }, [supportImageUrl]
     )
     useEffect(
         () => {
@@ -120,46 +119,46 @@ export const Admin = () => {
             dimensions: ""
         })
     }
-    const addArtForm = () => {
-        if (addArt) {
-            return (
-                <section id="addArtSection">
-                    <ArtForm
-                        piece={newPiece}
-                        update={updateNewPiece}
-                    />
-                    <div>
-                        <label>Primary image (set the name for the piece first)</label>
-                        <UploadWidget
-                            primeOrSupport={'prime'}
-                            urlSet={setArtImageUrl}
-                            imageName={newPiece.title} />
-                    </div>
-                    <div>
-                        <label>Other images</label>
-                        {/* working on the support images upload */}
-                        <UploadWidget
-                            primeOrSupport={'support'}
-                            otherImages={supportImages}
-                            setOtherImages={setSupportImages}
-                            imageName={newPiece.title} />
-                    </div>
-                    <button onClick={() => setAddArt(false)}>cancel</button>
-                    <button onClick={() => sendArt(newPiece)}>submit</button>
-                </section>
-            )
-        }
-        else {
-            return (
-                <section id="addArtSection">
-                    <button onClick={() => {
-                        setAddArt(true)
-                        setAddEvent(false)
-                    }}>add art</button>
-                </section>
-            )
-        }
-    }
+    // const addArtForm = () => {
+    //     if (addArt) {
+    //         return (
+    //             <section id="addArtSection">
+    //                 <ArtForm
+    //                     piece={newPiece}
+    //                     update={updateNewPiece}
+    //                 />
+    //                 <div>
+    //                     <label>Primary image (set the name for the piece first)</label>
+    //                     <UploadWidget
+    //                         primeOrSupport={'prime'}
+    //                         urlSet={setArtImageUrl}
+    //                         imageName={newPiece.title} />
+    //                 </div>
+    //                 <div>
+    //                     <label>Other images</label>
+    //                     {/* working on the support images upload */}
+    //                     <UploadWidget
+    //                         primeOrSupport={'support'}
+    //                         otherImages={supportImages}
+    //                         setOtherImages={setSupportImages}
+    //                         imageName={newPiece.title} />
+    //                 </div>
+    //                 <button onClick={() => setAddArt(false)}>cancel</button>
+    //                 <button onClick={() => sendArt(newPiece)}>submit</button>
+    //             </section>
+    //         )
+    //     }
+    //     else {
+    //         return (
+    //             <section id="addArtSection">
+    //                 <button onClick={() => {
+    //                     setAddArt(true)
+    //                     setAddEvent(false)
+    //                 }}>add art</button>
+    //             </section>
+    //         )
+    //     }
+    // }
 
     const addEventForm = () => {
         if (addEvent) {
@@ -190,6 +189,7 @@ export const Admin = () => {
                 <section id="addEventSection">
                     <button onClick={() => {
                         setAddArt(false)
+                        setEditArt(0)
                         setAddEvent(true)
                     }}>add event</button>
                 </section>
@@ -221,7 +221,22 @@ export const Admin = () => {
             )
         }
     }
-
+    const populateSupportImages = () => {
+        return newPiece.support_images.map((si, index) => {
+            return (
+                <div key={si + '--' + index} className="supportImageWithBtn">
+                    <img className="uploadDisplayImage" src={si} />
+                    <button onClick={() => {
+                        const copy = { ...newPiece }
+                        const newSupportImages = newPiece.support_images.filter(img => img !== si)
+                        copy.support_images = newSupportImages
+                        updateNewPiece(copy)
+                    }}>remove</button>
+                </div>
+            )
+        })
+    }
+    console.log(newPiece)
     return <>
         <main id="adminContainer">
             <section id="editArtModal">
@@ -229,26 +244,50 @@ export const Admin = () => {
                     piece={newPiece}
                     update={updateNewPiece}
                 />
-                <div>
-                    <label>Primary image (set the name for the piece first)</label>
-                    <UploadWidget
-                        primeOrSupport={'prime'}
-                        urlSet={setArtImageUrl}
-                        imageName={newPiece.title} />
+                <div className="imageAddAndInfoDiv">
+                    <div className="addImageDiv">
+                        <label>Primary image (set the name for the piece first)</label>
+                        <UploadWidget
+                            primeOrSupport={'prime'}
+                            urlSet={setArtImageUrl}
+                            imageName={newPiece.title} />
+                    </div>
+                    {
+                        newPiece.primary_image ? <img className="uploadDisplayImage" src={newPiece.primary_image} /> : <div>Primary Image: None</div>
+                    }
                 </div>
-                <div>
-                    <label>Other images</label>
-                    {/* working on the support images upload */}
-                    <UploadWidget
-                        primeOrSupport={'support'}
-                        supportUrlSet={setSupportImageUrl}
-                    />
+                <div className="imageAddAndInfoDiv">
+                    <div className="addImageDiv">
+                        <label>Other images</label>
+                        {/* working on the support images upload */}
+                        <UploadWidget
+                            primeOrSupport={'support'}
+                            supportUrlSet={setSupportImageUrl}
+                        />
+                    </div>
+                    {
+                        newPiece.support_images.length ?
+                            populateSupportImages()
+                            : <div>No support images</div>
+                    }
                 </div>
-                <button onClick={() => {
-                    setEditArt(0)
-                    setAddArt(false)
-                    resetNewPiece()
-                }}>cancel</button>
+                <div className="artFormBtnBlock">
+                    <button onClick={() => {
+                        if (editArt) {
+                            console.log(`edit -- ${newPiece}`)
+                            // updatePiece(newPiece.id)
+                        }
+                        else {
+                            console.log(`add -- ${newPiece}`)
+                            sendArt(newPiece)
+                        }
+                    }}>{addArt ? "submit" : "submit changes"}</button>
+                    <button onClick={() => {
+                        setEditArt(0)
+                        setAddArt(false)
+                        resetNewPiece()
+                    }}>cancel</button>
+                </div>
             </section>
             <h2>this is the admin page</h2>
             <button onClick={() => {
