@@ -8,11 +8,6 @@ export const Nav = () => {
     const navigate = useNavigate()
     return (
         <header className="navigation" id="navMenu">
-            <div id="logo">
-                <Link className="logo__icon" to="/">
-                    <h1 id="/" className="navigation__name">Home</h1>
-                </Link>
-            </div>
             <div id="navigation">
                 <Link id="carselloLogo" to="/">logo</Link>
                 <ul id="carselloNavigation">

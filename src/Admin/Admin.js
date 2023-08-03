@@ -119,46 +119,6 @@ export const Admin = () => {
             dimensions: ""
         })
     }
-    // const addArtForm = () => {
-    //     if (addArt) {
-    //         return (
-    //             <section id="addArtSection">
-    //                 <ArtForm
-    //                     piece={newPiece}
-    //                     update={updateNewPiece}
-    //                 />
-    //                 <div>
-    //                     <label>Primary image (set the name for the piece first)</label>
-    //                     <UploadWidget
-    //                         primeOrSupport={'prime'}
-    //                         urlSet={setArtImageUrl}
-    //                         imageName={newPiece.title} />
-    //                 </div>
-    //                 <div>
-    //                     <label>Other images</label>
-    //                     {/* working on the support images upload */}
-    //                     <UploadWidget
-    //                         primeOrSupport={'support'}
-    //                         otherImages={supportImages}
-    //                         setOtherImages={setSupportImages}
-    //                         imageName={newPiece.title} />
-    //                 </div>
-    //                 <button onClick={() => setAddArt(false)}>cancel</button>
-    //                 <button onClick={() => sendArt(newPiece)}>submit</button>
-    //             </section>
-    //         )
-    //     }
-    //     else {
-    //         return (
-    //             <section id="addArtSection">
-    //                 <button onClick={() => {
-    //                     setAddArt(true)
-    //                     setAddEvent(false)
-    //                 }}>add art</button>
-    //             </section>
-    //         )
-    //     }
-    // }
 
     const addEventForm = () => {
         if (addEvent) {
