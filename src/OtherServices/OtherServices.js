@@ -5,7 +5,7 @@ export const OtherServices = () => {
     return <>
         <main id="otherServicesContainer">
             <section className="otherServicesHeader">
-                <img className="otherServicesImage" src={curationImage} />
+                {/* <img className="otherServicesImage" src={curationImage} /> */}
                 <p className="serviceDescription xxLargeFont">
                     <div className="descriptionLine">I strive to curate accessible and adaptable art shows.</div>
                     {/* <div className="descriptionLine">I integrate accessibility into my practice by: teaching artists about hanging, framing, and art placement, assisting with install and uninstall, accommodating all scheduling needs, and negotiating a mutually beneficial agreement between the artists and venue.</div>

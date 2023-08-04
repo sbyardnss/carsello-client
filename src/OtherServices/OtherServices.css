@@ -28,7 +28,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: center;
     /* font-size: x-large;
     font-weight: 200; */
 }
