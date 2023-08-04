@@ -1,5 +1,5 @@
 html {
-  background-color: rgb(24, 14, 14);
+  background-color: rgb(9, 7, 7);
   color: whitesmoke;
 }
 body {
@@ -14,4 +14,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.serviceDescription {
+  font-size: x-large;
+  font-weight: 200;
 }

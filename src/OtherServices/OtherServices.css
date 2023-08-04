@@ -1,0 +1,22 @@
+#otherServicesContainer {
+    display: flex;
+    justify-content: center;
+}
+.otherServicesHeader {
+    display: flex;
+    width: 80%;
+}
+.otherServicesImage {
+    /* width: 40%; */
+    height: 10%;
+}
+.serviceDescription {
+    margin: 0 .25em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.descriptionLine {
+    margin-bottom: .5em;
+}
