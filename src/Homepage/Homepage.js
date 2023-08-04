@@ -18,9 +18,9 @@ export const Homepage = () => {
     )
     return <>
         <main id="homepageContainer">
-            <section id="logoSection">
+            {/* <section id="logoSection">
                 <img id="carselloLogo" src={carselloLogo} />
-            </section>
+            </section> */}
             <article id="offeredServices">
                 <section className="serviceSectionRight">
                     <h2 className="rotateLeftLabel">art</h2>

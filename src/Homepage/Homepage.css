@@ -10,20 +10,19 @@
 /* h2 {
     color: whitesmoke;
 } */
-#logoSection {
+/* #logoSection {
     display: flex;
     background-color: black;
     justify-content: center;
     width: 80%;
-    /* max-width: 800px; */
-    /* border: 1px solid lime; */
+
     margin-bottom: 1em;
 
-}
+} */
 
-#carselloLogo {
+/* #carselloLogo {
     width: 80%;
-}
+} */
 
 #offeredServices {
     display: flex;
@@ -78,9 +77,9 @@
     cursor: pointer;
 }
 
-.servicesImage:hover {
+/* .servicesImage:hover {
     filter: saturate(0%);
-}
+} */
 
 /* OLD STUFF */
 /* offered services section */
