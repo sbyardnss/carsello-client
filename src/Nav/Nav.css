@@ -10,14 +10,14 @@
     background-color: gray;
 }
 
-#carselloLogo {
+/* #carselloLogo {
     width: 15%;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     color: whitesmoke;
-}
+} */
 
 #carselloNavigation {
     display: flex;

@@ -2,9 +2,11 @@ import { getArt, getEvents } from "../ServerManager"
 import { useContext, useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 import "../Homepage/Homepage.css"
-import curationImage from "../Images/IMG_7556.jpg"
-import artImage from "../Images/artSectionImage.jpeg"
-import muralingImage from "../Images/muralingSectionImage.jpeg"
+import curationImage from "../Images/curationSectionImage.JPEG"
+import artImage from "../Images/artSectionImage.JPG"
+import muralingImage from "../Images/signageSectionImage.JPEG"
+import writingImage from "../Images/writingSectionImage.JPG"
+import carselloLogo from "../Images/lizzieLogo.jpg"
 export const Homepage = () => {
     const navigate = useNavigate()
     const [events, setEvents] = useState([])
@@ -17,23 +19,24 @@ export const Homepage = () => {
     return <>
         <main id="homepageContainer">
             <section id="logoSection">
-                <h1>logo</h1>
+                <img id="carselloLogo" src={carselloLogo} />
             </section>
             <article id="offeredServices">
                 <section className="serviceSectionRight">
                     <h2 className="rotateLeftLabel">art</h2>
-                    <img className="servicesImage" src={artImage} />
+                    <img className="servicesImage" src={artImage} onClick={() => navigate('/art')} />
                 </section>
                 <section className="serviceSectionLeft">
-                    <img className="servicesImage" src={curationImage} />
+                    <img className="servicesImage" src={curationImage} onClick={() => navigate('/curation')} />
                     <h2 className="rotateRightLabel">curation</h2>
                 </section>
                 <section className="serviceSectionRight">
                     <h2 className="rotateLeftLabel">display</h2>
-                    <img className="servicesImage" src={muralingImage} />
+                    <img className="servicesImage" src={muralingImage} onClick={() => navigate('/muraling')} />
                 </section>
                 <section className="serviceSectionLeft">
-
+                    <img className="servicesImage" src={writingImage} onClick={() => navigate('/curation')} />
+                    <h2 className="rotateRightLabel">writing</h2>
                 </section>
             </article>
             {/* old homepage */}
