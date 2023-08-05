@@ -12,7 +12,7 @@ export const Events = () => {
     )
     return <>
         <main id="eventsContainer">
-            <h2>Upcoming Events</h2>
+            <div className="customFontHead">Upcoming Events</div>
             <section id="eventsListContainer">
                 <ul id="eventsList">
                     {

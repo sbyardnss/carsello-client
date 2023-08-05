@@ -26,8 +26,8 @@ export const Nav = () => {
             {/* <section id="logoSection"> */}
             {/* </section> */}
             <div id={navigationId}>
-                {/* <img id={logoId} src={carselloLogo} onClick={()=> navigate("")}/> */}
-                <div id="nameLogoText" onClick={()=> navigate("")}>Lizzie Carsello</div>
+                <img id={logoId} src={carselloLogo} onClick={()=> navigate("")}/>
+                {/* <div id="nameLogoText" onClick={()=> navigate("")}>Lizzie Carsello</div> */}
                 {/* <Link id="carselloLogo" to="/">logo</Link> */}
                 <ul id="carselloNavigation">
                     <li><Link className="navLink" to="/art">art</Link></li>

@@ -22,13 +22,17 @@ export const Homepage = () => {
             {/* <section id="logoSection">
                 <img id="carselloLogo" src={carselloLogo} />
             </section> */}
-            <section id="homepageBackground">
+            {/* <section id="homepageBackground">
                 <img id="brokenKeyBack" src={brokenKey} />
-            </section>
+            </section> */}
             <article id="offeredServices">
-                {/* <section id="selfDescription">
-                    <p>nostalgia <br />familiarity<br />accessability <br /></p>
-                </section> */}
+                <section id="selfDescription">
+                    {/* <p>nostalgia <br />familiarity<br />accessability <br /></p> */}
+                    {/* <p>
+                        My pieces utilize varieties of shape and color to achieve balance and evoke emotional responses from the viewer. I derive shape inspirations from natural elements and exaggerate them into a more abstract form, creating nostalgic and familiar images.
+                    </p> */}
+                </section>
+                
                 <section className="serviceSectionRight">
                     <img className="servicesImage" src={artImage} onClick={() => navigate('/art')} />
                     <div className="rotateLeftLabel">art</div>
@@ -39,7 +43,7 @@ export const Homepage = () => {
                 </section>
                 <section className="serviceSectionRight">
                     <img className="servicesImage" src={muralingImage} onClick={() => navigate('/muraling')} />
-                    <div className="rotateLeftLabel">display</div>
+                    <div className="rotateLeftLabel">design</div>
                 </section>
                 <section className="serviceSectionLeft">
                     <img className="servicesImage" src={writingImage} onClick={() => navigate('/curation')} />

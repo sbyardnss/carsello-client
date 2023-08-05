@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     /* margin: 1em 0 0 0; */
-    background-color: rgb(93, 93, 93);
+    /* background-color: rgb(93, 93, 93); */
     color: whitesmoke;
 
     /* border: 1px solid orange; */
@@ -21,6 +21,7 @@ p {
     right: auto
 }
 #brokenKeyBack {
+    
     width: 100%;
     z-index: -100;
 
@@ -57,7 +58,7 @@ p {
     width: 80%;
     max-width: 800px;
     z-index: 1;
-
+    margin-top: 8em;
 }
 
 /* these two for sections to left */
@@ -109,7 +110,7 @@ p {
 }
 .servicesImage:hover + .rotateLeftLabel {
     transform: translateX(-10px) rotate(180deg);
-    color: yellow;
+    color: rgb(166, 83, 208);
 }
 
 
@@ -121,6 +122,7 @@ p {
     width: 60%;
     cursor: pointer;
     transition: transform .2s;
+    border-radius: 10px;
 }
 .servicesImage:hover {
     /* filter: saturate(0%); */

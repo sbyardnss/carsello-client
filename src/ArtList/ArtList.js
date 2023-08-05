@@ -25,6 +25,7 @@ export const ArtList = ({ art, setEdit }) => {
     return <>
         <main>
             <section id="artListContainer">
+                <h2>blurb</h2>
                 <ul id="artList">
                     {
                         artwork?.map(art => {

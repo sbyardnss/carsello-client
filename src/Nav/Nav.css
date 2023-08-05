@@ -1,7 +1,7 @@
 #navMenu {
     display: flex;
     justify-content: center;
-    background-color: rgb(93, 93, 93);
+    /* background-color: rgb(93, 93, 93); */
     color: whitesmoke;
 
 }
@@ -74,7 +74,7 @@
     cursor: pointer;
     -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
     filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
-    ;
+    align-self: flex-start;
 }
 
 #carselloLogoMini {
@@ -100,7 +100,7 @@
     max-height: 250px;
     margin: 0 .25em 0 0;
     list-style: none;
-    background-color: black;
+    /* background-color: black; */
 }
 
 .navLink {
