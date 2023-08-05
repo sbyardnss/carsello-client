@@ -28,19 +28,22 @@
     width: 90%;
     max-width: 960px;
     margin-top: 1em;
-
+    max-height: 250px;
     /* height: 70px; */
     /* background-color: gray; */
     /* background-color: rgb(24, 14, 14); */
     /* background-color: rgb(9, 7, 7); */
 
 }
+
 #navigationMini {
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 11;
-    width: 70%;
+    width: 90%;
+    max-width: 960px;
+    margin-top: 1em;
 }
 
 #logoSection {
@@ -52,6 +55,7 @@
     overflow: hidden;
 
 }
+
 #nameLogoText {
     font-size: 6vw;
     font-weight: 200;
@@ -60,9 +64,11 @@
     cursor: pointer;
     padding: .25rem;
 }
+
 #nameLogoText:hover {
     color: violet;
 }
+
 #carselloLogo {
     width: 65%;
     cursor: pointer;
@@ -70,6 +76,7 @@
     filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
     ;
 }
+
 #carselloLogoMini {
     width: 40%;
     cursor: pointer;
@@ -90,13 +97,15 @@
     /* right: 10%;
     width: 50%; */
     height: 100%;
+    max-height: 250px;
     margin: 0 .25em 0 0;
     list-style: none;
     background-color: black;
 }
 
 .navLink {
-    font-size: 5vw;
+    /* font-size: 5vw; */
+    font-size: min(max(30px, 4vw), 5vw);
     font-weight: 200;
     text-decoration: none;
     /* color: black; */

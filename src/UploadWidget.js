@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react"
 export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet }) => {
     const cloudinaryRef = useRef()
     const widgetRef = useRef()
-
+    const cloudinaryName = process.env.CLOUDINARY_NAME
+    const cloudinaryPreset = process.env.CLOUDINARY_PRESET
     useEffect(
         () => {
             cloudinaryRef.current = window.cloudinary;

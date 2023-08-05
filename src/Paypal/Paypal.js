@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { quantityDecrease, sendNewOrder } from "../ServerManager";
 
 export const PayPal = ({ item, resetArt, purchaseSet }) => {
+    const paypalClientId = process.env.PAYPAL_CLIENT_ID
     const [paypalReturnOrder, setPaypalReturnOrder] = useState({})
     const [newOrder, updateNewOrder] = useState({
         ordered_item: 0,
