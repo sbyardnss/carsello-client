@@ -4,10 +4,10 @@ export const OtherServices = () => {
 
     return <>
         <main id="otherServicesContainer">
-            <section className="otherServicesHeader">
+            <section className="otherServicesInfo">
                 {/* <img className="otherServicesImage" src={curationImage} /> */}
                 <p className="serviceDescription xxLargeFont">
-                    <div className="descriptionLine">I strive to curate accessible and adaptable art shows.</div>
+                    <div className="descriptionLine">I strive to curate <span className="blueHighlight">accessible</span> and <span className="blueHighlight">adaptable</span> art shows.</div>
                     {/* <div className="descriptionLine">I integrate accessibility into my practice by: teaching artists about hanging, framing, and art placement, assisting with install and uninstall, accommodating all scheduling needs, and negotiating a mutually beneficial agreement between the artists and venue.</div>
                     <div className="descriptionLine">Additionally, I seek artists with a variety of experience levels and love guiding folks through the process of their first show.</div>
                     <div className="descriptionLine">I have curated art shows for Fido, Bongo Belmont, Game Point Cafe, and Planned Parenthood.</div> */}
@@ -20,7 +20,7 @@ export const OtherServices = () => {
                 </p>
 
             </section>
-            <section className="otherServicesHeader">
+            <section className="otherServicesInfo">
                 <p className="serviceDescription">
                     <div className="descriptionLine mediumFont">I integrate accessibility into my practice by: teaching artists about hanging, framing, and art placement, assisting with install and uninstall, accommodating all scheduling needs, and negotiating a mutually beneficial agreement between the artists and venue.</div>
                 </p>

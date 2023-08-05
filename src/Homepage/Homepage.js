@@ -23,16 +23,16 @@ export const Homepage = () => {
             </section> */}
             <article id="offeredServices">
                 <section className="serviceSectionRight">
-                    <h2 className="rotateLeftLabel">art</h2>
                     <img className="servicesImage" src={artImage} onClick={() => navigate('/art')} />
+                    <h2 className="rotateLeftLabel">art</h2>
                 </section>
                 <section className="serviceSectionLeft">
                     <img className="servicesImage" src={curationImage} onClick={() => navigate('/curation')} />
                     <h2 className="rotateRightLabel">curation</h2>
                 </section>
                 <section className="serviceSectionRight">
-                    <h2 className="rotateLeftLabel">display</h2>
                     <img className="servicesImage" src={muralingImage} onClick={() => navigate('/muraling')} />
+                    <h2 className="rotateLeftLabel">display</h2>
                 </section>
                 <section className="serviceSectionLeft">
                     <img className="servicesImage" src={writingImage} onClick={() => navigate('/curation')} />

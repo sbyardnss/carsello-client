@@ -29,47 +29,56 @@
     flex-direction: column;
     width: 80%;
     max-width: 800px;
-    /* border: 1px solid red; */
 }
 
 /* these two for sections to left */
 .rotateRightLabel {
     writing-mode: vertical-rl;
-    margin: 0 .4em 0 .4em;
+    margin: 0 .6em;
     font-size: 4em;
     line-height: 0%;
-}
+    transition: transform .2s;
 
+}
 .serviceSectionLeft {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    /* height: fit-content; */
     width: 100%;
     margin-bottom: 1em;
 
 }
+.servicesImage:hover + .rotateRightLabel {
+    transform: translateX(10px);
+    color: yellow;
+}
+
 
 /* these two for sections to right */
 .rotateLeftLabel {
     writing-mode: vertical-rl;
-    margin: 0 .4em 0 .4em;
+    margin: 0 .6em 0 .4em;
     font-size: 4em;
     line-height: 0%;
     transform: rotate(180deg);
+    transition: transform .2s;
 
 }
 
 .serviceSectionRight {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
     align-items: flex-start;
     /* height: fit-content; */
     width: 100%;
     margin-bottom: 1em;
-
-
 }
+.servicesImage:hover + .rotateLeftLabel {
+    transform: translateX(-10px) rotate(180deg);
+    color: violet;
+}
+
 
 .servicesImage {
     /* width: 20em; */
@@ -77,95 +86,9 @@
     cursor: pointer;
     transition: transform .2s;
 }
-
 .servicesImage:hover {
     /* filter: saturate(0%); */
     transform: scale(1.05);
+    
 }
 
-/* OLD STUFF */
-/* offered services section */
-/* 
-#homepageContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-
-    border: 1px solid orange;
-}
-#servicesOfferedList {
-    display: flex;
-    flex-direction: column;
-    width: 30em;
-    align-items: center;
-    background: linear-gradient(129deg, rgba(99, 7, 94, 1) 0%, rgba(87, 54, 124, 1) 53%);
-    padding: .5em;
-    color: whitesmoke;
-}
-
-.offeredServiceLi {
-    background-color: rgb(245, 245, 245, 20%);
-    padding: .5em;
-    margin: .25em;
-    width: 90%;
-}
-
-
-#commissionDiv {
-    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-    text-align: center;
-    cursor: pointer;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#commissionDiv:hover {
-    width: 100%;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#curationDiv {
-    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-    text-align: center;
-    cursor: pointer;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#curationDiv:hover {
-    width: 100%;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#writingDiv {
-    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-    text-align: center;
-    cursor: pointer;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#writingDiv:hover {
-    width: 100%;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-}
-#muralingDiv {
-    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-    text-align: center;
-    cursor: pointer;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#muralingDiv:hover {
-    width: 100%;
-    transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-#homepageEventsList {
-    width: fit-content;
-    margin-left: 1em;
-}
-
-.homeEventListItem {
-    margin: .5em 0;
-}
-.eventLITitle {
-    font-weight: 700;
-    font-size: small;
-}
-
-.eventLILogistics {
-    font-size: x-small;
-} */
