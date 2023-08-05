@@ -114,6 +114,9 @@ p {
 
 .servicesImage {
     /* width: 20em; */
+    max-height: 22em;
+    object-fit: cover;
+    display: flex;
     width: 60%;
     cursor: pointer;
     transition: transform .2s;
