@@ -24,19 +24,19 @@ export const Homepage = () => {
             <article id="offeredServices">
                 <section className="serviceSectionRight">
                     <img className="servicesImage" src={artImage} onClick={() => navigate('/art')} />
-                    <h2 className="rotateLeftLabel">art</h2>
+                    <div className="rotateLeftLabel">art</div>
                 </section>
                 <section className="serviceSectionLeft">
                     <img className="servicesImage" src={curationImage} onClick={() => navigate('/curation')} />
-                    <h2 className="rotateRightLabel">curation</h2>
+                    <div className="rotateRightLabel">curation</div>
                 </section>
                 <section className="serviceSectionRight">
                     <img className="servicesImage" src={muralingImage} onClick={() => navigate('/muraling')} />
-                    <h2 className="rotateLeftLabel">display</h2>
+                    <div className="rotateLeftLabel">display</div>
                 </section>
                 <section className="serviceSectionLeft">
                     <img className="servicesImage" src={writingImage} onClick={() => navigate('/curation')} />
-                    <h2 className="rotateRightLabel">writing</h2>
+                    <div className="rotateRightLabel">writing</div>
                 </section>
             </article>
             {/* old homepage */}
