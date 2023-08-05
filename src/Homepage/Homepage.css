@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1em 0 0 0;
+    /* margin: 1em 0 0 0; */
+    background-color: rgb(93, 93, 93);
+    color: whitesmoke;
 
     /* border: 1px solid orange; */
 }
@@ -25,8 +27,9 @@ p {
 #selfDescription {
     display: flex;
     justify-content: flex-start;
-    height: 300px;
-    font-size: 60px;
+    /* height: 20vw; */
+    margin-bottom: 1em;
+    font-size: 8vw;
     font-weight: 100;
 }
 

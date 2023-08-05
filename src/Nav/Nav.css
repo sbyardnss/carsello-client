@@ -1,6 +1,9 @@
 #navMenu {
     display: flex;
     justify-content: center;
+    background-color: rgb(93, 93, 93);
+    color: whitesmoke;
+
 }
 
 /* old navigation version */
@@ -50,11 +53,12 @@
 
 }
 #nameLogoText {
-    font-size: 40px;
+    font-size: 6vw;
     font-weight: 200;
     margin-left: .25em;
     background-color: black;
     cursor: pointer;
+    padding: .25rem;
 }
 #nameLogoText:hover {
     color: violet;
@@ -80,8 +84,7 @@
     align-items: flex-end;
     justify-content: space-around;
     margin-right: 0;
-    font-size: xx-large;
-    font-weight: 200;
+    padding: 0 0 0 .5em;
     /* position: fixed; */
     /* top: 20px; */
     /* right: 10%;
@@ -93,6 +96,8 @@
 }
 
 .navLink {
+    font-size: 5vw;
+    font-weight: 200;
     text-decoration: none;
     /* color: black; */
     color: whitesmoke;
