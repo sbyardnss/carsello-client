@@ -2,7 +2,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 80px;
+    margin-top: 2em;
     /* width: 90%; */
 }
 #artList {
@@ -33,5 +33,6 @@
     display: flex;
     /* min-height: 14em; */
     max-width: 100%;
+    cursor: pointer;
 }
 

@@ -6,6 +6,7 @@ import curationImage from "../Images/curationSectionImage.JPEG"
 import artImage from "../Images/artSectionImage.JPG"
 import muralingImage from "../Images/signageSectionImage.JPEG"
 import writingImage from "../Images/writingSectionImage.JPG"
+import brokenKey from "../Images/brokenKey.jpg"
 // import carselloLogo from "../Images/lizzieLogo.jpg"
 export const Homepage = () => {
     const navigate = useNavigate()
@@ -21,7 +22,14 @@ export const Homepage = () => {
             {/* <section id="logoSection">
                 <img id="carselloLogo" src={carselloLogo} />
             </section> */}
+            <section id="homepageBackground">
+                <img id="brokenKeyBack" src={brokenKey} />
+            </section>
             <article id="offeredServices">
+                <section id="selfDescription">
+                    <p>nostalgia <br />familiarity<br />accessability <br /></p>
+                    {/* <p>I derive shape inspirations from natural elements and exaggerate them into a more abstract form, creating nostalgic and familiar images</p> */}
+                </section>
                 <section className="serviceSectionRight">
                     <img className="servicesImage" src={artImage} onClick={() => navigate('/art')} />
                     <div className="rotateLeftLabel">art</div>

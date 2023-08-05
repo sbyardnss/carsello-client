@@ -6,6 +6,29 @@
 
     /* border: 1px solid orange; */
 }
+p {
+    margin: 0;
+}
+
+#homepageBackground {
+    width: 92%;
+    max-width: 960px;
+    position: absolute;
+    top: 1%;
+    left: auto;
+    right: auto
+}
+#brokenKeyBack {
+    width: 100%;
+    z-index: -100;
+}
+#selfDescription {
+    display: flex;
+    justify-content: flex-start;
+    height: 300px;
+    font-size: 60px;
+    font-weight: 100;
+}
 
 /* h2 {
     color: whitesmoke;
@@ -29,6 +52,8 @@
     flex-direction: column;
     width: 80%;
     max-width: 800px;
+    z-index: 1;
+
 }
 
 /* these two for sections to left */
@@ -51,7 +76,7 @@
 }
 .servicesImage:hover + .rotateRightLabel {
     transform: translateX(10px);
-    color: purple;
+    color: aqua;
 }
 
 
@@ -76,10 +101,11 @@
     /* height: fit-content; */
     width: 100%;
     margin-bottom: 1em;
+
 }
 .servicesImage:hover + .rotateLeftLabel {
     transform: translateX(-10px) rotate(180deg);
-    color: violet;
+    color: yellow;
 }
 
 
