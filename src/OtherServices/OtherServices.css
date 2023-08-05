@@ -15,6 +15,9 @@
 .blueHighlight {
     color: aqua;
 }
+.yellowHighlight {
+    color: violet;
+}
 .otherServicesInfo {
     display: flex;
     width: 80%;
@@ -37,6 +40,4 @@
 }
 
 
-.descriptionLine {
-    /* margin-bottom: .5em; */
-}
+

@@ -6,7 +6,7 @@ import curationImage from "../Images/curationSectionImage.JPEG"
 import artImage from "../Images/artSectionImage.JPG"
 import muralingImage from "../Images/signageSectionImage.JPEG"
 import writingImage from "../Images/writingSectionImage.JPG"
-import carselloLogo from "../Images/lizzieLogo.jpg"
+// import carselloLogo from "../Images/lizzieLogo.jpg"
 export const Homepage = () => {
     const navigate = useNavigate()
     const [events, setEvents] = useState([])

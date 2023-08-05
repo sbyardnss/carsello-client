@@ -3,7 +3,7 @@ import "./Nav.css"
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"
 import "./Nav.css"
-import carselloLogo from "../Images/lizzieLogo.jpg"
+import carselloLogo from "../Images/LizzieLogo.png"
 export const Nav = () => {
     const navigate = useNavigate()
     return (

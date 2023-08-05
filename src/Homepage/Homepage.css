@@ -35,7 +35,7 @@
 .rotateRightLabel {
     writing-mode: vertical-rl;
     margin: 0 .6em;
-    font-size: 4em;
+    font-size: 9vw;
     font-weight: 600;
     line-height: 0%;
     transition: transform .2s;
@@ -51,7 +51,7 @@
 }
 .servicesImage:hover + .rotateRightLabel {
     transform: translateX(10px);
-    color: yellow;
+    color: purple;
 }
 
 
@@ -59,7 +59,8 @@
 .rotateLeftLabel {
     writing-mode: vertical-rl;
     margin: 0 .6em 0 .4em;
-    font-size: 4em;
+    /* font-size: 4em; */
+    font-size: 9vw;
     font-weight: 600;
     line-height: 0%;
     transform: rotate(180deg);

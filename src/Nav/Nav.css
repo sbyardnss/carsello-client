@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
 }
+
 /* old navigation version */
 /* #navigation {
     display: flex;
@@ -21,24 +22,30 @@
     /* position: fixed; */
     z-index: 11;
     /* top: 0; */
-    width: 80%;
+    width: 90%;
     /* height: 70px; */
     /* background-color: gray; */
     /* background-color: rgb(24, 14, 14); */
-    background-color: rgb(9, 7, 7);
+    /* background-color: rgb(9, 7, 7); */
 
 }
+
 #logoSection {
     display: flex;
     background-color: black;
     justify-content: center;
     width: 80%;
     margin-bottom: 1em;
+    overflow: hidden;
 
 }
+
 #carselloLogo {
-    width: 40%;
+    width: 65%;
     cursor: pointer;
+    -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+    filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+    ;
 }
 
 #carselloNavigation {
@@ -57,10 +64,13 @@
     margin: 0 .25em 0 0;
     list-style: none;
 }
+
 .navLink {
     text-decoration: none;
-    color: whitesmoke;
+    color: black;
+    /* color: whitesmoke; */
 }
+
 .navLink:hover {
-    color:aqua
+    color: purple
 }
