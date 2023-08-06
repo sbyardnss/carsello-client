@@ -65,6 +65,7 @@ code {
 
 .servicePageImage {
   height: 250px;
+  /* width: 45%; */
   margin: 1em;
 }
 
@@ -72,7 +73,7 @@ code {
   margin: 1em 0;
 }
 .descriptionBlock {
-  min-width: 60%;
+  min-width: 45%;
   height: auto;
   flex:2;
 }
