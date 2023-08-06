@@ -32,8 +32,12 @@ export const Nav = () => {
                 <ul id="carselloNavigation">
                     <li><Link className="navLink" to="/art">art</Link></li>
                     <li><Link className="navLink" to="/events">events</Link></li>
-                    <li><Link className="navLink" to="/otherServices">other services</Link></li>
-                    <li><Link className="navLink" to="/admin">admin</Link></li>
+                    <li><Link className="navLink" to="/curation">curation</Link></li>
+                    {/* <li><Link className="navLink" to="/admin">admin</Link></li> */}
+                    <li><Link className="navLink" to="/design">design</Link></li>
+                    <li><Link className="navLink" to="/writing">writing</Link></li>
+                    
+
                 </ul>
             </div>
         </header>

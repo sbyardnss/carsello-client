@@ -7,7 +7,8 @@ import { Admin } from "./Admin/Admin"
 import { Authorized } from "./Authorized"
 import { Login } from "./Auth/login"
 import { ArtList } from "./ArtList/ArtList"
-import { OtherServices } from "./OtherServices/OtherServices"
+import { Curation } from "./Curation/Curation"
+import { Design } from "./Design/Design"
 
 export const ApplicationViews = () => {
     return (
@@ -23,10 +24,11 @@ export const ApplicationViews = () => {
                     <Homepage />
                     // </ArtProvider>
                 } />
-                <Route path="art" element={<ArtList /> } />
+                <Route path="art" element={<ArtList />} />
                 <Route path="art/:artId" element={<PieceInspection />} />
                 <Route path="events" element={<Events />} />
-                <Route path="otherServices" element={<OtherServices />} />
+                <Route path="curation" element={<Curation />} />
+                <Route path="design" element={<Design />} />
                 <Route path="admin" element={
                     <Authorized>
                         <Admin />
