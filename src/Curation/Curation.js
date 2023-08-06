@@ -1,7 +1,10 @@
+import { useEffect } from "react"
 import "../Curation/Curation.css"
 import curationImage from "../Images/curationSectionImage.JPEG"
 export const Curation = () => {
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return <>
         <main className="serviceContainer">
             <section className="serviceInfo">
@@ -22,7 +25,7 @@ export const Curation = () => {
             </section> */}
             <section className="serviceInfo">
                 <div className="descriptionBlock mediumFont">
-                    Additionally, I seek artists with a variety of experience levels and love guiding folks through the process of their first show.  I have curated art shows for Fido, Bongo Belmont, Game Point Cafe, and Planned Parenthood.<br/><br/>
+                    Additionally, I seek artists with a variety of experience levels and love guiding folks through the process of their first show.  I have curated art shows for Fido, Bongo Belmont, Game Point Cafe, and Planned Parenthood.<br /><br />
 
                     The process break down:
                     -We set up a meeting  and discuss your goals and vision for your space and coordinate logistics.

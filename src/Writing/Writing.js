@@ -1,8 +1,11 @@
+import { useEffect } from "react"
 import writingImage from "../Images/writingSectionImage.JPG"
 
 export const Writing = () => {
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return <>
         <main className="serviceContainer">
             <section className="serviceInfo">

@@ -42,11 +42,11 @@ export const Homepage = () => {
                     <div className="rotateRightLabel">curation</div>
                 </section>
                 <section className="serviceSectionRight">
-                    <img className="servicesImage" src={muralingImage} onClick={() => navigate('/muraling')} />
+                    <img className="servicesImage" src={muralingImage} onClick={() => navigate('/design')} />
                     <div className="rotateLeftLabel">design</div>
                 </section>
                 <section className="serviceSectionLeft">
-                    <img className="servicesImage" src={writingImage} onClick={() => navigate('/curation')} />
+                    <img className="servicesImage" src={writingImage} onClick={() => navigate('/writing')} />
                     <div className="rotateRightLabel">writing</div>
                 </section>
             </article>
