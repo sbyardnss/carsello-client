@@ -57,6 +57,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   width: 80%;
   max-width: 960px;
   margin-bottom: 1em;
@@ -72,14 +73,14 @@ code {
 }
 .descriptionBlock {
   min-width: 50%;
+  height: auto;
   flex:2;
 }
 
-.serviceDescription {
+/* .serviceDescription {
   display: flex;
- 
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 100%;
-}
+} */

@@ -10,12 +10,12 @@ export const Curation = () => {
                 </div>
             </section>
             <section className="serviceInfo">
-                <div className="serviceDescription">
+                {/* <div className="serviceDescription"> */}
                     <div className="descriptionBlock mediumFont">
                         I integrate accessibility into my practice by: teaching artists about hanging, framing, and art placement, assisting with install and uninstall, accommodating all scheduling needs, and negotiating a mutually beneficial agreement between the artists and venue.
                     </div>
-                </div>
-                <img className="servicePageImage" src={curationImage} />
+                    <img className="servicePageImage" src={curationImage} />
+                {/* </div> */}
             </section>
         </main>
     </>
