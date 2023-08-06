@@ -9,6 +9,7 @@ import { Login } from "./Auth/login"
 import { ArtList } from "./ArtList/ArtList"
 import { Curation } from "./Curation/Curation"
 import { Design } from "./Design/Design"
+import { Writing } from "./Writing/Writing"
 
 export const ApplicationViews = () => {
     return (
@@ -29,6 +30,7 @@ export const ApplicationViews = () => {
                 <Route path="events" element={<Events />} />
                 <Route path="curation" element={<Curation />} />
                 <Route path="design" element={<Design />} />
+                <Route path="writing" element={<Writing />} />
                 <Route path="admin" element={
                     <Authorized>
                         <Admin />

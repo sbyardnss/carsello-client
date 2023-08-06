@@ -72,7 +72,7 @@ code {
   margin: 1em 0;
 }
 .descriptionBlock {
-  min-width: 50%;
+  min-width: 60%;
   height: auto;
   flex:2;
 }
