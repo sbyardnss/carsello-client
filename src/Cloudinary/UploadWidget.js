@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react"
 
-
 export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet }) => {
     const cloudinaryRef = useRef()
     const widgetRef = useRef()

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import UploadWidget from "../UploadWidget";
+import UploadWidget from "../Cloudinary/UploadWidget";
 import "../Admin/Admin.css"
 import { useEffect, useRef, useState } from "react";
 import { ArtForm } from "./ArtForm";
@@ -196,7 +196,7 @@ export const Admin = () => {
             )
         })
     }
-    console.log(newPiece)
+    // console.log(newPiece)
     return <>
         <main id="adminContainer">
             <section id="editArtModal">
