@@ -1,13 +1,23 @@
-#homepageContainer {
+/* #homepageContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: 1em 0 0 0; */
-    /* background-color: rgb(93, 93, 93); */
     color: whitesmoke;
+} */
+/* #backgroundDesignUnder {
+    width: 160%;
+    position: absolute;
+    filter: opacity(50%);
+    top: 50%;
 
-    /* border: 1px solid orange; */
 }
+#backgroundDesignOver {
+    width: 160%;
+    filter: opacity(50%);
+
+    position: absolute;
+    top: 50%;
+} */
 p {
     margin: 0;
 }
@@ -130,3 +140,85 @@ p {
     
 }
 
+
+@media screen and (min-width:641px) {
+    #homepageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: whitesmoke;
+        background-image: url("../Images/fullOpaque.png");
+        background-size: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+    }
+    #fullBackground {
+        width: 160%;
+        position: absolute;
+        filter: opacity(50%);
+        top: 50%;
+    }
+    /* #backgroundDesignUnder {
+        width: 160%;
+        position: absolute;
+        filter: opacity(50%);
+        top: 50%;
+    
+    }
+    #backgroundDesignOver {
+        width: 160%;
+        filter: opacity(50%);
+    
+        position: absolute;
+        top: 50%;
+    } */
+    #sparklesContainer {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        margin: 2em 0;
+        filter: opacity(70%);
+    }
+    .sparkle {
+        width: 20%;
+    }
+    
+}
+
+@media screen and (min-width:320px) and (max-width: 640px) {
+    #homepageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: whitesmoke;
+        background-image: url("../Images/mobileOpaque.png");
+        background-size: 120%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+    }
+    /* #backgroundContainer {
+        position: absolute;
+        top: 25%;
+        width: 100%;
+    }
+    #fullBackground {
+        width: 100%;
+        filter: opacity(50%);
+    }
+    #mobileBackground {
+        width: 60%;
+        position: relative;
+        left: 50%;
+        filter: opacity(50%);
+    } */
+    #sparklesContainer {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        margin: 2em 0;
+        filter: opacity(70%);
+    }
+    .sparkle {
+        width: 20%;
+    }
+}
