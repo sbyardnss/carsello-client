@@ -6,7 +6,7 @@ import curationImage from "../Images/curationSectionImage.JPEG"
 import artImage from "../Images/artSectionImage.JPG"
 import muralingImage from "../Images/signageSectionImage.JPEG"
 import writingImage from "../Images/writingSectionImage.JPG"
-import sparkles from "../Images/sparkles.png"
+// import sparkles from "../Images/sparkles.png"
 import mobileBackground from "../Images/mobileOpaque.png"
 import fullBackground from "../Images/fullOpaque.png"
 // import backgroundDesign from "../Images/carselloBackgroundFull.png"
@@ -59,9 +59,9 @@ export const Homepage = () => {
                     <div className="rotateRightLabel">writing</div>
                 </section>
             </article>
-            <section id="sparklesContainer">
+            {/* <section id="sparklesContainer">
                 <img className="sparkle" src={sparkles}/>
-            </section>
+            </section> */}
         </main>
     </>
 }

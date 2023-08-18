@@ -28,7 +28,7 @@ export const Curation = () => {
                     Additionally, I seek artists with a variety of experience levels and love guiding folks through the process of their first show.  I have curated art shows for Fido, Bongo Belmont, Game Point Cafe, and Planned Parenthood.<br /><br />
 
                     The process break down:<br />
-                    <ul>
+                    <ul className="opaqueCard">
                         <li>We set up a meeting  and discuss your goals and vision for your space and coordinate logistics.</li>
                         <li>I find artists compatible with your vision.</li>
                         <li>I coordinate and install the show.</li>

@@ -26,6 +26,7 @@
 import { Route, Routes } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { Nav } from "./Nav/Nav"
+import { Footer } from "./Footer/Footer"
 
 export const Carsello = () => {
   return <Routes>
@@ -33,6 +34,7 @@ export const Carsello = () => {
       <>
         <Nav />
         <ApplicationViews />
+        <Footer />
       </>
     } />
   </Routes>

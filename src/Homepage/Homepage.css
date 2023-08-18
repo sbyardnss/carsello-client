@@ -175,7 +175,7 @@ p {
         position: absolute;
         top: 50%;
     } */
-    #sparklesContainer {
+    /* #sparklesContainer {
         width: 50%;
         display: flex;
         justify-content: space-around;
@@ -184,7 +184,7 @@ p {
     }
     .sparkle {
         width: 20%;
-    }
+    } */
     
 }
 
@@ -214,7 +214,7 @@ p {
         left: 50%;
         filter: opacity(50%);
     } */
-    #sparklesContainer {
+    /* #sparklesContainer {
         width: 50%;
         display: flex;
         justify-content: space-around;
@@ -223,5 +223,5 @@ p {
     }
     .sparkle {
         width: 20%;
-    }
+    } */
 }

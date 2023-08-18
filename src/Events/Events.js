@@ -21,7 +21,7 @@ export const Events = () => {
                             const printedDate = date.toDateString()
                             const time = date.toLocaleTimeString('en-us', {hour: 'numeric', minute: 'numeric'})
                             return (
-                                <li className="eventsListItem" key={e.id}>
+                                <li className="eventsListItem opaqueCard" key={e.id}>
                                     <div className="eventInfo">
                                         <div>{e.title}</div>
                                         <div>{e.location}</div>

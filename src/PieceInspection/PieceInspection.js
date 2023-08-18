@@ -31,7 +31,7 @@ export const PieceInspection = () => {
     )
     return <>
         <main id="pieceInspectionContainer">
-            <article id="paymentAndDisplay">
+            <article id="paymentAndDisplay" className="opaqueCard">
                 <div id="pieceInspectionImageContainer">
                     <img className="pieceInspectionPiece" src={selectedArt.primary_image} />
                 </div>

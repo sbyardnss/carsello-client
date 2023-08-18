@@ -33,6 +33,7 @@ code {
   /* justify-content: center; */
   flex-direction: column;
   align-items: center;
+  /* margin-bottom: 6em; */
 }
 
 .xxLargeFont {
@@ -79,7 +80,10 @@ code {
   flex:2;
 }
 .opaqueCard {
-  background-color: aliceblue;
+  background-color: rgb(55, 55, 55);
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
 }
 /* .serviceDescription {
   display: flex;
