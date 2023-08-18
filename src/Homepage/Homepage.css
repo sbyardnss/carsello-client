@@ -75,7 +75,10 @@ p {
 .rotateRightLabel {
     writing-mode: vertical-rl;
     margin: 0 .6em;
-    font-size: 9vw;
+    /* font-size: 9vw; */
+    font-size: min(max(16px, 9vw), 90px);
+
+
     font-weight: 600;
     line-height: 0%;
     transition: transform .2s;

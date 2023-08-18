@@ -78,7 +78,9 @@ code {
   height: auto;
   flex:2;
 }
-
+.opaqueCard {
+  background-color: aliceblue;
+}
 /* .serviceDescription {
   display: flex;
   flex-wrap: wrap;

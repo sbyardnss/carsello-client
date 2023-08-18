@@ -9,10 +9,7 @@ import writingImage from "../Images/writingSectionImage.JPG"
 import sparkles from "../Images/sparkles.png"
 import mobileBackground from "../Images/mobileOpaque.png"
 import fullBackground from "../Images/fullOpaque.png"
-import backgroundOver from "../Images/carselloBackgroundOverlap.png"
-import backgroundUnder from "../Images/carselloBackgroundUnder.png"
 // import backgroundDesign from "../Images/carselloBackgroundFull.png"
-import brokenKey from "../Images/brokenKey.jpg"
 // import carselloLogo from "../Images/lizzieLogo.jpg"
 export const Homepage = () => {
     const navigate = useNavigate()
