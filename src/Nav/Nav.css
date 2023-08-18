@@ -22,18 +22,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* position: fixed; */
     z-index: 11;
-    /* top: 0; */
     width: 90%;
     max-width: 960px;
     margin-top: 1em;
     max-height: 350px;
-    /* height: 70px; */
-    /* background-color: gray; */
-    /* background-color: rgb(24, 14, 14); */
-    /* background-color: rgb(9, 7, 7); */
-
 }
 
 #navigationMini {
@@ -44,6 +37,7 @@
     width: 90%;
     max-width: 960px;
     margin-top: 1em;
+    
 }
 
 #logoSection {
@@ -75,6 +69,8 @@
     -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
     filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
     align-self: flex-start;
+    transition: width .1s ease-in-out;
+
 }
 
 #carselloLogoMini {
@@ -82,8 +78,7 @@
     cursor: pointer;
     -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
     filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
-    ;
-}
+    transition: width .1s ease-in-out;}
 
 #carselloNavigation {
     display: flex;

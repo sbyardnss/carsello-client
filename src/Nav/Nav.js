@@ -19,25 +19,20 @@ export const Nav = () => {
                 setLogoId("carselloLogo")
                 setNavigationId("navigation")
             }
-        },[location]
+        }, [location]
     )
     return (
         <header id="navMenu">
-            {/* <section id="logoSection"> */}
-            {/* </section> */}
+
             <div id={navigationId}>
-                <img id={logoId} src={carselloLogo} onClick={()=> navigate("")}/>
-                {/* <div id="nameLogoText" onClick={()=> navigate("")}>Lizzie Carsello</div> */}
-                {/* <Link id="carselloLogo" to="/">logo</Link> */}
+                <img id={logoId} src={carselloLogo} onClick={() => navigate("")} />
+                
                 <ul id="carselloNavigation">
                     <li><Link className="navLink" to="/art">art</Link></li>
                     <li><Link className="navLink" to="/events">events</Link></li>
                     <li><Link className="navLink" to="/curation">curation</Link></li>
-                    {/* <li><Link className="navLink" to="/admin">admin</Link></li> */}
                     <li><Link className="navLink" to="/design">design</Link></li>
                     <li><Link className="navLink" to="/writing">writing</Link></li>
-                    
-
                 </ul>
             </div>
         </header>
