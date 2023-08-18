@@ -9,6 +9,7 @@ export const Nav = () => {
     const [navigationId, setNavigationId] = useState("navigation")
     const location = useLocation()
     const navigate = useNavigate()
+    const nav = useRef()
     useEffect(
         () => {
             if (location.pathname !== "/") {
@@ -21,18 +22,37 @@ export const Nav = () => {
             }
         }, [location]
     )
+
+    const check = (e) => {
+        if (e.target.checked === true) {
+            // document.getElementById(e.target.id).checked = false
+            // document.body.style.overflow = 'unset'
+            return false
+        }
+        else {
+            // document.getElementById(e.target.id).checked = true
+            
+            // document.body.style.overflow = 'hidden'
+            return true
+        }
+    }
+    const closeMenuOnNavigate = () => {
+        document.getElementById("active").checked = false
+    }
     return (
         <header id="navMenu">
-
             <div id={navigationId}>
                 <img id={logoId} src={carselloLogo} onClick={() => navigate("")} />
-                
+                {/* <div>Lizzie Carsello</div> */}
+                <input type="checkbox" id="active" ref={nav} onClick={() => check} />
+                <label htmlFor="active" className="menu-btn" ><span></span></label>
+                <label htmlFor="inactive" className="close"></label>
                 <ul id="carselloNavigation">
-                    <li><Link className="navLink" to="/art">art</Link></li>
-                    <li><Link className="navLink" to="/events">events</Link></li>
-                    <li><Link className="navLink" to="/curation">curation</Link></li>
-                    <li><Link className="navLink" to="/design">design</Link></li>
-                    <li><Link className="navLink" to="/writing">writing</Link></li>
+                    <li><Link className="navLink" onClick={() => closeMenuOnNavigate()} to="/art">art</Link></li>
+                    <li><Link className="navLink" onClick={() => closeMenuOnNavigate()} to="/events">events</Link></li>
+                    <li><Link className="navLink" onClick={() => closeMenuOnNavigate()} to="/curation">curation</Link></li>
+                    <li><Link className="navLink" onClick={() => closeMenuOnNavigate()} to="/design">design</Link></li>
+                    <li><Link className="navLink" onClick={() => closeMenuOnNavigate()} to="/writing">writing</Link></li>
                 </ul>
             </div>
         </header>
