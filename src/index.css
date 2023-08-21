@@ -84,6 +84,9 @@ code {
   border: none;
   border-radius: 10px;
 }
+.opaqueCard li {
+  margin-bottom: .5em;
+}
 
 @media screen and (min-width: 641px) {
   .xxLargeFont {

@@ -9,21 +9,34 @@
     margin-top: 1em;
 }
 #eventsListContainer{
-    /* width: 100vw; */
+    /* width: 100%; */
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
 }
 #eventsList {
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
 .eventsListItem {
     margin: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: inherit;
+}
+.eventLogistics {
+    margin-top: 1em;
+}
+.eventLink {
+    margin-top: 1em;
 }
 
-
+.eventDescription {
+    margin-top: 1em;
+}
 
 @media screen and (min-width: 641px) {
     .eventImage {
@@ -32,10 +45,14 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
+    #eventsList {
+        max-width: 90%;
+    }
     .eventsListItem {
-        
+        margin: 0 0 1em 0;
     }
     .eventImage {
-        width: 6em;
+        display: none;
+        /* width: 6em; */
     }
 }

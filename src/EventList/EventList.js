@@ -4,7 +4,7 @@ import "../EventList/EventList.css"
 export const EventList = ({ myEvents }) => {
     const navigate = useNavigate()
     return <>
-        <ul id="eventList">
+        <ul id="eventsAdminList">
             {
                 myEvents?.map(event => {
                     return (

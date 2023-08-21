@@ -11,7 +11,6 @@ export const Events = () => {
                 .then(data => setEvents(data))
         }, []
     )
-    console.log(events)
     return <>
         <main id="serviceContainer">
             <div className="eventsHeader">
@@ -28,12 +27,16 @@ export const Events = () => {
                                 <li className="eventsListItem opaqueCard" key={e.id}>
                                     <div className="eventInfo">
                                         <div className="mediumFont">{e.title}</div>
-                                        <div className="smallFont">
-                                            {e.location}
-                                            {printedDate}
+                                        <div className="eventLogistics smallFont">
+                                            {e.location}<br />
+                                            {printedDate}<br />
                                             {time}
                                         </div>
-                                        <Link className="aquaHighlight" to={e.link}>See Event Page</Link>
+                                        {e.link ?
+                                            <div className="eventLink">
+                                                <Link className="aquaHighlight" to={e.link}>See Event Page</Link>
+                                            </div>
+                                            : ""}
                                         <div className="eventDescription">{e.details}</div>
                                     </div>
                                     <img className="eventImage" src={e.image} />

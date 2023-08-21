@@ -24,11 +24,9 @@ export const PieceInspection = () => {
         style: 'currency',
         currency: 'USD'
     })
-    useEffect(
-        () => {
-            console.log(selectedArt)
-        }, [selectedArt]
-    )
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return <>
         <main id="pieceInspectionContainer">
             <article id="paymentAndDisplay" className="opaqueCard">
