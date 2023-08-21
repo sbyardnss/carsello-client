@@ -19,7 +19,7 @@
     justify-content: center;
     flex-direction: column;
     margin: 2em;
-    width: 20em;
+    /* width: 20em; */
 
 }
 .artDisplayImage {
@@ -34,5 +34,17 @@
     /* min-height: 14em; */
     max-width: 100%;
     cursor: pointer;
+}
+@media screen and (min-width:641px) {
+    .artListItem {
+        width: 20em;
+    }
+}
+    
+
+@media screen and (min-width:320px) and (max-width: 640px) {
+    .artListItem {
+        width: 16em;
+    }
 }
 

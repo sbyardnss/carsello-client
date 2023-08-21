@@ -25,34 +25,31 @@ code {
 .customFontHead {
   font-size: xx-large;
   font-weight: 200;
+
 }
 
 /* service sections */
 .serviceContainer {
   display: flex;
   /* justify-content: center; */
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   /* margin-bottom: 6em; */
 }
 
-.xxLargeFont {
-  font-size: 46px;
-  font-weight: 100;
-}
+
 
 .aquaHighlight {
   color: aqua;
+  text-decoration: none;
 }
 
 .violetHighlight {
   color: violet;
 }
 
-.mediumFont {
-  font-size: 26px;
-  font-weight: 200;
-}
+
 
 .serviceInfo {
   display: flex;
@@ -74,21 +71,46 @@ code {
 .descriptionLine {
   margin-top: 1em;
 }
+
 .descriptionBlock {
   min-width: 45%;
   height: auto;
-  flex:2;
+  flex: 2;
 }
+
 .opaqueCard {
   background-color: rgb(55, 55, 55);
   padding: 1em;
   border: none;
   border-radius: 10px;
 }
-/* .serviceDescription {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-} */
+
+@media screen and (min-width: 641px) {
+  .xxLargeFont {
+    font-size: 46px;
+    font-weight: 100;
+  }
+
+  .mediumFont {
+    font-size: 26px;
+    font-weight: 200;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  .xxLargeFont {
+    font-size: 30px;
+    font-weight: 200;
+  }
+
+  .mediumFont {
+    font-size: 22px;
+    font-weight: 200;
+    color: white;
+  }
+  .smallFont {
+    font-size: 16px;
+    font-weight: 200;
+    color: white;
+  }
+}

@@ -1,12 +1,12 @@
 #navMenu {
     display: flex;
-    /* position: fixed; */
+    /* position: sticky; */
     top: 0%;
     justify-content: center;
     width: 100vw;
-    /* background-color: rgb(93, 93, 93); */
+    /* background-color: black; */
     color: whitesmoke;
-
+    z-index: 10;
 }
 
 
@@ -23,16 +23,16 @@
     max-height: 350px;
 }
 
-/* #navigationMini {
+#navigationMini {
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 11;
     width: 90%;
     max-width: 960px;
-    margin-top: 1em;
+    /* margin-top: 1em; */
 
-} */
+}
 
 #logoSection {
     display: flex;
@@ -100,7 +100,7 @@
 } */
 
 @media screen and (min-width:641px) {
-    /* #carselloLogo {
+    #carselloLogo {
         width: 65%;
         cursor: pointer;
         -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
@@ -108,7 +108,7 @@
         align-self: flex-start;
         transition: width .1s ease-in-out;
     
-    } */
+    }
     #menuWrapper { 
         height: 100%;
     }
@@ -145,36 +145,21 @@
     .navLink:hover {
         color: aqua
     }
+    #active {
+        display: none;
+    }
 }
 
-
+/* MOBILE */
 @media screen and (min-width:320px) and (max-width: 640px) {
-    
     #navMenu {
         position: sticky;
-        top: 0%;
-        /* height: fit-content; */
-        z-index: 20;
         background-color: black;
-        overflow: hidden;
     }
     #carselloNavigation {
         display: none;
         position: absolute;
     }
-    #navigationMini {
-        display: flex;
-        top: 0%;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 11;
-        width: 90%;
-        max-width: 960px;
-        margin-top: 1em;
-        background-color: #202020;
-
-    }
-
     #active:checked~#carselloNavigation {
         background-color: #202020;
         position: fixed;
@@ -248,6 +233,8 @@
         z-index: 1;
         pointer-events: none;
     }
+
+
 
     /* closing animation */
     #active:checked+.menu-btn span {
