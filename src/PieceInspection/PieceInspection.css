@@ -13,7 +13,9 @@
 #pieceInspectionImageContainer {
     display: flex;
     justify-content: center;
-    height: 20em;
+    /* height: 20em; */
+    height: fit-content;
+    /* margin-bottom: 1em; */
 }
 .pieceInspectionPiece {
     height: 100%;
@@ -35,7 +37,7 @@
     justify-content: space-evenly;
     align-items: flex-start;
     margin-left: 1em;
-    /* height: 100%; */
+    height: 10em;
 }
 .purchaseBox {
     display: flex;
@@ -48,4 +50,29 @@
 }
 .purchaseToggle {
     width: 6em;
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+    #paymentAndDisplay {
+        width: 80%;
+        height: 30em;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #pieceInspectionImageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        /* height: 20em; */
+    }
+    .pieceInspectionPiece {
+        object-fit: contain;
+        display: flex;
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        max-height: 80%;
+        margin-top: 1em;
+    }
 }

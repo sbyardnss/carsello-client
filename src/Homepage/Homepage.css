@@ -152,6 +152,7 @@ p {
         background-size: 100%;
         background-position: 50%;
         background-repeat: no-repeat;
+        
     }
     #fullBackground {
         width: 160%;
@@ -193,7 +194,7 @@ p {
         align-items: center;
         color: whitesmoke;
         background-image: url("../Images/mobileOpaque.png");
-        background-size: 120%;
+        background-size: 140%;
         background-position: 50%;
         background-repeat: no-repeat;
     }
