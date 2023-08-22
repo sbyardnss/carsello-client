@@ -25,27 +25,29 @@ export const Nav = () => {
 
     const check = (e) => {
         if (e.target.checked === true) {
-            // document.getElementById(e.target.id).checked = false
-            // document.body.style.overflow = 'unset'
+            document.body.style.overflow = 'hidden'
             return false
         }
         else {
-            // document.getElementById(e.target.id).checked = true
-            
-            // document.body.style.overflow = 'hidden'
+            document.body.style.overflow = 'auto'
             return true
         }
     }
     const closeMenuOnNavigate = () => {
         document.getElementById("active").checked = false
     }
+    const setNoScroll = (e) => {
+        document.body.style.overflow = 'hidden'
+    }
     return (
         <header id="navMenu">
             <div id={navigationId}>
                 <img id={logoId} src={carselloLogo} onClick={() => navigate("")} />
                 {/* <div>Lizzie Carsello</div> */}
-                <input type="checkbox" id="active" ref={nav} onClick={() => check} />
-                <label htmlFor="active" className="menu-btn" ><span></span></label>
+                <input type="checkbox" id="active" onChange={(e) => {
+                    check(e)
+                }} />
+                <label htmlFor="active" className="menu-btn"><span></span></label>
                 <label htmlFor="inactive" className="close"></label>
                 <ul id="carselloNavigation">
                     <li><Link className="navLink" onClick={() => closeMenuOnNavigate()} to="/art">art</Link></li>

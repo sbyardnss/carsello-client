@@ -1,3 +1,4 @@
+
 #navMenu {
     display: flex;
     /* position: sticky; */
@@ -7,6 +8,8 @@
     /* background-color: black; */
     color: whitesmoke;
     z-index: 10;
+
+    width: 100%;
 }
 
 
@@ -162,7 +165,7 @@
     }
     #active:checked~#carselloNavigation {
         background-color: #202020;
-        position: fixed;
+        /* position: fixed; */
         width: 100vw;
         height: 100vh;
         right: 0%;
