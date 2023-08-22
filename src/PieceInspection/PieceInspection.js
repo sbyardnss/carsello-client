@@ -27,15 +27,22 @@ export const PieceInspection = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
     return <>
         <main id="pieceInspectionContainer">
             <article id="paymentAndDisplay" className="opaqueCard">
                 <div id="pieceInspectionImageContainer">
                     <img className="pieceInspectionPiece" src={selectedArt.primary_image} />
                 </div>
-                <div id="pieceData">
-                    <div>{selectedArt.title}</div>
-                    <div>{currencyFormat.format(selectedArt.price)}</div>
+                <div id="pieceDataAndPurchase">
+                    <div id="pieceInfo">
+                        <div className="infoFlex">
+                            <div className="mediumFontWeight">{selectedArt.title}</div>
+                            <div className="mediumFontWeight">{currencyFormat.format(selectedArt.price)}</div>
+                        </div>
+                            <div className="smallFontWeight">Dimensions: {selectedArt.dimensions}</div>
+                            <div className="smallFontWeight">Year: {selectedArt.year}</div>
+                    </div>
                     {purchase && selectedArt.quantity > 0 ?
                         <div className="purchaseBox">
                             <PayPal
@@ -43,22 +50,22 @@ export const PieceInspection = () => {
                                 resetArt={resetPiece}
                                 purchaseSet={setPurchase}
                             />
-                            <button className="purchaseToggle" onClick={() => setPurchase(false)}>cancel</button>
+                            <button className="purchaseToggleOff" onClick={() => setPurchase(false)}>cancel</button>
                         </div>
                         : selectedArt.quantity > 0 ?
                             <div className="purchaseBox">
-                                <button className="purchaseToggle" onClick={() => setPurchase(true)}>Purchase</button>
+                                <button className="purchaseToggleOn" onClick={() => setPurchase(true)}>Purchase</button>
                             </div>
                             : ""
                     }
                 </div>
             </article>
             <section id="supportImageDisplay">
-                    {
-                        selectedArt.support_images?.map(si => {
-                            return <img key={si} className="supportImage" src={si}/>
-                        })
-                    }
+                {
+                    selectedArt.support_images?.map(si => {
+                        return <img key={si} className="supportImage" src={si} />
+                    })
+                }
             </section>
         </main>
     </>

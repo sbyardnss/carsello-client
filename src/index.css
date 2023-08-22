@@ -88,6 +88,7 @@ code {
   margin-bottom: .5em;
 }
 
+
 @media screen and (min-width: 641px) {
   .xxLargeFont {
     font-size: 46px;
@@ -97,6 +98,15 @@ code {
   .mediumFont {
     font-size: 26px;
     font-weight: 200;
+  }
+  .mediumFontWeight {
+    font-size: 26px;
+    font-weight: 200;
+  }
+  .smallFontWeight {
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
   }
 }
 
@@ -111,9 +121,19 @@ code {
     font-weight: 200;
     color: white;
   }
+  .mediumFontWeight {
+    font-size: 22px;
+    font-weight: 300;
+    color: white;
+  }
   .smallFont {
     font-size: 16px;
     font-weight: 200;
+    color: white;
+  }
+  .smallFontWeight {
+    font-size: 16px;
+    font-weight: 300;
     color: white;
   }
 }

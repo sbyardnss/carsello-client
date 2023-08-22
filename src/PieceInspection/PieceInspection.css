@@ -1,11 +1,17 @@
+/* #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
 #pieceInspectionContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     /* width: 90%; */
-    height: 80vh;
+    /* height: 80vh; */
 }
+
 #paymentAndDisplay {
     display: flex;
 }
@@ -13,59 +19,117 @@
 #pieceInspectionImageContainer {
     display: flex;
     justify-content: center;
-    /* height: 20em; */
     height: fit-content;
-    /* margin-bottom: 1em; */
 }
-.pieceInspectionPiece {
-    height: 100%;
-}
+
 
 .supportImage {
     height: 10em;
     transition: transform .2s;
 }
-.supportImage:hover {
-    transform: scale(1.5);
-}
+
 /* .supportImage {
     height: 100%;
 } */
-#pieceData {
+#pieceDataAndPurchase {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: flex-start;
-    margin-left: 1em;
-    height: 10em;
+    /* width: 10em; */
 }
+
+#pieceInfo {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .purchaseBox {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    height: 30%;
-    width: 200px;
-    /* margin-left: 1em; */
+    justify-content: space-around;
+    align-items: center;
+    /* height: 30%; */
+
 }
-.purchaseToggle {
+
+.purchaseToggleOn {
     width: 6em;
+    height: 2em;
+    font-size: large;
+    background-color: black;
+    border: 1px solid aqua;
+    border-radius: 4px;
+    color: aqua;
+    cursor: pointer;
+}
+.purchaseToggleOff {
+    width: 4em;
+    /* height: 2em; */
+    font-size: large;
+    background-color: black;
+    border: 1px solid violet;
+    border-radius: 4px;
+    color: violet;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 641px) {
+    #pieceInspectionContainer {
+        height: 80vh;
+    }
+
+    .pieceInspectionPiece {
+        object-fit: contain;
+        display: flex;
+        height: auto;
+        width: auto;
+        max-height: 34em;
+        max-width: 30em;
+    }
+
+    #pieceDataAndPurchase {
+        /* flex-direction: column; */
+        justify-content: space-around;
+        margin-left: 1em;
+        width: 10em;
+    }
+
+    #pieceInfo {
+        justify-content: space-between;
+        height: 8em;
+    }
+
+    .purchaseBox {
+        width: 100%;
+    }
+
+    .supportImage:hover {
+        transform: scale(1.5);
+    }
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
+    #pieceInspectionContainer {
+        height: fit-content;
+    }
+
     #paymentAndDisplay {
         width: 80%;
-        height: 30em;
+        height: fit-content;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        margin: 2em 0;
     }
+
     #pieceInspectionImageContainer {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        /* height: 20em; */
+        width: 100%;
     }
+
     .pieceInspectionPiece {
         object-fit: contain;
         display: flex;
@@ -73,6 +137,37 @@
         width: auto;
         max-width: 100%;
         max-height: 80%;
+        /* margin-top: 1em; */
+    }
+
+    #pieceDataAndPurchase {
         margin-top: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    #pieceInfo {
+        width: 90%;
+        justify-content: space-around;
+        height: 6em;
+    }
+
+    .infoFlex {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .purchaseBox {
+        width: 50%;
+        height: 6em;
+    }
+
+    #supportImageDisplay {
+        display: flex;
+        width: 90%;
+        overflow-x: scroll;
     }
 }
