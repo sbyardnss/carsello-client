@@ -4,8 +4,8 @@ import { useRef } from "react"
 // export const EventForm = ({ title, location, dateTime, setDateTime, price, event, updateEvent }) => {
 export const EventForm = ({ event, updateEvent }) => {
 
-    const date = useRef()
-    const time = useRef()
+    // const date = useRef()
+    // const time = useRef()
     const handleChange = (e) => {
         const copy = { ...event }
         if (e.target.id === 'price') {
