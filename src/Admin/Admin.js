@@ -20,6 +20,7 @@ export const Admin = () => {
     const [viewEvents, setViewEvents] = useState(false)
     // const [sendEvent, setSendEvent] = useState(false)
     const [editArt, setEditArt] = useState(0)
+    const [editEvent, setEditEvent] = useState(0)
     const [supportImages, setSupportImages] = useState([])
 
     const newEventTitle = useRef()
@@ -119,6 +120,18 @@ export const Admin = () => {
             }
         }, [addEvent]
     )
+    useEffect(
+        () => {
+            if (editEvent !== 0) {
+                const selectedEvent = events.find(e => e.id === editEvent)
+                updateNewEvent(selectedEvent)
+                document.getElementById('addEventModal').style.display = 'flex'
+            }
+            else {
+                document.getElementById('addEventModal').style.display = 'none'
+            }
+        }, [editEvent]
+    )
     const resetNewPiece = () => {
         updateNewPiece({
             title: "",
@@ -205,6 +218,7 @@ export const Admin = () => {
                     {/* <button onClick={() => setViewEvents(false)}>Cancel</button> */}
                     <EventList
                         myEvents={events}
+                        setEdit={setEditEvent}
                     />
                 </section>
             )
@@ -279,26 +293,39 @@ export const Admin = () => {
             </section>
             <section id="addEventModal">
                 <EventForm
-                    title={newEventTitle}
-                    location={newEventLocation}
-                    dateTime={newEventDateTime}
-                    setDateTime={setNewEventDateTime}
-                    price={newEventPrice}
+                    // title={newEventTitle}
+                    // location={newEventLocation}
+                    // dateTime={newEventDateTime}
+                    // setDateTime={setNewEventDateTime}
+                    // price={newEventPrice}
                     event={newEvent}
                     updateEvent={updateNewEvent}
                 />
-                <div id="eventFormImage">
+                {/* <div id="eventFormImage">
                     {
 
                     }
-                </div>
+                </div> */}
                 <button onClick={() => {
                     if (addEvent) {
-                        sendEvent(newEvent)
-                            .then(() => resetEvents())
+                        if (newEvent.title && newEvent.location && newEvent.date) {
+                            sendEvent(newEvent)
+                                .then(() => {
+                                    resetEvents()
+                                    resetNewEvent()
+                                    setAddEvent(false)
+                                })
+                        }
+                        else {
+                            window.alert("You must have an event name, date, and location")
+                        }
                     }
                 }}>submit</button>
-                <button onClick={() => setAddEvent(false)}>cancel</button>
+                <button onClick={() => {
+                    setAddEvent(false)
+                    resetNewEvent()
+                    setEditEvent(0)
+                }}>cancel</button>
             </section>
             <h2>this is the admin page</h2>
             <button className="adminButton" onClick={() => {

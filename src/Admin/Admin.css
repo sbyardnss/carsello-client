@@ -23,6 +23,21 @@
     /* height: auto; */
 }
 
+.adminImageContainer {
+    width: 20%;
+}
+
+.adminImage {
+    height: auto;
+    width: auto;
+    max-width: 10em;
+    max-height: 10em;
+}
+.adminList {
+    list-style: none;
+}
+
+
 /* event form */
 #addEventModal {
     display: none;

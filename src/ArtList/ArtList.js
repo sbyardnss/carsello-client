@@ -24,11 +24,13 @@ export const ArtList = ({ art, setEdit }) => {
 
     return <>
         <main className="serviceContainer">
-            <section className="serviceInfo">
-                <div className="descriptionBlock mediumFont">
-                    My pieces utilize varieties of shape and color to achieve balance and evoke emotional responses from the viewer. I derive shape inspirations from natural elements and exaggerate them into a more abstract form, creating nostalgic and familiar images.
-                </div>
-            </section>
+            {url.pathname === '/art' ?
+                <section className="serviceInfo">
+                    <div className="descriptionBlock mediumFont">
+                        My pieces utilize varieties of shape and color to achieve balance and evoke emotional responses from the viewer. I derive shape inspirations from natural elements and exaggerate them into a more abstract form, creating nostalgic and familiar images.
+                    </div>
+                </section>
+                : ""}
             <section id="artListContainer">
 
                 <ul id="artList">

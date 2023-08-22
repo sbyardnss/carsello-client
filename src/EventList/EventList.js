@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import "../EventList/EventList.css"
 
-export const EventList = ({ myEvents }) => {
+export const EventList = ({ myEvents, setEdit }) => {
     const navigate = useNavigate()
     return <>
-        <ul id="eventsAdminList">
+        <ul className="adminList">
             {
                 myEvents?.map(event => {
                     return (
@@ -12,11 +12,12 @@ export const EventList = ({ myEvents }) => {
                             key={event.id}
                             className="eventListItem"
                             >
-                            <div className="artDisplayImage">
-                                <img className="artImage" src={event.image} />
+                            <div className="adminImageContainer">
+                                <img className="adminImage" src={event.image} />
                             </div>
                             <div>{event.title}</div>
                             <div>{event.date_time}</div>
+                            <button onClick={()=> setEdit(event.id)} >edit</button>
                         </li>
                     )
                 })

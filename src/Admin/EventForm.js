@@ -46,7 +46,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 type="text"
                 // ref={title}
-                value={event.title}
+                value={event?.title}
                 placeholder="event title"
             // required autoFocus
             />
@@ -57,7 +57,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 type="text"
                 // ref={location}
-                value={event.location}
+                value={event?.location}
                 placeholder="event location"
             />
             <label className="form-labels" htmlFor="newPrice">Event Price</label>
@@ -67,7 +67,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 type="number"
                 // ref={price}
-                value={event.price}
+                value={event?.price}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventDate">Event Date</label>
@@ -76,8 +76,8 @@ export const EventForm = ({ event, updateEvent }) => {
                 onChange={handleChange}
                 className="form-input"
                 type="text"
-                ref={date}
-                // value={event.date}
+                // ref={date}
+                value={event?.date}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventTime">Event Time</label>
@@ -87,7 +87,8 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 placeholder="hh:mm (pm/am)"
                 type="text"
-                ref={time}
+                // ref={time}
+                value={event?.time}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventLink">Event Link</label>
@@ -97,6 +98,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 placeholder="event url"
                 type="text"
+                value={event?.link}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventImage">Event Image URL</label>
@@ -106,6 +108,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 placeholder="event image url"
                 type="text"
+                value={event?.image}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventDetails">Event Details</label>
@@ -115,6 +118,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 placeholder="event details"
                 type="text"
+                value={event?.details}
                 required autoFocus
             />
 
