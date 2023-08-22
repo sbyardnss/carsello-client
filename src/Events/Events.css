@@ -20,6 +20,12 @@
     flex-direction: column;
     padding: 0;
 }
+.eventListItemHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 16em;
+}
 .eventsListItem {
     margin: 1em;
     display: flex;

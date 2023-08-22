@@ -8,7 +8,6 @@ export const ArtList = ({ art, setEdit }) => {
     const url = useLocation()
     const [artwork, setArtwork] = useState([])
     // const [editArt, setEditArt] = useState(false)
-
     useEffect(
         () => {
             if (!art) {
@@ -20,8 +19,6 @@ export const ArtList = ({ art, setEdit }) => {
             }
         }, []
     )
-
-
     return <>
         <main className="serviceContainer">
             {url.pathname === '/art' ?

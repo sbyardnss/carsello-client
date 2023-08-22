@@ -8,6 +8,7 @@ import { ArtList } from "../ArtList/ArtList";
 import { EventList } from "../EventList/EventList";
 import { EventForm } from "./EventForm";
 import { PieceInspection } from "../PieceInspection/PieceInspection";
+import { Events } from "../Events/Events";
 export const Admin = () => {
     const navigate = useNavigate();
     const [addArt, setAddArt] = useState(false)
@@ -216,7 +217,11 @@ export const Admin = () => {
             return (
                 <section id="adminEventListSection">
                     {/* <button onClick={() => setViewEvents(false)}>Cancel</button> */}
-                    <EventList
+                    {/* <EventList
+                        myEvents={events}
+                        setEdit={setEditEvent}
+                    /> */}
+                    <Events
                         myEvents={events}
                         setEdit={setEditEvent}
                     />
