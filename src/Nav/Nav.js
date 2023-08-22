@@ -25,19 +25,19 @@ export const Nav = () => {
 
     const check = (e) => {
         if (e.target.checked === true) {
+            console.log('open')
             document.body.style.overflow = 'hidden'
             return false
         }
         else {
-            document.body.style.overflow = 'auto'
+            console.log('close')
+            document.body.style.overflow = 'unset'
             return true
         }
     }
     const closeMenuOnNavigate = () => {
+        document.body.style.overflow = 'unset'
         document.getElementById("active").checked = false
-    }
-    const setNoScroll = (e) => {
-        document.body.style.overflow = 'hidden'
     }
     return (
         <header id="navMenu">
