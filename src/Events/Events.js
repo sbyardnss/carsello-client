@@ -20,9 +20,9 @@ export const Events = () => {
                 <ul id="eventsList">
                     {
                         events.map(e => {
-                            const date = new Date(e.date_time)
-                            const printedDate = date.toDateString()
-                            const time = date.toLocaleTimeString('en-us', { hour: 'numeric', minute: 'numeric' })
+                            // const date = new Date(e.date_time)
+                            // const printedDate = date.toDateString()
+                            // const time = date.toLocaleTimeString('en-us', { hour: 'numeric', minute: 'numeric' })
                             return (
                                 <li className="eventsListItem opaqueCard" key={e.id}>
                                     <div className="eventInfo">

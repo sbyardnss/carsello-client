@@ -23,10 +23,10 @@ export const Admin = () => {
     const [editEvent, setEditEvent] = useState(0)
     const [supportImages, setSupportImages] = useState([])
 
-    const newEventTitle = useRef()
-    const newEventLocation = useRef()
-    const [newEventDateTime, setNewEventDateTime] = useState("")
-    const newEventPrice = useRef()
+    // const newEventTitle = useRef()
+    // const newEventLocation = useRef()
+    // const [newEventDateTime, setNewEventDateTime] = useState("")
+    // const newEventPrice = useRef()
     const [newPiece, updateNewPiece] = useState({
         title: "",
         year: 0,
@@ -293,11 +293,6 @@ export const Admin = () => {
             </section>
             <section id="addEventModal">
                 <EventForm
-                    // title={newEventTitle}
-                    // location={newEventLocation}
-                    // dateTime={newEventDateTime}
-                    // setDateTime={setNewEventDateTime}
-                    // price={newEventPrice}
                     event={newEvent}
                     updateEvent={updateNewEvent}
                 />
@@ -327,22 +322,29 @@ export const Admin = () => {
                     setEditEvent(0)
                 }}>cancel</button>
             </section>
+
             <h2>this is the admin page</h2>
-            <button className="adminButton" onClick={() => {
-                localStorage.removeItem("carsello_user")
-                navigate("/admin", { replace: true })
-            }}>logout</button>
-            <button className="adminButton" onClick={() => {
-                setViewArt(false)
-                setViewEvents(!viewEvents)
-            }}>{viewEvents === false ? 'View Events' : 'Cancel'}</button>
-            <button className="adminButton" onClick={() => {
-                setViewEvents(false)
-                setViewArt(!viewArt)
-            }}>{viewArt === false ? 'View Art List' : 'Cancel'}</button>
-            {/* {addArtForm()} */}
-            <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
-            <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
+            <div id="adminBtnBlock">
+                <button className="adminBtnReject" onClick={() => {
+                    localStorage.removeItem("carsello_user")
+                    navigate("/admin", { replace: true })
+                }}>logout</button>
+                <div className="flex-down">
+                    <button className="adminButton" onClick={() => {
+                        setViewArt(false)
+                        setViewEvents(!viewEvents)
+                    }}>{viewEvents === false ? 'View Events' : 'Hide Events'}</button>
+                    <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
+                </div>
+                <div className="flex-down">
+                    <button className="adminButton" onClick={() => {
+                        setViewEvents(false)
+                        setViewArt(!viewArt)
+                    }}>{viewArt === false ? 'View Art' : 'Hide Art'}</button>
+                    {/* {addArtForm()} */}
+                    <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
+                </div>
+            </div>
             {artList()}
             {/* {addEventForm()} */}
             {eventList()}

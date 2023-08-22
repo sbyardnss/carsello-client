@@ -87,6 +87,12 @@ code {
 .opaqueCard li {
   margin-bottom: .5em;
 }
+.flex-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
 @media screen and (min-width: 641px) {

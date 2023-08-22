@@ -3,3 +3,9 @@
     padding: 0;
 }
 
+.eventListItemHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 16em;
+}
