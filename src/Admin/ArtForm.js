@@ -2,7 +2,6 @@ import { useRef } from "react"
 
 
 export const ArtForm = ({ piece, update }) => {
-
     const handleChange = (e) => {
         const copy = { ...piece }
         if (e.target.id === 'price' || e.target.id === 'year') {

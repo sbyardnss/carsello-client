@@ -1,7 +1,9 @@
 import { useRef } from "react"
 
 
-export const EventForm = ({ title, location, dateTime, setDateTime, price, event, updateEvent }) => {
+// export const EventForm = ({ title, location, dateTime, setDateTime, price, event, updateEvent }) => {
+export const EventForm = ({ event, updateEvent }) => {
+
     const date = useRef()
     const time = useRef()
     const handleChange = (e) => {
@@ -10,28 +12,31 @@ export const EventForm = ({ title, location, dateTime, setDateTime, price, event
             copy[e.target.id] = parseInt(e.target.value)
             updateEvent(copy)
         }
-        else if (e.target.id === 'date' || e.target.id === 'time') {
-            // if (e.target.id === 'time'){
-                const [timeHM, amPm]= time.current?.value.split(' ')
-                let [hour, minute] = timeHM.split(":")
-                if (amPm?.toLowerCase() === 'pm') {
-                    hour = parseInt(hour) + 12
-                    setDateTime(`${date.current.value} ${hour}:${minute}`)
-                }
-                else {
-                    setDateTime(`${date.current.value} ${hour}:${minute}`)
-                }
-            // }
-            
-        }
+        // else if (e.target.id === 'date' || e.target.id === 'time') {
+        //     // if (e.target.id === 'time'){
+        //     const [timeHM, amPm] = time.current?.value.split(' ')
+        //     let [hour, minute] = timeHM.split(":")
+        //     if (amPm?.toLowerCase() === 'pm') {
+        //         hour = parseInt(hour) + 12
+        //         // setDateTime(`${date.current.value} ${hour}:${minute}`)
+        //         const newFullDateTime = `${date.current.value} ${hour}:${minute}`
+        //         copy.dateTime = newFullDateTime
+        //         updateEvent(copy)
+        //     }
+        //     else {
+        //         // setDateTime(`${date.current.value} ${hour}:${minute}`)
+        //         const newFullDateTime = `${date.current.value} ${hour}:${minute}`
+        //         copy.dateTime = newFullDateTime
+        //         updateEvent(copy)
+        //     }
+        //     // }
+
+        // }
         else {
             copy[e.target.id] = e.target.value
             updateEvent(copy)
         }
     }
-    // console.log(date.current.value)
-
-    // console.log(new Date ("2023-07-10 14:30"))
     return <>
         <section id="newEventForm">
             <label className="form-labels" htmlFor="newTitle">Event Title</label>
@@ -40,7 +45,8 @@ export const EventForm = ({ title, location, dateTime, setDateTime, price, event
                 onChange={handleChange}
                 className="form-input"
                 type="text"
-                ref={title}
+                // ref={title}
+                value={event.title}
                 placeholder="event title"
             // required autoFocus
             />
@@ -50,7 +56,8 @@ export const EventForm = ({ title, location, dateTime, setDateTime, price, event
                 onChange={handleChange}
                 className="form-input"
                 type="text"
-                ref={location}
+                // ref={location}
+                value={event.location}
                 placeholder="event location"
             />
             <label className="form-labels" htmlFor="newPrice">Event Price</label>
@@ -59,7 +66,8 @@ export const EventForm = ({ title, location, dateTime, setDateTime, price, event
                 onChange={handleChange}
                 className="form-input"
                 type="number"
-                ref={price}
+                // ref={price}
+                value={event.price}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventDate">Event Date</label>
@@ -69,6 +77,7 @@ export const EventForm = ({ title, location, dateTime, setDateTime, price, event
                 className="form-input"
                 type="text"
                 ref={date}
+                // value={event.date}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventTime">Event Time</label>
@@ -108,7 +117,7 @@ export const EventForm = ({ title, location, dateTime, setDateTime, price, event
                 type="text"
                 required autoFocus
             />
-            
+
         </section>
     </>
 }

@@ -3,7 +3,7 @@ import UploadWidget from "../Cloudinary/UploadWidget";
 import "../Admin/Admin.css"
 import { useEffect, useRef, useState } from "react";
 import { ArtForm } from "./ArtForm";
-import { getArt, getEvents, sendArt, updatePiece } from "../ServerManager";
+import { getArt, getEvents, sendArt, sendEvent, updatePiece } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
 import { EventList } from "../EventList/EventList";
 import { EventForm } from "./EventForm";
@@ -18,7 +18,7 @@ export const Admin = () => {
     const [viewArt, setViewArt] = useState(false)
     const [events, setEvents] = useState([])
     const [viewEvents, setViewEvents] = useState(false)
-    const [sendEvent, setSendEvent] = useState(false)
+    // const [sendEvent, setSendEvent] = useState(false)
     const [editArt, setEditArt] = useState(0)
     const [supportImages, setSupportImages] = useState([])
 
@@ -38,7 +38,9 @@ export const Admin = () => {
     const [newEvent, updateNewEvent] = useState({
         title: "",
         location: "",
-        dateTime: "",
+        // dateTime: "",
+        date: "",
+        time: "",
         image: "",
         link: "",
         details: "",
@@ -76,14 +78,14 @@ export const Admin = () => {
     )
 
 
-    useEffect(
-        () => {
-            if (newEventDateTime && sendEvent === true) {
-                const copy = { ...newEvent }
-                copy.dateTime = new Date(newEventDateTime).toISOString()
-            }
-        }, [sendEvent]
-    )
+    // useEffect(
+    //     () => {
+    //         if (newEventDateTime && sendEvent === true) {
+    //             const copy = { ...newEvent }
+    //             copy.dateTime = new Date(newEventDateTime).toISOString()
+    //         }
+    //     }, [sendEvent]
+    // )
     useEffect(
         () => {
             if (editArt !== 0) {
@@ -107,6 +109,16 @@ export const Admin = () => {
             }
         }, [addArt]
     )
+    useEffect(
+        () => {
+            if (addEvent) {
+                document.getElementById('addEventModal').style.display = 'flex'
+            }
+            else {
+                document.getElementById('addEventModal').style.display = 'none'
+            }
+        }, [addEvent]
+    )
     const resetNewPiece = () => {
         updateNewPiece({
             title: "",
@@ -120,42 +132,59 @@ export const Admin = () => {
         })
     }
 
-    const addEventForm = () => {
-        if (addEvent) {
-            return (
-                <section id="addEventSection">
-                    <EventForm
-                        title={newEventTitle}
-                        location={newEventLocation}
-                        dateTime={newEventDateTime}
-                        setDateTime={setNewEventDateTime}
-                        price={newEventPrice}
-                        event={newEvent}
-                        updateEvent={updateNewEvent}
-                    />
-                    {/* <div>
-                        <label>image</label>
-                        <UploadWidget
-                            urlSet={setArtImageUrl}
-                            imageName={newTitle.current?.value} />
-                    </div> */}
-                    <button onClick={() => setAddEvent(false)}>cancel</button>
-                    <button onClick={() => setSendEvent(true)}>submit</button>
-                </section>
-            )
-        }
-        else {
-            return (
-                <section id="addEventSection">
-                    <button onClick={() => {
-                        setAddArt(false)
-                        setEditArt(0)
-                        setAddEvent(true)
-                    }}>add event</button>
-                </section>
-            )
-        }
+    const resetNewEvent = () => {
+        updateNewEvent({
+            title: "",
+            location: "",
+            date: "",
+            time: "",
+            image: "",
+            link: "",
+            details: "",
+            price: 0
+        })
     }
+    const resetEvents = () => {
+        getEvents()
+            .then(data => setEvents(data))
+    }
+    // const addEventForm = () => {
+    //     if (addEvent) {
+    //         return (
+    //             <section id="addEventSection">
+    //                 <EventForm
+    //                     title={newEventTitle}
+    //                     location={newEventLocation}
+    //                     dateTime={newEventDateTime}
+    //                     setDateTime={setNewEventDateTime}
+    //                     price={newEventPrice}
+    //                     event={newEvent}
+    //                     updateEvent={updateNewEvent}
+    //                 />
+    //                 {/* <div>
+    //                     <label>image</label>
+    //                     <UploadWidget
+    //                         urlSet={setArtImageUrl}
+    //                         imageName={newTitle.current?.value} />
+    //                 </div> */}
+    //                 <button onClick={() => setAddEvent(false)}>cancel</button>
+    //                 <button onClick={() => setSendEvent(true)}>submit</button>
+    //             </section>
+    //         )
+    //     }
+    //     else {
+    //         return (
+    //             <section id="addEventSection">
+    //                 <button onClick={() => {
+    //                     setAddArt(false)
+    //                     setEditArt(0)
+    //                     setAddEvent(true)
+    //                 }}>add event</button>
+    //             </section>
+    //         )
+    //     }
+    // }
+
     const artList = () => {
         if (viewArt) {
             return (
@@ -196,7 +225,6 @@ export const Admin = () => {
             )
         })
     }
-    // console.log(newPiece)
     return <>
         <main id="adminContainer">
             <section id="editArtModal">
@@ -249,23 +277,47 @@ export const Admin = () => {
                     }}>cancel</button>
                 </div>
             </section>
+            <section id="addEventModal">
+                <EventForm
+                    title={newEventTitle}
+                    location={newEventLocation}
+                    dateTime={newEventDateTime}
+                    setDateTime={setNewEventDateTime}
+                    price={newEventPrice}
+                    event={newEvent}
+                    updateEvent={updateNewEvent}
+                />
+                <div id="eventFormImage">
+                    {
+
+                    }
+                </div>
+                <button onClick={() => {
+                    if (addEvent) {
+                        sendEvent(newEvent)
+                            .then(() => resetEvents())
+                    }
+                }}>submit</button>
+                <button onClick={() => setAddEvent(false)}>cancel</button>
+            </section>
             <h2>this is the admin page</h2>
-            <button onClick={() => {
+            <button className="adminButton" onClick={() => {
                 localStorage.removeItem("carsello_user")
                 navigate("/admin", { replace: true })
             }}>logout</button>
-            <button onClick={() => {
+            <button className="adminButton" onClick={() => {
                 setViewArt(false)
                 setViewEvents(!viewEvents)
             }}>{viewEvents === false ? 'View Events' : 'Cancel'}</button>
-            <button onClick={() => {
+            <button className="adminButton" onClick={() => {
                 setViewEvents(false)
                 setViewArt(!viewArt)
             }}>{viewArt === false ? 'View Art List' : 'Cancel'}</button>
             {/* {addArtForm()} */}
-            <button onClick={() => setAddArt(true)}>add art</button>
+            <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
+            <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
             {artList()}
-            {addEventForm()}
+            {/* {addEventForm()} */}
             {eventList()}
         </main>
     </>

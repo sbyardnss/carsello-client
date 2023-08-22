@@ -29,8 +29,10 @@ export const Events = () => {
                                         <div className="mediumFont">{e.title}</div>
                                         <div className="eventLogistics smallFont">
                                             {e.location}<br />
-                                            {printedDate}<br />
-                                            {time}
+                                            {/* {printedDate}<br />
+                                            {time} */}
+                                            {e.date}<br />
+                                            {e.time}
                                         </div>
                                         {e.link ?
                                             <div className="eventLink">

@@ -19,7 +19,8 @@ export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet 
                     if (primeOrSupport === 'prime') {
                         urlSet(result?.info?.secure_url)
                     }
-                    if (primeOrSupport === 'support') {
+                    //added second conditional after && to hopefully stop empty strings added to support array
+                    if (primeOrSupport === 'support' && result.info.secure_url !== "") {
                         supportUrlSet(result?.info?.secure_url)
                     }
                 }
