@@ -3,11 +3,12 @@ import UploadWidget from "../Cloudinary/UploadWidget";
 import "../Admin/Admin.css"
 import { useEffect, useState } from "react";
 import { ArtForm } from "./ArtForm";
-import { getArt, getEvents, sendArt, sendEvent, updatePiece } from "../ServerManager";
+import { getArt, getEvents, getOrders, sendArt, sendEvent, updatePiece } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
 import { EventForm } from "./EventForm";
 import { Events } from "../Events/Events";
 import { ArtSortModal } from "./ArtSortModal";
+
 export const Admin = () => {
     const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME
     const cloudinaryPreset = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -24,6 +25,7 @@ export const Admin = () => {
     const [editArt, setEditArt] = useState(0)
     const [editEvent, setEditEvent] = useState(0)
     const [sortArt, setSortArt] = useState(false)
+    const [orders, setOrders] = useState([])
 
     // const [supportImages, setSupportImages] = useState([])
 
@@ -50,9 +52,10 @@ export const Admin = () => {
     })
     useEffect(
         () => {
-            Promise.all([getArt(), getEvents()]).then(([artData, eventData]) => {
+            Promise.all([getArt(), getEvents(), getOrders()]).then(([artData, eventData, orderData]) => {
                 setArtwork(artData)
                 setEvents(eventData)
+                setOrders(orderData)
             })
         }, []
     )

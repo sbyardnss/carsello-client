@@ -107,5 +107,15 @@ export const sendNewArtOrder = (artOrderObj) => {
         },
         body: JSON.stringify(artOrderObj)
     })
-        // .then(res => res.json())
+}
+
+export const getOrders = () => {
+    const token = getToken()
+    return fetch(`${apiKey}/orders`, {
+        headers: {
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json"
+        }
+    })
+        .then(res => res.json())
 }
