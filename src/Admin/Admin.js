@@ -63,7 +63,7 @@ export const Admin = () => {
             const unsortedArt = artwork.filter(a => a.sort_index === 0)
             const sortedArt = artwork.filter(a => a.sort_index !== 0).sort((a, b) => a.sort_index - b.sort_index)
             setSortedArtwork(sortedArt.concat(unsortedArt))
-            
+
         }, [artwork]
     )
     useEffect(
@@ -316,28 +316,35 @@ export const Admin = () => {
                     setSort={setSortArt}
                 />
                 : ""}
-            <h2>this is the admin page</h2>
             <div id="adminBtnBlock">
                 <button className="adminBtnReject" onClick={() => {
                     localStorage.removeItem("carsello_user")
                     navigate("/admin", { replace: true })
                 }}>logout</button>
                 <div className="flex-down">
-                    <button className="adminButton" onClick={() => {
-                        setViewArt(false)
-                        setViewEvents(!viewEvents)
-                    }}>{viewEvents === false ? 'View Events' : 'Hide Events'}</button>
-                    <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
+                    
                 </div>
                 <div className="flex-down">
+
+                    <button className="adminButton" onClick={() => setSortArt(true)}>sort art</button>
+                </div>
+                <div className="flex-down adminBtnColumn">
+                    <div className="mediumFont">add</div>
+                    <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
+                    <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
+                </div>
+                <div className="flex-down adminBtnColumn">
+                    <div className="mediumFont">View</div>
                     <button className="adminButton" onClick={() => {
                         setViewEvents(false)
                         setViewArt(!viewArt)
                     }}>{viewArt === false ? 'View Art' : 'Hide Art'}</button>
-                    {/* {addArtForm()} */}
-                    <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
-                    <button className="adminButton" onClick={() => setSortArt(true)}>sort art</button>
+                    <button className="adminButton" onClick={() => {
+                        setViewArt(false)
+                        setViewEvents(!viewEvents)
+                    }}>{viewEvents === false ? 'View Events' : 'Hide Events'}</button>
                 </div>
+
             </div>
             {artList()}
             {/* {addEventForm()} */}
