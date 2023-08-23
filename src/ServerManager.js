@@ -32,7 +32,6 @@ export const updatePiece = (artObj) => {
         },
         body: JSON.stringify(artObj)
     })
-        .then(res => res.json())
 }
 export const quantityDecrease = (artId) => {
     return fetch(`${apiKey}/artwork/${artId}/quantity_decrement`, {

@@ -17,7 +17,7 @@ export const ArtList = ({ art, setEdit }) => {
             else {
                 setArtwork(art)
             }
-        }, []
+        }, [art]
     )
     return <>
         <main className="serviceContainer">
@@ -29,7 +29,6 @@ export const ArtList = ({ art, setEdit }) => {
                 </section>
                 : ""}
             <section id="artListContainer">
-
                 <ul id="artList">
                     {
                         artwork?.map(art => {
@@ -46,6 +45,7 @@ export const ArtList = ({ art, setEdit }) => {
                                         <img className="artImage" src={art.primary_image} />
                                     </div>
                                     <div>{art.title}</div>
+                                    <div>{art.price}</div>
                                     <div>{art.year}</div>
                                     {url.pathname === '/admin' ?
                                         <div>

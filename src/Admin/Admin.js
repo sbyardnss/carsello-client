@@ -97,6 +97,8 @@ export const Admin = () => {
             }
             else {
                 document.getElementById('editArtModal').style.display = 'none'
+                getArt()
+                    .then(data => setArtwork(data))
             }
         }, [editArt]
     )
@@ -108,9 +110,12 @@ export const Admin = () => {
             }
             else {
                 document.getElementById('editArtModal').style.display = 'none'
+                getArt()
+                    .then(data => setArtwork(data))
             }
         }, [addArt]
     )
+
     useEffect(
         () => {
             if (addEvent) {
@@ -157,6 +162,10 @@ export const Admin = () => {
             details: "",
             price: 0
         })
+    }
+    const resetArt = () => {
+        getArt()
+            .then(data => setArtwork(data))
     }
     const resetEvents = () => {
         getEvents()
@@ -207,6 +216,8 @@ export const Admin = () => {
                     <ArtList
                         art={artwork}
                         setEdit={setEditArt}
+                        // artToEdit={editArt}
+                        // addingArt={addArt}
                     />
                 </section>
             )
@@ -281,13 +292,17 @@ export const Admin = () => {
                 <div className="artFormBtnBlock">
                     <button onClick={() => {
                         if (editArt) {
-                            console.log(`edit -- ${newPiece}`)
-                            // updatePiece(newPiece.id)
+                            // console.log(`edit -- ${newPiece.id}`)
+                            updatePiece(newPiece)
+                            setEditArt(0)
                         }
                         else {
-                            console.log(`add -- ${newPiece}`)
+                            // console.log(`add -- ${newPiece}`)
                             sendArt(newPiece)
+                            setAddArt(false)
                         }
+                        resetArt()
+                        resetNewPiece()
                     }}>{addArt ? "submit" : "submit changes"}</button>
                     <button onClick={() => {
                         setEditArt(0)
