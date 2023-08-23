@@ -7,7 +7,14 @@ export const ArtList = ({ art, setEdit }) => {
     const navigate = useNavigate()
     const url = useLocation()
     const [artwork, setArtwork] = useState([])
-    // const [editArt, setEditArt] = useState(false)
+    // const [sizeClass, setSizeClass] = useState("")
+    // useEffect(
+    //     () => {
+    //         if (url.pathname === "/admin") {
+    //             setSizeClass()
+    //         }
+    //     },[url]
+    // )
     useEffect(
         () => {
             if (!art) {

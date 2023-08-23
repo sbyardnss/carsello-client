@@ -1,13 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import UploadWidget from "../Cloudinary/UploadWidget";
 import "../Admin/Admin.css"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArtForm } from "./ArtForm";
 import { getArt, getEvents, sendArt, sendEvent, updatePiece } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
-import { EventList } from "../EventList/EventList";
 import { EventForm } from "./EventForm";
-import { PieceInspection } from "../PieceInspection/PieceInspection";
 import { Events } from "../Events/Events";
 export const Admin = () => {
     const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME
@@ -21,15 +19,10 @@ export const Admin = () => {
     const [viewArt, setViewArt] = useState(false)
     const [events, setEvents] = useState([])
     const [viewEvents, setViewEvents] = useState(false)
-    // const [sendEvent, setSendEvent] = useState(false)
     const [editArt, setEditArt] = useState(0)
     const [editEvent, setEditEvent] = useState(0)
-    const [supportImages, setSupportImages] = useState([])
+    // const [supportImages, setSupportImages] = useState([])
 
-    // const newEventTitle = useRef()
-    // const newEventLocation = useRef()
-    // const [newEventDateTime, setNewEventDateTime] = useState("")
-    // const newEventPrice = useRef()
     const [newPiece, updateNewPiece] = useState({
         title: "",
         year: 0,
@@ -73,13 +66,13 @@ export const Admin = () => {
             updateNewPiece(copy)
         }, [supportImageUrl]
     )
-    useEffect(
-        () => {
-            const copy = { ...newPiece }
-            copy.support_images = supportImages
-            updateNewPiece(copy)
-        }, [supportImages]
-    )
+    // useEffect(
+    //     () => {
+    //         const copy = { ...newPiece }
+    //         copy.support_images = supportImages
+    //         updateNewPiece(copy)
+    //     }, [supportImages]
+    // )
 
 
     // useEffect(
