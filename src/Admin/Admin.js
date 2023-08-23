@@ -10,6 +10,8 @@ import { EventForm } from "./EventForm";
 import { PieceInspection } from "../PieceInspection/PieceInspection";
 import { Events } from "../Events/Events";
 export const Admin = () => {
+    const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME
+    const cloudinaryPreset = process.env.REACT_APP_CLOUDINARY_PRESET
     const navigate = useNavigate();
     const [addArt, setAddArt] = useState(false)
     const [addEvent, setAddEvent] = useState(false)
@@ -110,8 +112,7 @@ export const Admin = () => {
             }
             else {
                 document.getElementById('editArtModal').style.display = 'none'
-                getArt()
-                    .then(data => setArtwork(data))
+
             }
         }, [addArt]
     )
@@ -171,53 +172,14 @@ export const Admin = () => {
         getEvents()
             .then(data => setEvents(data))
     }
-    // const addEventForm = () => {
-    //     if (addEvent) {
-    //         return (
-    //             <section id="addEventSection">
-    //                 <EventForm
-    //                     title={newEventTitle}
-    //                     location={newEventLocation}
-    //                     dateTime={newEventDateTime}
-    //                     setDateTime={setNewEventDateTime}
-    //                     price={newEventPrice}
-    //                     event={newEvent}
-    //                     updateEvent={updateNewEvent}
-    //                 />
-    //                 {/* <div>
-    //                     <label>image</label>
-    //                     <UploadWidget
-    //                         urlSet={setArtImageUrl}
-    //                         imageName={newTitle.current?.value} />
-    //                 </div> */}
-    //                 <button onClick={() => setAddEvent(false)}>cancel</button>
-    //                 <button onClick={() => setSendEvent(true)}>submit</button>
-    //             </section>
-    //         )
-    //     }
-    //     else {
-    //         return (
-    //             <section id="addEventSection">
-    //                 <button onClick={() => {
-    //                     setAddArt(false)
-    //                     setEditArt(0)
-    //                     setAddEvent(true)
-    //                 }}>add event</button>
-    //             </section>
-    //         )
-    //     }
-    // }
 
     const artList = () => {
         if (viewArt) {
             return (
                 <section id="adminArtListSection">
-                    {/* <button onClick={() => setViewArt(false)}>Cancel</button> */}
                     <ArtList
                         art={artwork}
                         setEdit={setEditArt}
-                        // artToEdit={editArt}
-                        // addingArt={addArt}
                     />
                 </section>
             )
@@ -227,11 +189,6 @@ export const Admin = () => {
         if (viewEvents) {
             return (
                 <section id="adminEventListSection">
-                    {/* <button onClick={() => setViewEvents(false)}>Cancel</button> */}
-                    {/* <EventList
-                        myEvents={events}
-                        setEdit={setEditEvent}
-                    /> */}
                     <Events
                         myEvents={events}
                         setEdit={setEditEvent}
@@ -268,7 +225,10 @@ export const Admin = () => {
                         <UploadWidget
                             primeOrSupport={'prime'}
                             urlSet={setArtImageUrl}
-                            imageName={newPiece.title} />
+                            imageName={newPiece.title}
+                            cloudinaryName={cloudinaryName}
+                            cloudinaryPreset={cloudinaryPreset}
+                            />
                     </div>
                     {
                         newPiece.primary_image ? <img className="uploadDisplayImage" src={newPiece.primary_image} /> : <div>Primary Image: None</div>
@@ -295,14 +255,15 @@ export const Admin = () => {
                             // console.log(`edit -- ${newPiece.id}`)
                             updatePiece(newPiece)
                             setEditArt(0)
+                            resetArt()
+                            resetNewPiece()
                         }
                         else {
                             // console.log(`add -- ${newPiece}`)
                             sendArt(newPiece)
+                                .then(() => resetArt())
                             setAddArt(false)
                         }
-                        resetArt()
-                        resetNewPiece()
                     }}>{addArt ? "submit" : "submit changes"}</button>
                     <button onClick={() => {
                         setEditArt(0)

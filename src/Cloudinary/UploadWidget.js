@@ -1,16 +1,19 @@
 import { useEffect, useRef } from "react"
 
-export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet }) => {
+export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet, cloudinaryName, cloudinaryPreset }) => {
     const cloudinaryRef = useRef()
     const widgetRef = useRef()
-    const cloudinaryName = process.env.CLOUDINARY_NAME
-    const cloudinaryPreset = process.env.CLOUDINARY_PRESET
+    // const cloudinaryName = process.env.CLOUDINARY_NAME
+    // const cloudinaryPreset = process.env.CLOUDINARY_PRESET
+    
     useEffect(
         () => {
             cloudinaryRef.current = window.cloudinary;
             widgetRef.current = cloudinaryRef.current.createUploadWidget({
-                cloudName: 'da0za1x54', //these will be changed to lizzies account info when ready to deploy
-                uploadPreset: 'pcwtfdjj'
+                // cloudName: 'da0za1x54', //these will be changed to lizzies account info when ready to deploy
+                // uploadPreset: 'pcwtfdjj'
+                cloudName: cloudinaryName,
+                uploadPreset: cloudinaryPreset
             }, function (error, result) {
                 // if (error || result.event === 'success') {
                 //     onUpload(error, result)
