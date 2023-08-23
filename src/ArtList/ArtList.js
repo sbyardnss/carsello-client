@@ -19,7 +19,10 @@ export const ArtList = ({ art, setEdit }) => {
         () => {
             if (!art) {
                 getArt()
-                    .then(data => setArtwork(data))
+                    .then(data => {
+                        const sorted = data.sort((a, b) => a.sort_index - b.sort_index)
+                        setArtwork(sorted)
+                    })
             }
             else {
                 setArtwork(art)

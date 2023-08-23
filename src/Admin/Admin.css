@@ -80,6 +80,10 @@
     background-color: gray;
     z-index: 10;
 }
+#newEventForm {
+    display: flex;
+    flex-direction: column;
+}
 
 /* art form */
 #editArtModal {
@@ -120,8 +124,36 @@
     justify-content: space-between;
 }
 
-/* event form */
-#newEventForm {
+/* sort art modal */
+#sortArtModal {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 10%;
+    background-color: gray;
+    width: 30em;
+    height: 40em;
+    padding: 1em;
+    z-index: 11;
+}
+.sortList {
+    height: 38em;
+    width: 90%;
+    overflow: scroll;
+}
+.sortListItemHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.sortListItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.positionInfo {
+    margin-right: 1em
 }

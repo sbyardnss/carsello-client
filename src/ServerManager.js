@@ -96,3 +96,16 @@ export const sendEvent = (eventObj) => {
     })
         .then(res => res.json())
 }
+
+export const sendNewArtOrder = (artOrderObj) => {
+    const token = getToken()
+    return fetch(`${apiKey}/artwork/save_new_order`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(artOrderObj)
+    })
+        // .then(res => res.json())
+}

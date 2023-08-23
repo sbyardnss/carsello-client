@@ -7,6 +7,7 @@ import { getArt, getEvents, sendArt, sendEvent, updatePiece } from "../ServerMan
 import { ArtList } from "../ArtList/ArtList";
 import { EventForm } from "./EventForm";
 import { Events } from "../Events/Events";
+import { ArtSortModal } from "./ArtSortModal";
 export const Admin = () => {
     const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME
     const cloudinaryPreset = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -16,11 +17,14 @@ export const Admin = () => {
     const [artImageUrl, setArtImageUrl] = useState("")
     const [supportImageUrl, setSupportImageUrl] = useState("")
     const [artwork, setArtwork] = useState([])
+    const [sortedArtwork, setSortedArtwork] = useState([])
     const [viewArt, setViewArt] = useState(false)
     const [events, setEvents] = useState([])
     const [viewEvents, setViewEvents] = useState(false)
     const [editArt, setEditArt] = useState(0)
     const [editEvent, setEditEvent] = useState(0)
+    const [sortArt, setSortArt] = useState(false)
+
     // const [supportImages, setSupportImages] = useState([])
 
     const [newPiece, updateNewPiece] = useState({
@@ -31,6 +35,7 @@ export const Admin = () => {
         support_images: [],
         dimensions: "",
         quantity: 0
+        // sort_index: null
     })
     const [newEvent, updateNewEvent] = useState({
         title: "",
@@ -52,6 +57,15 @@ export const Admin = () => {
         }, []
     )
 
+    //EITHER ADD A SORTED ART VARIABLE OR SORT ON BACKEND
+    useEffect(
+        () => {
+            const unsortedArt = artwork.filter(a => a.sort_index === 0)
+            const sortedArt = artwork.filter(a => a.sort_index !== 0).sort((a, b) => a.sort_index - b.sort_index)
+            setSortedArtwork(sortedArt.concat(unsortedArt))
+            
+        }, [artwork]
+    )
     useEffect(
         () => {
             const copy = { ...newPiece }
@@ -171,7 +185,7 @@ export const Admin = () => {
             return (
                 <section id="adminArtListSection">
                     <ArtList
-                        art={artwork}
+                        art={sortedArtwork}
                         setEdit={setEditArt}
                     />
                 </section>
@@ -221,7 +235,7 @@ export const Admin = () => {
                             imageName={newPiece.title}
                             cloudinaryName={cloudinaryName}
                             cloudinaryPreset={cloudinaryPreset}
-                            />
+                        />
                     </div>
                     {
                         newPiece.primary_image ? <img className="uploadDisplayImage" src={newPiece.primary_image} /> : <div>Primary Image: None</div>
@@ -296,7 +310,12 @@ export const Admin = () => {
                     setEditEvent(0)
                 }}>cancel</button>
             </section>
-
+            {sortArt ?
+                <ArtSortModal
+                    artwork={sortedArtwork}
+                    setSort={setSortArt}
+                />
+                : ""}
             <h2>this is the admin page</h2>
             <div id="adminBtnBlock">
                 <button className="adminBtnReject" onClick={() => {
@@ -317,6 +336,7 @@ export const Admin = () => {
                     }}>{viewArt === false ? 'View Art' : 'Hide Art'}</button>
                     {/* {addArtForm()} */}
                     <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
+                    <button className="adminButton" onClick={() => setSortArt(true)}>sort art</button>
                 </div>
             </div>
             {artList()}
