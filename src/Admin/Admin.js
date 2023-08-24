@@ -8,6 +8,7 @@ import { ArtList } from "../ArtList/ArtList";
 import { EventForm } from "./EventForm";
 import { Events } from "../Events/Events";
 import { ArtSortModal } from "./ArtSortModal";
+import { OrderList } from "./OrderList";
 
 export const Admin = () => {
     const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME
@@ -26,6 +27,8 @@ export const Admin = () => {
     const [editEvent, setEditEvent] = useState(0)
     const [sortArt, setSortArt] = useState(false)
     const [orders, setOrders] = useState([])
+    const [viewOrders, setViewOrders] = useState(false)
+    const [filterByShipped, setFilterByShipped] = useState(false)
 
     // const [supportImages, setSupportImages] = useState([])
 
@@ -186,7 +189,7 @@ export const Admin = () => {
     const artList = () => {
         if (viewArt) {
             return (
-                <section id="adminArtListSection">
+                <section id="adminListSection">
                     <ArtList
                         art={sortedArtwork}
                         setEdit={setEditArt}
@@ -198,10 +201,23 @@ export const Admin = () => {
     const eventList = () => {
         if (viewEvents) {
             return (
-                <section id="adminEventListSection">
+                <section id="adminListSection">
                     <Events
                         myEvents={events}
                         setEdit={setEditEvent}
+                    />
+                </section>
+            )
+        }
+    }
+    const orderList = () => {
+        if (viewOrders) {
+            return (
+                <section id="adminListSection">
+                    <OrderList
+                        orders={orders}
+                        artwork={artwork}
+                        filterByShipped={filterByShipped}
                     />
                 </section>
             )
@@ -320,38 +336,49 @@ export const Admin = () => {
                 />
                 : ""}
             <div id="adminBtnBlock">
-                <button className="adminBtnReject" onClick={() => {
-                    localStorage.removeItem("carsello_user")
-                    navigate("/admin", { replace: true })
-                }}>logout</button>
-                <div className="flex-down">
-                    
-                </div>
-                <div className="flex-down">
-
+                <div className="adminBtnRow">
+                    <button className="adminBtnReject" onClick={() => {
+                        localStorage.removeItem("carsello_user")
+                        navigate("/admin", { replace: true })
+                    }}>logout</button>
                     <button className="adminButton" onClick={() => setSortArt(true)}>sort art</button>
                 </div>
-                <div className="flex-down adminBtnColumn">
-                    <div className="mediumFont">add</div>
-                    <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
-                    <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
-                </div>
-                <div className="flex-down adminBtnColumn">
-                    <div className="mediumFont">View</div>
-                    <button className="adminButton" onClick={() => {
-                        setViewEvents(false)
-                        setViewArt(!viewArt)
-                    }}>{viewArt === false ? 'View Art' : 'Hide Art'}</button>
-                    <button className="adminButton" onClick={() => {
-                        setViewArt(false)
-                        setViewEvents(!viewEvents)
-                    }}>{viewEvents === false ? 'View Events' : 'Hide Events'}</button>
+                <div className="adminBtnRow">
+                    <div className="flex-down adminBtnColumn">
+                        <div className="mediumFont">add</div>
+                        <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>
+                        <button className="adminButton" onClick={() => setAddEvent(true)}>add event</button>
+                    </div>
+                    <div className="flex-down adminBtnColumn">
+                        <div className="mediumFont">View</div>
+                        <button className="adminButton" onClick={() => {
+                            setViewEvents(false)
+                            setViewOrders(false)
+                            setViewArt(!viewArt)
+                        }}>{viewArt === false ? 'View Art' : 'Hide Art'}</button>
+                        <button className="adminButton" onClick={() => {
+                            setViewArt(false)
+                            setViewOrders(false)
+                            setViewEvents(!viewEvents)
+                        }}>{viewEvents === false ? 'View Events' : 'Hide Events'}</button>
+                        
+                    </div>
+                    <div className="flex-down adminBtnColumn">
+                        <div className="mediumFont">Orders</div>
+                        <button className="adminButton" onClick={() => {
+                            setViewArt(false)
+                            setViewEvents(false)
+                            setViewOrders(!viewOrders)
+                        }}>{viewOrders === false ? 'View Orders' : 'Hide Orders'}</button>
+                        <button className="adminButton" onClick={() => setFilterByShipped(!filterByShipped)}>Show Unshipped</button>
+                    </div>
                 </div>
 
             </div>
             {artList()}
             {/* {addEventForm()} */}
             {eventList()}
+            {orderList()}
         </main>
     </>
 }

@@ -119,3 +119,24 @@ export const getOrders = () => {
     })
         .then(res => res.json())
 }
+
+export const markShipped = (orderId) => {
+    const token = getToken()
+    return fetch(`${apiKey}/orders/${orderId}/mark_shipped`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json"
+        }
+    })
+}
+export const markUnshipped = (orderId) => {
+    const token = getToken()
+    return fetch(`${apiKey}/orders/${orderId}/mark_shipped`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json"
+        }
+    })
+}

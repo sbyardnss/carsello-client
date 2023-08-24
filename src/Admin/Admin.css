@@ -7,11 +7,12 @@
 
 #adminBtnBlock {
     width: 75%;
-    height: 10em;
+    /* height: 10em; */
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
+    /* flex-wrap: wrap; */
 }
 .adminBtnColumn {
     height: fit-content;
@@ -20,9 +21,14 @@
     border-radius: 6px;
     padding: .25em;
 }
+.adminBtnRow {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
 .adminButton {
     width: 7em;
-    height: 2em;
+    height: 3em;
     font-size: large;
     background-color: black;
     border: 1px solid aqua;
@@ -64,7 +70,7 @@
 
 .adminBtnReject {
     width: 7em;
-    height: 2em;
+    height: 3em;
     font-size: large;
     background-color: black;
     border: 1px solid violet;
@@ -165,4 +171,32 @@
 }
 .positionInfo {
     margin-right: 1em
+}
+
+/* order list */
+#orderListContainer {
+    height: 30em;
+    /* width: 28em; */
+    overflow: scroll;
+    border: 1px solid violet;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+.orderListItem {
+    /* height: 10em; */
+    display: flex;
+    border: 1px solid aqua;
+    padding: .5em;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+.orderListInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 2em;
+    width: 10em;
 }
