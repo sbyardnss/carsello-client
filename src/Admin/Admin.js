@@ -3,7 +3,7 @@ import UploadWidget from "../Cloudinary/UploadWidget";
 import "../Admin/Admin.css"
 import { useEffect, useState } from "react";
 import { ArtForm } from "./ArtForm";
-import { getArt, getEvents, getOrders, sendArt, sendEvent, updatePiece } from "../ServerManager";
+import { getArt, getEvents, getOrders, sendArt, sendEvent, sendUpdatedEvent, updatePiece } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
 import { EventForm } from "./EventForm";
 import { Events } from "../Events/Events";
@@ -163,6 +163,7 @@ export const Admin = () => {
             sold: false,
             dimensions: ""
         })
+
     }
 
     const resetNewEvent = () => {
@@ -176,6 +177,8 @@ export const Admin = () => {
             details: "",
             price: 0
         })
+        getEvents()
+            .then(data => setEvents(data))
     }
     const resetArt = () => {
         getArt()
@@ -309,7 +312,19 @@ export const Admin = () => {
                     }
                 </div> */}
                 <button onClick={() => {
-                    if (addEvent) {
+                    if (editEvent) {
+                        if (newEvent.title && newEvent.location && newEvent.date) {
+                            sendUpdatedEvent(newEvent)
+                            setEditEvent(0)
+                            resetNewEvent()
+                            resetEvents()
+
+                        }
+                        else {
+                            window.alert("You must have an event name, date, and location")
+                        }
+                    }
+                    else {
                         if (newEvent.title && newEvent.location && newEvent.date) {
                             sendEvent(newEvent)
                                 .then(() => {
@@ -361,7 +376,7 @@ export const Admin = () => {
                             setViewOrders(false)
                             setViewEvents(!viewEvents)
                         }}>{viewEvents === false ? 'View Events' : 'Hide Events'}</button>
-                        
+
                     </div>
                     <div className="flex-down adminBtnColumn">
                         <div className="mediumFont">Orders</div>

@@ -3,14 +3,19 @@ import "../Events/Events.css"
 import { getEvents } from "../ServerManager"
 import { Link, useLocation } from "react-router-dom"
 
-export const Events = ({ setEdit }) => {
+export const Events = ({ myEvents, setEdit }) => {
     const [events, setEvents] = useState([])
     const url = useLocation()
     useEffect(
         () => {
-            getEvents()
-                .then(data => setEvents(data))
-        }, []
+            if (!myEvents) {
+                getEvents()
+                    .then(data => setEvents(data))
+            }
+            else {
+                setEvents(myEvents)
+            }
+        }, [myEvents]
     )
     return <>
         <main id="serviceContainer">
@@ -35,7 +40,8 @@ export const Events = ({ setEdit }) => {
                                         <div className="eventLogistics smallFont">
                                             {e.location}<br />
                                             {e.date}<br />
-                                            {e.time}
+                                            {e.time}<br />
+                                            {e.price === 0 ? "" : `$${e.price}`}
                                         </div>
                                         {e.link ?
                                             <div className="eventLink">

@@ -67,7 +67,7 @@ export const EventForm = ({ event, updateEvent }) => {
                 className="form-input"
                 type="number"
                 // ref={price}
-                value={event?.price}
+                value={event.price}
                 required autoFocus
             />
             <label className="form-labels" htmlFor="eventDate">Event Date</label>

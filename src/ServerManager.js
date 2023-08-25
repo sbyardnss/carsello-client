@@ -33,6 +33,18 @@ export const updatePiece = (artObj) => {
         body: JSON.stringify(artObj)
     })
 }
+export const sendUpdatedEvent = (eventObj) => {
+    const token = getToken()
+    return fetch(`${apiKey}/events/${eventObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(eventObj)
+    })
+    .then(res => res)
+}
 export const quantityDecrease = (artId) => {
     return fetch(`${apiKey}/artwork/${artId}/quantity_decrement`, {
         method: "PUT",
