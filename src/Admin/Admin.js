@@ -348,6 +348,7 @@ export const Admin = () => {
                 <ArtSortModal
                     artwork={sortedArtwork}
                     setSort={setSortArt}
+                    resetArt={resetArt}
                 />
                 : ""}
             <div id="adminBtnBlock">

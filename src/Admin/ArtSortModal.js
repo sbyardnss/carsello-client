@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { sendNewArtOrder } from "../ServerManager"
 
 
-export const ArtSortModal = ({ artwork, setSort }) => {
+export const ArtSortModal = ({ artwork, setSort, resetArt }) => {
     const [artOrderObj, updateArtOrder] = useState({})
     const [newSortOrder, setNewSortOrder] = useState([])
     useEffect(
@@ -26,7 +26,12 @@ export const ArtSortModal = ({ artwork, setSort }) => {
                 <div>
                     <button onClick={() => {
                         sendNewArtOrder(artOrderObj)
-                        
+                        .then(res => {
+                            if (res.ok === true) {
+                                setSort(false)
+                                resetArt()
+                            }
+                        })
                     }}>save</button>
                     <button onClick={() => setSort(false)}>cancel</button>
                 </div>
