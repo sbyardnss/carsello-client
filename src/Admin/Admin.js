@@ -39,7 +39,8 @@ export const Admin = () => {
         price: 0,
         support_images: [],
         dimensions: "",
-        quantity: 0
+        quantity: 0,
+        range: 0
         // sort_index: null
     })
     const [newEvent, updateNewEvent] = useState({
@@ -155,13 +156,13 @@ export const Admin = () => {
     const resetNewPiece = () => {
         updateNewPiece({
             title: "",
-            year: "",
-            image: '',
+            year: 0,
+            primary_image: '',
             price: 0,
             support_images: [],
+            dimensions: "",
             quantity: 0,
-            sold: false,
-            dimensions: ""
+            range: 0
         })
 
     }

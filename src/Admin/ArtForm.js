@@ -34,6 +34,15 @@ export const ArtForm = ({ piece, update }) => {
                 value={piece.price}
                 required autoFocus
             />
+            <label className="form-labels" htmlFor="newRange">Price Range</label>
+            <input
+                id="range"
+                onChange={handleChange}
+                className="form-input"
+                type="number"
+                value={piece.range}
+                required autoFocus
+            />
             <label className="form-labels" htmlFor="newYear">Year</label>
             <input
                 id="year"
