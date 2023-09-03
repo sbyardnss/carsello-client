@@ -55,13 +55,24 @@
 
 .purchaseToggleOn {
     width: 6em;
-    height: 2em;
+    /* height: 2em; */
     font-size: large;
     background-color: black;
     border: 1px solid aqua;
     border-radius: 4px;
     color: aqua;
     cursor: pointer;
+}
+.purchaseToggleOn2 {
+    width: 6em;
+    /* height: 2em; */
+    font-size: large;
+    background-color: black;
+    border: 1px solid violet;
+    border-radius: 4px;
+    color: violet;
+    cursor: pointer;
+    text-align: center;
 }
 .purchaseToggleOff {
     width: 4em;
@@ -72,6 +83,15 @@
     border-radius: 4px;
     color: violet;
     cursor: pointer;
+}
+#namePriceBox {
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.namePriceInput {
+    width: 16em;
 }
 
 @media screen and (min-width: 641px) {

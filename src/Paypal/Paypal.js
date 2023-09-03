@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { quantityDecrease, sendNewOrder } from "../ServerManager";
 
-export const PayPal = ({ item, resetArt, purchaseSet }) => {
+export const PayPal = ({ item, resetArt, purchaseSet, price, setPrice }) => {
     const paypalClientId = process.env.PAYPAL_CLIENT_ID
     const [paypalReturnOrder, setPaypalReturnOrder] = useState({})
     const [newOrder, updateNewOrder] = useState({
@@ -83,7 +83,7 @@ export const PayPal = ({ item, resetArt, purchaseSet }) => {
                                     description: item.title,
                                     amount: {
                                         currency_code: "USD",
-                                        value: item.price
+                                        value: price
                                     }
                                 }
                             ]
