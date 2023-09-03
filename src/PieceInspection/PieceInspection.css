@@ -49,6 +49,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 1em;
     /* height: 30%; */
 
 }
@@ -74,6 +75,7 @@
     cursor: pointer;
     text-align: center;
 }
+
 .purchaseToggleOff {
     width: 4em;
     /* height: 2em; */
@@ -84,6 +86,10 @@
     color: violet;
     cursor: pointer;
 }
+.purchaseCancel {
+    margin: 1em 1em 0 1em;
+}
+
 #namePriceBox {
     width: 20em;
     display: flex;
@@ -127,6 +133,11 @@
     .supportImage:hover {
         transform: scale(1.5);
     }
+    .artBack {
+        margin-left: auto;
+        margin-right: 4em;
+        width: fit-content;
+    }
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
@@ -140,7 +151,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        margin: 2em 0;
+        margin: 1em 0;
     }
 
     #pieceInspectionImageContainer {
@@ -182,12 +193,18 @@
 
     .purchaseBox {
         width: 50%;
-        height: 6em;
+        height: 9em;
     }
 
     #supportImageDisplay {
         display: flex;
         width: 90%;
         overflow-x: scroll;
+    }
+    .artBack {
+        /* margin-left: auto;
+        margin-right: 1em; */
+        margin: 1em 1em 0 auto;
+        width: fit-content;
     }
 }

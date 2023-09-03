@@ -163,6 +163,14 @@
         display: none;
         position: absolute;
     }
+    #navigation {
+        justify-content: center;
+        margin: 0.5em;
+    }
+    #navigationMini {
+        justify-content: center;
+        margin: .5em
+    }
     #active:checked~#carselloNavigation {
         background-color: #202020;
         /* position: fixed; */

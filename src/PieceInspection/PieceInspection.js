@@ -43,6 +43,10 @@ export const PieceInspection = () => {
 
     return <>
         <main id="pieceInspectionContainer">
+            <button className="purchaseToggleOff artBack" onClick={() => {
+                setSelectedArt({})
+                navigate(-1)
+            }}>back to art</button>
             <article id="paymentAndDisplay" className="opaqueCard">
                 <div id="pieceInspectionImageContainer">
                     <img className="pieceInspectionPiece" src={selectedArt.primary_image} />
@@ -73,7 +77,11 @@ export const PieceInspection = () => {
                                     purchaseSet={setPurchase}
                                 />
                             } */}
-                            <button className="purchaseToggleOff" onClick={() => setPurchase(false)}>cancel</button>
+                            <button className="purchaseToggleOff purchaseCancel" onClick={() => {
+                                setPurchase(false)
+                                setNamePrice(false)
+                                setSelectedPrice(selectedArt.price)
+                            }}>cancel</button>
                         </div>
                         : selectedArt.quantity > 0 ?
                             <div className="purchaseBox">
@@ -98,7 +106,7 @@ export const PieceInspection = () => {
                                                     window.alert(`price must be within $${selectedArt.range} of asking price`)
                                                 }
                                             }}>purchase</button>
-                                            <button className="purchaseToggleOff" onClick={() => {
+                                            <button className="purchaseToggleOff purchaseCancel" onClick={() => {
                                                 setNamePrice(false)
                                                 setSelectedPrice(selectedArt.price)
                                             }}>cancel</button>
