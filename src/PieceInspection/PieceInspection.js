@@ -40,6 +40,7 @@ export const PieceInspection = () => {
             console.log(selectedPrice)
         }, [selectedPrice]
     )
+    const priceDifCheck = selectedPrice - selectedArt.price < 0 ? (selectedPrice - selectedArt.price) * -1 : selectedPrice - selectedArt.price
 
     return <>
         <main id="pieceInspectionContainer">
@@ -95,10 +96,9 @@ export const PieceInspection = () => {
                                         <div className="smallFontWeight">Price must be within ${selectedArt.range} of asking</div>
                                         {/* <input className="namePriceInput" type="number" placeholder='name price within range' onChange={(e) => setOwnPrice(parseInt(e.target.value))} /> */}
                                         <input className="namePriceInput" type="number" placeholder='name price within range' onChange={(e) => setSelectedPrice(parseInt(e.target.value))} />
-
                                         <div>
                                             <button className="purchaseToggleOn" onClick={() => {
-                                                const priceDifCheck = selectedPrice - selectedArt.price < 0 ? (selectedPrice - selectedArt.price) * -1 : selectedPrice - selectedArt.price
+                                                // const priceDifCheck = selectedPrice - selectedArt.price < 0 ? (selectedPrice - selectedArt.price) * -1 : selectedPrice - selectedArt.price
                                                 if (priceDifCheck <= selectedArt.range) {
                                                     setPurchase(true)
                                                 }
@@ -111,7 +111,8 @@ export const PieceInspection = () => {
                                                 setSelectedPrice(selectedArt.price)
                                             }}>cancel</button>
                                         </div>
-                                    </div>}
+                                    </div>
+                                }
                             </div>
                             : ""
                     }
