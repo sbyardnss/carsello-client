@@ -72,7 +72,7 @@ export const Curation = () => {
                 </div>
                 <div className="curationImageAndCredit">
                     <img className="curationDisplayImage" src={aPlaceForMyHead} />
-                    <div className="smallFontWeight">@aplaceformyhead</div>
+                    <div className="smallFontWeight">@aplaceformythread</div>
                 </div>
                 <div className="curationImageAndCredit">
                     <img className="curationDisplayImage" src={aprilRugs} />
