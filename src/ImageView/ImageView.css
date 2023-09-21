@@ -1,0 +1,47 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#imageViewContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    top: 10%;
+    width: 90%;
+    /* height: 70%; */
+    z-index: 100;
+    animation: fadeIn .1s;
+}
+.exitImageBtnBlock {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+
+}
+.exitImageViewBtn {
+    width: 4em;
+    font-size: large;
+    background-color: black;
+    border: 1px solid violet;
+    border-radius: 4px;
+    color: violet;
+    cursor: pointer;
+}
+
+.imageToView {
+    object-fit: contain;
+    display: flex;
+    height: auto;
+    width: auto;
+    max-height: 90%;
+    max-width: 80%;
+    margin-top: 1em;
+}
