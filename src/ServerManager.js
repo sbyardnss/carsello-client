@@ -5,7 +5,7 @@ const getToken = () => {
 }
 const apiKey = process.env.REACT_APP_API
 export const loginUser = (user) => {
-    return fetch(`http://localhost:8000/login`, {
+    return fetch(`${apiKey}/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
