@@ -14,6 +14,7 @@
 
 #paymentAndDisplay {
     display: flex;
+    
 }
 
 #pieceInspectionImageContainer {
@@ -255,4 +256,28 @@
         margin: 1em 1em 0 auto;
         width: fit-content;
     }
+}
+@media screen and (orientation: landscape) and (max-width: 680px) {
+    #pieceInspectionContainer {
+        height: auto;
+    }
+    #backToArtBtnDiv {
+        margin-bottom: 1em;
+    }
+    #paymentAndDisplay {
+        min-width: unset;
+        width: 90vw;
+        height: 80vh;
+    }
+    #pieceInspectionImageContainer {
+        display: flex;
+        max-width: fit-content;
+        width: 60%;
+    }
+    .pieceInspectionPiece {
+        max-width: 100%;
+
+    }
+
+
 }
