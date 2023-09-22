@@ -17,6 +17,7 @@
 }
 #adminControls {
     width: 100vw;
+    max-width: 24em;
 }
 .adminBtnColumn {
     height: fit-content;
