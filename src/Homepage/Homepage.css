@@ -10,12 +10,14 @@ p {
     left: auto;
     right: auto
 }
+
 #brokenKeyBack {
-    
+
     width: 100%;
     z-index: -100;
 
 }
+
 #selfDescription {
     display: flex;
     justify-content: flex-start;
@@ -24,6 +26,7 @@ p {
     font-size: 8vw;
     font-weight: 100;
 }
+
 #offeredServices {
     display: flex;
     flex-direction: column;
@@ -46,6 +49,7 @@ p {
     transition: transform .2s;
 
 }
+
 .serviceSectionLeft {
     display: flex;
     justify-content: flex-start;
@@ -53,7 +57,8 @@ p {
     width: 100%;
     margin-bottom: 2em;
 }
-.servicesImage:hover + .rotateRightLabel {
+
+.servicesImage:hover+.rotateRightLabel {
     transform: translateX(10px);
     color: aqua;
 }
@@ -81,7 +86,8 @@ p {
     margin-bottom: 2em;
 
 }
-.servicesImage:hover + .rotateLeftLabel {
+
+.servicesImage:hover+.rotateLeftLabel {
     transform: translateX(-10px) rotate(180deg);
     color: rgb(166, 83, 208);
 }
@@ -97,10 +103,11 @@ p {
     transition: transform .2s;
     border-radius: 10px;
 }
+
 .servicesImage:hover {
     /* filter: saturate(0%); */
     transform: scale(1.05);
-    
+
 }
 
 
@@ -114,16 +121,22 @@ p {
         background-size: 100%;
         background-position: 50%;
         background-repeat: no-repeat;
-        
+
     }
+
     #fullBackground {
         width: 160%;
         position: absolute;
         filter: opacity(50%);
         top: 50%;
     }
-    .servicesImage {
+
+    /* .servicesImage {
         max-height: 22em;
+    } */
+    #writingHomePageImage {
+        font-size: 3vw;
+        height: 12em;
     }
 
 }
@@ -139,9 +152,14 @@ p {
         /* background-size: cover; */
         background-position: 40% 50%;
         background-repeat: no-repeat;
-        
+
     }
-    .servicesImage {
-        max-height: 9em;
+
+    /* .servicesImage {
+        max-height: 14em;
+    } */
+    #writingHomePageImage {
+        font-size: 3vw;
+        height: 12em;
     }
 }

@@ -55,7 +55,7 @@ export const Homepage = () => {
                     <div className="rotateLeftLabel">design</div>
                 </section>
                 <section className="serviceSectionLeft">
-                    <img className="servicesImage" src={writingImage} onClick={() => navigate('/writing')} />
+                    <img id="writingHomePageImage" className="servicesImage" src={writingImage} onClick={() => navigate('/writing')} />
                     <div className="rotateRightLabel">writing</div>
                 </section>
             </article>

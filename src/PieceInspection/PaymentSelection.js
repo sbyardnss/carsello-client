@@ -32,7 +32,7 @@ export const PaymentSelection = ({ item, resetArt, price, setPrice, priceDifChec
                 <div id="namePriceBox">
                     <div className="smallFontWeight">Price must be within ${item.range} of asking</div>
                     <input className="namePriceInput" type="number" placeholder='name price within range' onChange={(e) => setPrice(parseInt(e.target.value))} />
-                    <div>
+                    <div id="namePriceBtnDiv">
                         <button className="purchaseToggleOn" onClick={() => {
                             if (priceDifCheck <= item.range) {
                                 setPurchase(true)

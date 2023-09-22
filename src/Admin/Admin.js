@@ -3,7 +3,7 @@ import UploadWidget from "../Cloudinary/UploadWidget";
 import "../Admin/Admin.css"
 import { useEffect, useState } from "react";
 import { ArtForm } from "./ArtForm";
-import { getArt, getEvents, getOrders, sendArt, sendEvent, sendUpdatedEvent, updatePiece } from "../ServerManager";
+import { deleteArtPiece, deleteEvent, getArt, getEvents, getOrders, sendArt, sendEvent, sendUpdatedEvent, updatePiece } from "../ServerManager";
 import { ArtList } from "../ArtList/ArtList";
 import { EventForm } from "./EventForm";
 import { Events } from "../Events/Events";
@@ -87,23 +87,7 @@ export const Admin = () => {
             updateNewPiece(copy)
         }, [supportImageUrl]
     )
-    // useEffect(
-    //     () => {
-    //         const copy = { ...newPiece }
-    //         copy.support_images = supportImages
-    //         updateNewPiece(copy)
-    //     }, [supportImages]
-    // )
 
-
-    // useEffect(
-    //     () => {
-    //         if (newEventDateTime && sendEvent === true) {
-    //             const copy = { ...newEvent }
-    //             copy.dateTime = new Date(newEventDateTime).toISOString()
-    //         }
-    //     }, [sendEvent]
-    // )
     useEffect(
         () => {
             if (editArt !== 0) {
@@ -267,10 +251,12 @@ export const Admin = () => {
                 <div className="imageAddAndInfoDiv">
                     <div className="addImageDiv">
                         <label>Other images</label>
-                        {/* working on the support images upload */}
                         <UploadWidget
                             primeOrSupport={'support'}
                             supportUrlSet={setSupportImageUrl}
+                            imageName={newPiece.title}
+                            cloudinaryName={cloudinaryName}
+                            cloudinaryPreset={cloudinaryPreset}
                         />
                     </div>
                     {
@@ -279,7 +265,7 @@ export const Admin = () => {
                             : <div>No support images</div>
                     }
                 </div>
-                <div className="artFormBtnBlock">
+                <div className="formBtnBlock">
                     <button onClick={() => {
                         if (editArt) {
                             // console.log(`edit -- ${newPiece.id}`)
@@ -300,50 +286,59 @@ export const Admin = () => {
                         setAddArt(false)
                         resetNewPiece()
                     }}>cancel</button>
+                    <button onClick={() => {
+                        if (window.confirm("Delete this art piece? This cannot be undone.")) {
+                            deleteArtPiece(newPiece.id)
+
+                        }
+                    }}>Delete Piece</button>
                 </div>
             </section>
-            <section id="addEventModal">
+            <section id="addEventModal" >
                 <EventForm
                     event={newEvent}
                     updateEvent={updateNewEvent}
                 />
-                {/* <div id="eventFormImage">
-                    {
+                <div className="formBtnBlock">
 
-                    }
-                </div> */}
-                <button onClick={() => {
-                    if (editEvent) {
-                        if (newEvent.title && newEvent.location && newEvent.date) {
-                            sendUpdatedEvent(newEvent)
-                            setEditEvent(0)
-                            resetNewEvent()
-                            resetEvents()
+                    <button onClick={() => {
+                        if (editEvent) {
+                            if (newEvent.title && newEvent.location && newEvent.date) {
+                                sendUpdatedEvent(newEvent)
+                                setEditEvent(0)
+                                resetNewEvent()
+                                resetEvents()
 
+                            }
+                            else {
+                                window.alert("You must have an event name, date, and location")
+                            }
                         }
                         else {
-                            window.alert("You must have an event name, date, and location")
+                            if (newEvent.title && newEvent.location && newEvent.date) {
+                                sendEvent(newEvent)
+                                    .then(() => {
+                                        resetEvents()
+                                        resetNewEvent()
+                                        setAddEvent(false)
+                                    })
+                            }
+                            else {
+                                window.alert("You must have an event name, date, and location")
+                            }
                         }
-                    }
-                    else {
-                        if (newEvent.title && newEvent.location && newEvent.date) {
-                            sendEvent(newEvent)
-                                .then(() => {
-                                    resetEvents()
-                                    resetNewEvent()
-                                    setAddEvent(false)
-                                })
+                    }}>submit</button>
+                    <button onClick={() => {
+                        setAddEvent(false)
+                        resetNewEvent()
+                        setEditEvent(0)
+                    }}>cancel</button>
+                    <button onClick={() => {
+                        if (window.confirm("Delete this event?")) {
+                            deleteEvent(newEvent.id)
                         }
-                        else {
-                            window.alert("You must have an event name, date, and location")
-                        }
-                    }
-                }}>submit</button>
-                <button onClick={() => {
-                    setAddEvent(false)
-                    resetNewEvent()
-                    setEditEvent(0)
-                }}>cancel</button>
+                    }}>Delete Event</button>
+                </div>
             </section>
             {sortArt ?
                 <ArtSortModal
@@ -360,7 +355,7 @@ export const Admin = () => {
                     }}>logout</button>
                     <button className="adminButton" onClick={() => setSortArt(true)}>sort art</button>
                 </div>
-                <div className="adminBtnRow">
+                <div id="adminControls" className="adminBtnRow">
                     <div className="flex-down adminBtnColumn">
                         <div className="mediumFont">add</div>
                         <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>

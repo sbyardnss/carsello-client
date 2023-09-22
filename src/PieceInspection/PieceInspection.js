@@ -77,51 +77,6 @@ export const PieceInspection = () => {
                         setPrice={setSelectedPrice}
                         priceDifCheck={priceDifCheck}
                     />
-                    {/* {purchase && selectedArt.quantity > 0 ?
-                        <div className="purchaseBox">
-                            <PayPal
-                                item={selectedArt}
-                                resetArt={resetPiece}
-                                purchaseSet={setPurchase}
-                                price={selectedPrice}
-                                setPrice={setSelectedPrice}
-                            />
-                            <button className="purchaseToggleOff purchaseCancel" onClick={() => {
-                                setPurchase(false)
-                                setNamePrice(false)
-                                setSelectedPrice(selectedArt.price)
-                            }}>cancel</button>
-                        </div>
-                        : selectedArt.quantity > 0 ?
-                            <div className="purchaseBox">
-                                <button className="purchaseToggleOn" onClick={() => setPurchase(true)}>Purchase at Price</button>
-                                {!namePrice ?
-                                    <div className="purchaseToggleOn2" onClick={() => setNamePrice(true)}>
-                                        Name Price
-                                    </div>
-                                    :
-                                    <div id="namePriceBox">
-                                        <div className="smallFontWeight">Price must be within ${selectedArt.range} of asking</div>
-                                        <input className="namePriceInput" type="number" placeholder='name price within range' onChange={(e) => setSelectedPrice(parseInt(e.target.value))} />
-                                        <div>
-                                            <button className="purchaseToggleOn" onClick={() => {
-                                                if (priceDifCheck <= selectedArt.range) {
-                                                    setPurchase(true)
-                                                }
-                                                else {
-                                                    window.alert(`price must be within $${selectedArt.range} of asking price`)
-                                                }
-                                            }}>purchase</button>
-                                            <button className="purchaseToggleOff purchaseCancel" onClick={() => {
-                                                setNamePrice(false)
-                                                setSelectedPrice(selectedArt.price)
-                                            }}>cancel</button>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                            : ""
-                    } */}
                 </div>
             </article>
             <section id="supportImageDisplay">
