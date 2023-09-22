@@ -25,9 +25,11 @@ export const retrievePiece = (artId) => {
         .then(res => res.json())
 }
 export const updatePiece = (artObj) => {
+    const token = getToken()
     return fetch(`${apiKey}/artwork/${artObj.id}`, {
         method: "PUT",
         headers: {
+            "Authorization": `Token ${token}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify(artObj)
@@ -43,7 +45,7 @@ export const sendUpdatedEvent = (eventObj) => {
         },
         body: JSON.stringify(eventObj)
     })
-    .then(res => res)
+        .then(res => res)
 }
 export const quantityDecrease = (artId) => {
     return fetch(`${apiKey}/artwork/${artId}/quantity_decrement`, {
@@ -149,6 +151,27 @@ export const markUnshipped = (orderId) => {
         headers: {
             "Authorization": `Token ${token}`,
             "Content-Type": "application/json"
+        }
+    })
+}
+
+//delete fetches
+export const deleteArtPiece = (artId) => {
+    const token = getToken()
+    return fetch(`${apiKey}/artwork/${artId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${token}`
+        }
+    })
+}
+
+export const deleteEvent = (eventId) => {
+    const token = getToken()
+    return fetch(`${apiKey}/events/${eventId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${token}`
         }
     })
 }
