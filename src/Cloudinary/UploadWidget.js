@@ -8,7 +8,6 @@ export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet,
     useEffect(
         () => {
             cloudinaryRef.current = window.cloudinary;
-            console.log(cloudinaryRef.current)
             widgetRef.current = cloudinaryRef.current.createUploadWidget({
                 // cloudName: 'da0za1x54', //these will be changed to lizzies account info when ready to deploy
                 // uploadPreset: 'pcwtfdjj'
