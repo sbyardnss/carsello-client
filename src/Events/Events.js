@@ -41,7 +41,7 @@ export const Events = ({ myEvents, setEdit }) => {
                                             {e.location}<br />
                                             {e.date}<br />
                                             {e.time}<br />
-                                            {e.price === 0 ? "" : `$${e.price}`}
+                                            Price: {!e.price ? "Free!" : `$${e.price}`}
                                         </div>
                                         {e.link ?
                                             <div className="eventLink">
