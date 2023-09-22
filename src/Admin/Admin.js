@@ -265,7 +265,7 @@ export const Admin = () => {
                             : <div>No support images</div>
                     }
                 </div>
-                <div className="artFormBtnBlock">
+                <div className="formBtnBlock">
                     <button onClick={() => {
                         if (editArt) {
                             // console.log(`edit -- ${newPiece.id}`)
@@ -287,56 +287,58 @@ export const Admin = () => {
                         resetNewPiece()
                     }}>cancel</button>
                     <button onClick={() => {
-                    if (window.confirm("Delete this art piece? This cannot be undone.")) {
-                        deleteArtPiece(newPiece.id)
-                        
-                    }
-                }}>Delete Piece</button>
+                        if (window.confirm("Delete this art piece? This cannot be undone.")) {
+                            deleteArtPiece(newPiece.id)
+
+                        }
+                    }}>Delete Piece</button>
                 </div>
             </section>
-            <section id="addEventModal">
+            <section id="addEventModal" >
                 <EventForm
                     event={newEvent}
                     updateEvent={updateNewEvent}
                 />
+                <div className="formBtnBlock">
 
-                <button onClick={() => {
-                    if (editEvent) {
-                        if (newEvent.title && newEvent.location && newEvent.date) {
-                            sendUpdatedEvent(newEvent)
-                            setEditEvent(0)
-                            resetNewEvent()
-                            resetEvents()
+                    <button onClick={() => {
+                        if (editEvent) {
+                            if (newEvent.title && newEvent.location && newEvent.date) {
+                                sendUpdatedEvent(newEvent)
+                                setEditEvent(0)
+                                resetNewEvent()
+                                resetEvents()
 
+                            }
+                            else {
+                                window.alert("You must have an event name, date, and location")
+                            }
                         }
                         else {
-                            window.alert("You must have an event name, date, and location")
+                            if (newEvent.title && newEvent.location && newEvent.date) {
+                                sendEvent(newEvent)
+                                    .then(() => {
+                                        resetEvents()
+                                        resetNewEvent()
+                                        setAddEvent(false)
+                                    })
+                            }
+                            else {
+                                window.alert("You must have an event name, date, and location")
+                            }
                         }
-                    }
-                    else {
-                        if (newEvent.title && newEvent.location && newEvent.date) {
-                            sendEvent(newEvent)
-                                .then(() => {
-                                    resetEvents()
-                                    resetNewEvent()
-                                    setAddEvent(false)
-                                })
+                    }}>submit</button>
+                    <button onClick={() => {
+                        setAddEvent(false)
+                        resetNewEvent()
+                        setEditEvent(0)
+                    }}>cancel</button>
+                    <button onClick={() => {
+                        if (window.confirm("Delete this event?")) {
+                            deleteEvent(newEvent.id)
                         }
-                        else {
-                            window.alert("You must have an event name, date, and location")
-                        }
-                    }
-                }}>submit</button>
-                <button onClick={() => {
-                    setAddEvent(false)
-                    resetNewEvent()
-                    setEditEvent(0)
-                }}>cancel</button>
-                <button onClick={() => {
-                    if (window.confirm("Delete this event?")) {
-                        deleteEvent(newEvent.id)
-                    }
-                }}>Delete Event</button>
+                    }}>Delete Event</button>
+                </div>
             </section>
             {sortArt ?
                 <ArtSortModal
@@ -353,7 +355,7 @@ export const Admin = () => {
                     }}>logout</button>
                     <button className="adminButton" onClick={() => setSortArt(true)}>sort art</button>
                 </div>
-                <div className="adminBtnRow">
+                <div id="adminControls" className="adminBtnRow">
                     <div className="flex-down adminBtnColumn">
                         <div className="mediumFont">add</div>
                         <button className="adminButton" onClick={() => setAddArt(true)}>add art</button>

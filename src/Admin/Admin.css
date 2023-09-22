@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 #adminBtnBlock {
@@ -14,6 +15,9 @@
     align-items: center;
     /* flex-wrap: wrap; */
 }
+#adminControls {
+    width: 100vw;
+}
 .adminBtnColumn {
     height: fit-content;
     justify-content: flex-start;
@@ -22,14 +26,14 @@
     padding: .25em;
 }
 .adminBtnRow {
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 .adminButton {
-    width: 7em;
+    width: 6em;
     height: 3em;
-    font-size: large;
+    font-size: medium;
     background-color: black;
     border: 1px solid aqua;
     border-radius: 4px;
@@ -74,7 +78,7 @@
 .adminBtnReject {
     width: 7em;
     height: 3em;
-    font-size: large;
+    font-size: medium;
     background-color: black;
     border: 1px solid violet;
     border-radius: 4px;
@@ -136,7 +140,7 @@
     max-width: 3em;
 }
 
-.artFormBtnBlock {
+.formBtnBlock {
     height: 2em;
     display: flex;
     justify-content: space-between;

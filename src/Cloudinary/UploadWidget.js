@@ -28,8 +28,8 @@ export const UploadWidget = ({ primeOrSupport, urlSet, imageName, supportUrlSet,
                     }
                 }
                 else {
-                    console.log(result)
-                    console.log(error)
+                    // console.log(result)
+                    // console.log(error)
                 }
             })
         }, []
