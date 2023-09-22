@@ -173,7 +173,10 @@ export const Admin = () => {
         getEvents()
             .then(data => setEvents(data))
     }
-
+    async function initiateEventDeletion(eventId) {
+        await deleteEvent(eventId)
+        resetEvents()
+    }
     const artList = () => {
         if (viewArt) {
             return (
@@ -335,7 +338,10 @@ export const Admin = () => {
                     }}>cancel</button>
                     <button onClick={() => {
                         if (window.confirm("Delete this event?")) {
-                            deleteEvent(newEvent.id)
+                            // deleteEvent(newEvent.id)
+                            initiateEventDeletion(newEvent.id)
+                            resetNewEvent()
+                            setEditEvent(0)
                         }
                     }}>Delete Event</button>
                 </div>
