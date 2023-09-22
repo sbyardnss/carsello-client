@@ -1,11 +1,13 @@
 import "../ImageView/ImageView.css"
-export const ImageView = ({selectedImageUrl, setImageToViewUrl}) => {
+export const ImageView = ({ selectedImageUrl, setImageToViewUrl }) => {
     return (
-        <div id="imageViewContainer" className="opaqueCard">
-            <div className="exitImageBtnBlock">
-                <button className="exitImageViewBtn" onClick={() => setImageToViewUrl("")}>exit</button>
+        <section id="imageViewContainer">
+            <div id="imageViewDisplayDiv" className="opaqueCard">
+                <div className="exitImageBtnBlock">
+                    <button className="exitImageViewBtn" onClick={() => setImageToViewUrl("")}>exit</button>
+                </div>
+                <img className="imageToView" src={selectedImageUrl} />
             </div>
-            <img className="imageToView" src={selectedImageUrl} />
-        </div>
+        </section>
     )
 }

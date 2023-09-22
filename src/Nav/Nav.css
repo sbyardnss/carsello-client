@@ -8,7 +8,7 @@
     /* background-color: black; */
     color: whitesmoke;
     z-index: 10;
-
+    height: fit-content;
     width: 100%;
 }
 
@@ -26,16 +26,15 @@
     max-height: 350px;
 }
 
-#navigationMini {
+/* #navigationMini {
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 11;
     width: 90%;
     max-width: 960px;
-    /* margin-top: 1em; */
 
-}
+} */
 
 #logoSection {
     display: flex;
@@ -134,7 +133,6 @@
         width: 90%;
         max-width: 960px;
         margin-top: 1em;
-    
     }
     
     .navLink {
@@ -275,5 +273,132 @@
         justify-self: center;
         transition: width .1s ease-in-out;
     
+    }
+}
+@media screen and (orientation: landscape) and (max-width: 680px) {
+    #navMenu {
+        margin-bottom: 1em;
+    }
+    #carselloNavigation {
+        display: none;
+        position: absolute;
+    }
+    #navigation {
+        justify-content: center;
+        margin: 0.5em;
+    }
+    #navigationMini {
+        margin: .5em;
+    }
+    #active:checked~#carselloNavigation {
+        background-color: #202020;
+        width: 100vw;
+        height: 100vh;
+        right: 0%;
+        left: 0%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: .4s cubic-bezier(0.215, 0.61, 0.355, 1);
+        opacity: 1;
+        z-index: 2;
+        list-style: none;
+        padding: 4em 0;
+        margin: 0px;
+    }
+    #carselloNavigation li {
+        margin-bottom: 4em;
+    }
+    
+    .navLink {
+        font-size: min(max(40px, 1vw), 15vw);
+        font-weight: 200;
+        text-decoration: none;
+        color: whitesmoke;
+        margin-right: .25em;
+    }
+    
+    .navLink:hover {
+        color: aqua
+    }
+    
+    .menu-btn {
+        position: absolute;
+        z-index: 3;
+        right: 20px;
+        top: 12.5px;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-btn span,
+    .menu-btn:before,
+    .menu-btn:after {
+        content: "";
+        position: absolute;
+        top: calc(40%);
+        width: 50%;
+        border-bottom: 3px solid aqua;
+        transition: .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .menu-btn:before {
+        transform: translateY(-8px);
+    }
+
+    .menu-btn:after {
+        transform: translateY(8px);
+    }
+
+    .close {
+        z-index: 1;
+        pointer-events: none;
+    }
+
+
+
+    /* closing animation */
+    #active:checked+.menu-btn span {
+        transform: scaleX(0);
+    }
+
+    #active:checked+.menu-btn:before {
+        transform: rotate(45deg);
+        border-color: aqua;
+    }
+
+    #active:checked+.menu-btn:after {
+        transform: rotate(-45deg);
+        border-color: aqua;
+    }
+    #active {
+        display: none;
+        position: absolute;
+        right: 40%;
+    }
+    /* #carselloLogo {
+        width: 40%;
+        cursor: pointer;
+        -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+        filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+        align-self: flex-start;
+        justify-self: center;
+        transition: width .1s ease-in-out;
+    } */
+    #carselloLogoMini {
+        width: 20%;
+        cursor: pointer;
+        -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+        filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+        align-self: flex-start;
+        justify-self: center;
+        transition: width .1s ease-in-out;
     }
 }

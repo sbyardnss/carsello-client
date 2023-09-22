@@ -25,12 +25,10 @@ export const Nav = () => {
 
     const check = (e) => {
         if (e.target.checked === true) {
-            console.log('open')
             document.body.style.overflow = 'hidden'
             return false
         }
         else {
-            console.log('close')
             document.body.style.overflow = 'unset'
             return true
         }

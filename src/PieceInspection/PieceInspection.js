@@ -38,7 +38,19 @@ export const PieceInspection = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+    useEffect(
+        () => {
+            if (imageToViewUrl !== "") {
+                document.body.style.overflow = 'hidden'
 
+            }
+            else {
+                document.body.style.overflow = 'unset'
+
+            }
+        }, [imageToViewUrl]
+    )
+    
     const priceDifCheck = selectedPrice - selectedArt.price < 0 ? (selectedPrice - selectedArt.price) * -1 : selectedPrice - selectedArt.price
 
     return <>
@@ -82,7 +94,6 @@ export const PieceInspection = () => {
             <section id="supportImageDisplay">
                 {
                     selectedArt.support_images?.map(si => {
-                        console.log(si)
                         return <img key={si} className="supportImage" onClick={() => setImageToViewUrl(si)} src={si} />
                     })
                 }
