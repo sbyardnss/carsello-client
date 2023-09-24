@@ -10,4 +10,5 @@ export const ImageView = ({ selectedImageUrl, setImageToViewUrl }) => {
             </div>
         </section>
     )
+
 }

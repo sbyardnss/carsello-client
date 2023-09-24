@@ -27,8 +27,11 @@
 
 #imageViewDisplayDiv {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 20%;
-    width: 90%;
+    /* width: 90%; */
     max-height: 100vh;
 }
 
@@ -66,12 +69,18 @@
     }
 
     #imageViewDisplayDiv {
-        top: 10%;
+        top: 5%;
+        max-height: 80vh;
+    }
+    .imageToView {
+        max-height: 70vh;
     }
 }
 
 
 @media screen and (min-width:320px) and (max-width: 640px) {
     
-
+    #imageViewDisplayDiv {
+        top: 10%;
+    }
 }
