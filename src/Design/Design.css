@@ -1,0 +1,15 @@
+#previousDesignSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 960px;
+    margin-top: 2em;
+}
+
+.designDisplayImage {
+    height: 250px;
+    border-radius: 4px;
+    margin: 1em;
+}
