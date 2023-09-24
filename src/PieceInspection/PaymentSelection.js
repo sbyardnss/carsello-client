@@ -4,12 +4,19 @@ import { PayPal } from "../Paypal/Paypal"
 export const PaymentSelection = ({ item, resetArt, price, setPrice, priceDifCheck }) => {
     const [namePrice, setNamePrice] = useState(false)
     const [purchase, setPurchase] = useState(false)
+    useEffect(
+        () => {
+            if (purchase) {
 
+                console.log('working')
+            }
+        },[purchase]
+    )
 
     //if purchase && quanity, show paypal
     if (purchase && item.quantity > 0) {
         return (
-            <div className="purchasBox">
+            <div className="purchaseBox">
                 <PayPal
                     item={item}
                     resetArt={resetArt}
@@ -25,6 +32,7 @@ export const PaymentSelection = ({ item, resetArt, price, setPrice, priceDifChec
             </div>
         )
     }
+    
     //else if quantity and namePrice, show name price info
     else if (namePrice && item.quantity > 0) {
         return (
@@ -51,13 +59,20 @@ export const PaymentSelection = ({ item, resetArt, price, setPrice, priceDifChec
         )
     }
     //else show normal buttons
-    else {
+    else if (item.quantity > 0) {
         return (
             <div className="purchaseBox">
                 <button className="purchaseToggleOn" onClick={() => setPurchase(true)}>Purchase at Price</button>
                 <div className="purchaseToggleOn2" onClick={() => setNamePrice(true)}>
                     Name Price
                 </div>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div>
+                <h2>out of stock</h2>
             </div>
         )
     }
