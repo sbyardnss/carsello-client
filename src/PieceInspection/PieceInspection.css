@@ -14,7 +14,7 @@
 
 #paymentAndDisplay {
     display: flex;
-    
+
 }
 
 #pieceInspectionImageContainer {
@@ -105,6 +105,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
 #namePriceBtnDiv {
     display: flex;
 }
@@ -127,6 +128,7 @@
         width: auto;
         max-height: 34em;
         max-width: 30em;
+        border-radius: 4px;
     }
 
     #pieceDataAndPurchase {
@@ -219,12 +221,13 @@
         width: 100%;
         height: 9em;
     }
+
     #namePriceBtnDiv {
         width: 14em;
         margin-top: 1em;
         justify-content: space-between;
     }
-    
+
 
     .purchaseToggleOn {
         height: 3em;
@@ -257,23 +260,28 @@
         width: fit-content;
     }
 }
+
 @media screen and (orientation: landscape) and (max-width: 680px) {
     #pieceInspectionContainer {
         height: auto;
     }
+
     #backToArtBtnDiv {
         margin-bottom: 1em;
     }
+
     #paymentAndDisplay {
         min-width: unset;
         width: 90vw;
         height: 80vh;
     }
+
     #pieceInspectionImageContainer {
         display: flex;
         max-width: fit-content;
         width: 60%;
     }
+
     .pieceInspectionPiece {
         max-width: 100%;
 

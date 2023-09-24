@@ -46,6 +46,7 @@
 
 .curationDisplayImage {
     height: 250px;
+    border-radius: 4px;
 }
 
 #previousCurationSection {
