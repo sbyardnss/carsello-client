@@ -47,10 +47,10 @@ export const Curation = () => {
 
                     The process break down:<br />
                     <ul className="opaqueCard">
-                        <li>We set up a meeting  and discuss your goals and vision for your space and coordinate logistics.</li>
-                        <li>I find artists compatible with your vision.</li>
-                        <li>I coordinate and install the show.</li>
-                        <li>I coordinate and uninstall the show :)</li>
+                        <li className="pushIn">We set up a meeting  and discuss your goals and vision for your space and coordinate logistics.</li>
+                        <li className="pushIn">I find artists compatible with your vision.</li>
+                        <li className="pushIn">I coordinate and install the show.</li>
+                        <li className="pushIn">I coordinate and uninstall the show :)</li>
 
                     </ul>
                     <br />

@@ -30,10 +30,10 @@ export const Writing = () => {
 
                     Process (varies depending on your goal):<br />
                     <ul className="opaqueCard">
-                        <li>We set a meeting in which you will tell me about yourself, your art, your process, and goals.</li>
-                        <li>I research the program or show you are applying to.</li>
-                        <li>I help create an outline, a strong thesis, and assist in structuring your writing to be clear and true to your process/vision.</li>
-                        <li>I send edits based off of this draft.</li>
+                        <li className="pushIn">We set a meeting in which you will tell me about yourself, your art, your process, and goals.</li>
+                        <li className="pushIn">I research the program or show you are applying to.</li>
+                        <li className="pushIn">I help create an outline, a strong thesis, and assist in structuring your writing to be clear and true to your process/vision.</li>
+                        <li className="pushIn">I send edits based off of this draft.</li>
                     </ul>
                     Pricing: $25-50 /hour.<br/>
                     All pricing is sliding scale.<br />

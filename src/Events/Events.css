@@ -47,6 +47,9 @@
 .eventInfo {
     width: 100%;
 }
+.eventImage {
+    border-radius: 4px;
+}
 
 @media screen and (min-width: 641px) {
     .eventImage {

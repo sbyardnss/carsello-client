@@ -66,6 +66,7 @@ code {
   height: 250px;
   /* width: 45%; */
   margin: 1em;
+  border-radius: 4px;
 }
 
 .descriptionLine {
@@ -83,6 +84,9 @@ code {
   padding: 1em;
   border: none;
   border-radius: 10px;
+}
+.pushIn {
+  margin-left: .5em;
 }
 .opaqueCard li {
   margin-bottom: .5em;
