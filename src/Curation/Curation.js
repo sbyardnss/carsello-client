@@ -23,13 +23,12 @@ export const Curation = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    console.log(bobTurano)
     return <>
         <main className="serviceContainer">
             {
                 imageToViewUrl ?
                     <ImageView
-                        selectedEmbeddedImage={imageToViewUrl}
+                        selectedImageUrl={imageToViewUrl}
                         setImageToViewUrl={setImageToViewUrl}
                     />
                     : ""
